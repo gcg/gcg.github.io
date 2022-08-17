@@ -13,7 +13,7 @@ install-theme:
 	@cd themes/main; npm i 
 
 build-theme:
-	@cd themes/main; npm run build
+	@cd themes/main; npm i; npm run build
 
 watch-theme:
 	@cd themes/main; npm run watch 
