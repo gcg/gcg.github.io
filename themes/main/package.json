@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.4",
     "eslint": "^8.22.0",
     "eslint-config-google": "^0.14.0",
     "postcss-import": "^14.1.0",
