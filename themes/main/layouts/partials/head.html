@@ -2,7 +2,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Guney Can Gokoglu (@gcg)" />
-  <title>Guney Can Gokoglu (@gcg)</title>
+  <title>{{ block "title" .}} {{ .Site.Title}} {{end}}</title>
   {{ $style := resources.Get "style.css" }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" />
 </head>
