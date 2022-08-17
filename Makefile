@@ -7,7 +7,7 @@ watch:
 	@$(MAKE) -j2 watch-theme watch-server
 
 build-server:
-	hugo 
+	hugo --minify
 
 install-theme:
 	@cd themes/main; npm i 
