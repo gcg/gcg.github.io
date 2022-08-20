@@ -23,6 +23,8 @@ Here is the relevant PR for my dotfiles: https://github.com/gcg/dotfiles/pull/1 
 
 ### Notes;
 
+- [Neovim From Scratch](https://github.com/LunarVim/Neovim-from-scratch) is amazing. They have a youtube playlist in the readme which was the most helpful for me of understanding how lua config works and the steps I should take.
+- [LunarVim](https://github.com/LunarVim/LunarVim) is amazing. And it's self contained. So you can just get it and run it isolated with it's own binary `lvim` without it effecting your own nvim setup. So you can experiment without any risks.
 - Switching to built in language server (LSP) from CoC is really faster for most of the cases.
 - [Null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) is better then [Ale](https://github.com/dense-analysis/ale)
 - Pretty much all plugins written in vimscript will keep working even if you use lua 100%.
