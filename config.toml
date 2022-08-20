@@ -1,6 +1,6 @@
 baseURL = 'https://gcg.me'
 languageCode = 'en-us'
-title = 'Guney Can Gokoglu (@gcg)'
+title = 'Guney Can Gokoglu (@gcg) | gcg.me'
 theme = 'main'
 [taxonomies]
   tag = 'tags'
