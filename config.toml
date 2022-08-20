@@ -5,3 +5,5 @@ theme = 'main'
 [taxonomies]
   tag = 'tags'
 	topic = 'topics'
+[params]
+  mainSections = ['posts']

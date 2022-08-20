@@ -1,0 +1,5 @@
+{{ define "main" }}
+<div>{{ .Content }}</div>
+
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
+range $pages }} {{ partial "summary.html" .}} {{ end }} {{ end }}
