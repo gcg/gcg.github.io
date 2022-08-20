@@ -14,7 +14,7 @@ I was already hearing gospels for [Lua](https://www.lua.org/docs.html) from the 
 
 So, I did end up writing my new nvim config completely with Lua and used plugins that were mostly written in Lua instead of using old vimscript versions.
 
-I am so happy with the end result, it became a new fresh wind and boosted my productivity. (not because it works so much faster or better then before but more likely shiny new car effect)
+I am so happy with the end result, it became a new fresh wind and boosted my productivity. (not because it's so much faster or better then my previous setup but because it's new and shiny :) )
 
 [![Preview](preview-1.png)](preview-1.png)
 [![Preview](preview-2.png)](preview-2.png)
