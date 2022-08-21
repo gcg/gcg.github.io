@@ -1,40 +1,59 @@
 <article aria-labelledby="episode-5-title" class="py-10 sm:py-12">
-  <div class="lg:px-8">
-    <div class="lg:max-w-4xl">
-      <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-        <div class="flex flex-col items-start">
-          <h2
-            id="episode-5-title"
-            class="mt-2 text-lg font-bold text-slate-900"
-          >
-            <a href="{{ .Permalink }}">{{ .Title}}</a>
-          </h2>
-          <time
-            datetime="{{ .Date.Format "Mon, Jan 2, 2006"}}"
-            class="order-first font-mono text-sm leading-7 text-slate-500"
-            >{{ .Date.Format "Mon, Jan 2, 2006" }}</time
-          >
-          <p class="mt-1 text-base leading-7 text-slate-700">{{ .Summary }}</p>
-          <div class="mt-4 flex items-center gap-4">
-            <a
+	<div class="lg:px-8">
+		<div class="lg:max-w-4xl">
+			<div class="mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:px-0 flex space-x-6 flex-col sm:flex-row sm:grid grid-cols-3">
+
+				<div class="aspect-w-2 aspect-h-1 ">
+					<a href="{{ .Permalink}}">
+					{{ with .Resources.GetMatch "preview.png" }}
+						<img 
+							class="shadow-lg rounded-lg w-full h-full object-center object-cover" 
+							src="{{ .Permalink }}" 
+							alt="" 
+						/>
+					{{ else }}
+
+						<img 
+							class="shadow-lg rounded-lg w-full h-full object-center object-cover" 
+							src="/placeholder.png" 
+							alt="" 
+						/>
+					{{ end }}
+					</a>
+				</div>
+				<div class="flex flex-col items-start col-span-2">
+					<h2
+						id="episode-5-title"
+						class="mt-2 text-lg font-bold text-slate-900"
+					>
+						<a href="{{ .Permalink }}">{{ .Title}}</a>
+					</h2>
+					<time
+						datetime="{{ .Date.Format "Mon, Jan 2, 2006"}}"
+						class="order-first font-mono text-sm leading-7 text-slate-500"
+					>{{ .Date.Format "Mon, Jan 2, 2006" }}</time
+					>
+					<p class="mt-1 text-base leading-7 text-slate-700">{{ .Summary }}</p>
+					<div class="mt-4 flex items-center gap-4">
+						<a
 							href="{{ .Permalink }}"
-              class="flex items-center text-sm font-bold leading-6 text-pink-700 hover:text-pink-900 active:text-pink-900"
-              aria-label="Read More of {{ .Title }}"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 10 10"
-                fill="none"
-                class="h-2.5 w-2.5 fill-current"
-              >
-                <path
-                  d="M8.25 4.567a.5.5 0 0 1 0 .866l-7.5 4.33A.5.5 0 0 1 0 9.33V.67A.5.5 0 0 1 .75.237l7.5 4.33Z"
-                ></path></svg
-              ><span class="ml-3" aria-hidden="true">Read More</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+							class="flex items-center text-sm font-bold leading-6 text-pink-700 hover:text-pink-900 active:text-pink-900"
+							aria-label="Read More of {{ .Title }}"
+						>
+							<svg
+								aria-hidden="true"
+								viewBox="0 0 10 10"
+								fill="none"
+								class="h-2.5 w-2.5 fill-current"
+							>
+								<path
+									d="M8.25 4.567a.5.5 0 0 1 0 .866l-7.5 4.33A.5.5 0 0 1 0 9.33V.67A.5.5 0 0 1 .75.237l7.5 4.33Z"
+								></path></svg
+							><span class="ml-3" aria-hidden="true">Read More</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </article>
