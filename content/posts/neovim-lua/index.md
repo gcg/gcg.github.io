@@ -16,7 +16,6 @@ So, I did end up writing my new nvim config completely with Lua and used plugins
 
 I am so happy with the end result, it became a new fresh wind and boosted my productivity. (not because it's so much faster or better then my previous setup but because it's new and shiny :) )
 
-[![Preview](preview-1.png)](preview-1.png)
 [![Preview](preview-2.png)](preview-2.png)
 
 Here is the relevant PR for my dotfiles: https://github.com/gcg/dotfiles/pull/1 And you can find the most up to date version of my dot files from the same repo.
