@@ -36,4 +36,10 @@ I freaking LOVE lua. I started with it with neovim config but currently if I hav
 
 [Hammerspoon](https://www.hammerspoon.org/)
 [Wezterm](https://wezfurlong.org/wezterm/index.html)
-[Neovim](https://neovim.io/) are just couple of examples.
+[Neovim](https://neovim.io/)
+
+### LLMs and Transformers are NFTs in 2024
+
+I love machine learning and ai, always have. But like the current bubble we are in where everybody talking about AI and using AI and worshipping AI is not a good place for AI. It gives crypto/nft vibes by people who have no idea about the actual technology but trying to ride the wave.
+
+I am wishing the trend dies down a bit so people who are working on building and training the llm models can go back to building useful stuff.
