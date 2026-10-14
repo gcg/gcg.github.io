@@ -28,31 +28,48 @@ def parse_frontmatter(raw_content):
     fm_text = match.group(1)
     body = match.group(2)
     meta = {}
+    current_key = None
+    multiline_buf = []
+
+    def commit_key(key, lines):
+        if not key or not lines:
+            return
+        combined = " ".join(l.strip() for l in lines)
+        combined = combined.strip()
+        # Parse booleans
+        if combined.lower() == "true":
+            meta[key] = True
+        elif combined.lower() == "false":
+            meta[key] = False
+        # Parse inline list: ["a", "b"]
+        elif combined.startswith("[") and combined.endswith("]"):
+            items = [re.sub(r"^['\"]|['\"]$", "", item.strip()) for item in combined[1:-1].split(",") if item.strip()]
+            meta[key] = items
+        # Parse YAML bullet list
+        elif any(l.strip().startswith("- ") for l in lines):
+            items = [re.sub(r"^['\"]|['\"]$", "", l.strip()[2:].strip()) for l in lines if l.strip().startswith("- ")]
+            meta[key] = items
+        else:
+            if (combined.startswith('"') and combined.endswith('"')) or (combined.startswith("'") and combined.endswith("'")):
+                combined = combined[1:-1]
+            meta[key] = combined
 
     for line in fm_text.splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
+        if not line.strip() or line.strip().startswith("#"):
             continue
-        if ":" in line:
-            key, val = line.split(":", 1)
-            key = key.strip()
-            val = val.strip()
+        key_match = re.match(r"^([a-zA-Z0-9_-]+)\s*:\s*(.*)$", line)
+        if key_match:
+            if current_key:
+                commit_key(current_key, multiline_buf)
+            current_key = key_match.group(1).strip()
+            rest = key_match.group(2).strip()
+            multiline_buf = [rest] if rest else []
+        else:
+            if current_key:
+                multiline_buf.append(line.strip())
 
-            # Strip quotes
-            if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
-                val = val[1:-1]
-
-            # Parse booleans
-            if val.lower() == "true":
-                meta[key] = True
-            elif val.lower() == "false":
-                meta[key] = False
-            # Parse inline lists like ["tag1", "tag2"]
-            elif val.startswith("[") and val.endswith("]"):
-                items = [re.sub(r"^['\"]|['\"]$", "", item.strip()) for item in val[1:-1].split(",") if item.strip()]
-                meta[key] = items
-            else:
-                meta[key] = val
+    if current_key:
+        commit_key(current_key, multiline_buf)
 
     return meta, body
 
