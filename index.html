@@ -25,55 +25,88 @@
 </head>
 <body>
 
-  <!-- Background Atmospheric Code Syntax Streams (PHP/Laravel, Go, Gleam) -->
+  <!-- Background Atmospheric Code Syntax Streams (Rails, Laravel, Go, Gleam, Linux/Infra) -->
   <div class="code-syntax-backdrop" aria-hidden="true">
     <div class="code-stream">
-<span class="code-comment">// PHP & Laravel Engine</span>
+<span class="code-comment">// Ruby on Rails &bull; Early Awakening (~2008)</span>
+<span class="code-kw">class</span> <span class="code-type">CreateHunterProfile</span> &lt; <span class="code-type">ActiveRecord::Migration</span>
+  <span class="code-kw">def</span> <span class="code-fn">change</span>
+    <span class="code-fn">create_table</span> <span class="code-str">:hunters</span> <span class="code-kw">do</span> |t|
+      t.<span class="code-fn">string</span>  <span class="code-str">:handle</span>, <span class="code-type">default:</span> <span class="code-str">"@gcg"</span>
+      t.<span class="code-fn">integer</span> <span class="code-str">:years_active</span>, <span class="code-type">default:</span> 23
+      t.<span class="code-fn">string</span>  <span class="code-str">:distro</span>, <span class="code-type">default:</span> <span class="code-str">"Fedora"</span>
+      t.<span class="code-fn">timestamps</span>
+    <span class="code-kw">end</span>
+    <span class="code-fn">add_index</span> <span class="code-str">:hunters</span>, <span class="code-str">:handle</span>, <span class="code-type">unique:</span> <span class="code-kw">true</span>
+  <span class="code-kw">end</span>
+<span class="code-kw">end</span>
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// PHP &amp; Laravel &bull; Poltio Stealth Engine (~2014)</span>
 <span class="code-kw">&lt;?php</span>
 <span class="code-kw">namespace</span> App\Infrastructure\Guardian;
 
 <span class="code-kw">use</span> Illuminate\Support\Facades\Route;
 
-<span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'auth:system'</span>, <span class="code-str">'uptime:99.999'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
-    <span class="code-type">Cluster</span>::<span class="code-fn">maintainResilience</span>();
-    <span class="code-type">ServerPool</span>::<span class="code-fn">preventDowntime</span>();
+<span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'uptime:99.999'</span>, <span class="code-str">'stealth:true'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
+    <span class="code-type">ClusterPool</span>::<span class="code-fn">maintainZeroDowntime</span>();
+    <span class="code-type">Shield</span>::<span class="code-fn">preventClientNoticing</span>();
 });
     </div>
 
     <div class="code-stream">
-<span class="code-comment">// Go Concurrency Cluster</span>
-<span class="code-kw">package</span> main
+<span class="code-comment">// Go &bull; Concurrency &amp; Microservices (~2017)</span>
+<span class="code-kw">package</span> cluster
 
 <span class="code-kw">import</span> (
     <span class="code-str">"context"</span>
     <span class="code-str">"time"</span>
 )
 
-<span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, cluster *<span class="code-type">InfraMesh</span>) {
+<span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, m *<span class="code-type">Mesh</span>) {
     <span class="code-kw">go</span> <span class="code-kw">func</span>() {
-        <span class="code-kw">select</span> {
-        <span class="code-kw">case</span> &lt;-ctx.<span class="code-fn">Done</span>():
-            cluster.<span class="code-fn">GracefulShutdown</span>()
-        <span class="code-kw">case</span> &lt;-time.<span class="code-fn">After</span>(23 * 365 * 24 * time.Hour):
-            cluster.<span class="code-fn">KeepStealth</span>()
+        ticker := time.<span class="code-fn">NewTicker</span>(time.Second)
+        <span class="code-kw">for</span> {
+            <span class="code-kw">select</span> {
+            <span class="code-kw">case</span> &lt;-ctx.<span class="code-fn">Done</span>():
+                m.<span class="code-fn">DrainGracefully</span>()
+                <span class="code-kw">return</span>
+            <span class="code-kw">case</span> &lt;-ticker.C:
+                m.<span class="code-fn">KeepStealth</span>()
+            }
         }
     }()
 }
     </div>
 
     <div class="code-stream">
-<span class="code-comment">// Gleam Functional BEAM</span>
+<span class="code-comment">// Gleam &bull; Functional BEAM Hobby</span>
 <span class="code-kw">import</span> gleam/result
+<span class="code-kw">import</span> gleam/otp/actor
 
-<span class="code-kw">pub type</span> <span class="code-type">ServerStatus</span> {
-  Active
-  UptimeOptimal
+<span class="code-kw">pub type</span> <span class="code-type">ServerState</span> {
+  Active(uptime_years: <span class="code-type">Int</span>)
+  Optimal
 }
 
-<span class="code-kw">pub fn</span> <span class="code-fn">maintain_uptime</span>(server: <span class="code-type">Server</span>) -&gt; <span class="code-type">Result</span>(<span class="code-type">ServerStatus</span>, <span class="code-type">Nil</span>) {
-  server
-  |&gt; <span class="code-fn">monitor_cluster</span>
+<span class="code-kw">pub fn</span> <span class="code-fn">maintain_pulse</span>(state: <span class="code-type">ServerState</span>) -&gt; <span class="code-type">actor.Next</span>(<span class="code-type">ServerState</span>) {
+  state
+  |&gt; <span class="code-fn">verify_cluster</span>
   |&gt; <span class="code-fn">ensure_zero_downtime</span>
+}
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
+<span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
+<span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
+<span class="code-cmd">$</span> ethtool -s eth0 speed 10000 duplex full
+
+<span class="code-comment"># Terraform Hyperscale (AWS &amp; GCP)</span>
+<span class="code-kw">resource</span> <span class="code-str">"google_container_cluster"</span> <span class="code-str">"core"</span> {
+  name     = <span class="code-str">"poltio-infra"</span>
+  location = <span class="code-str">"europe-west1"</span>
 }
     </div>
   </div>

@@ -17,15 +17,46 @@
 </head>
 <body>
 
-  <!-- Atmospheric Background Syntax Stream -->
+  <!-- Atmospheric Background Syntax Stream (Rails, Laravel, Go, Gleam, Linux/Infra) -->
   <div class="code-syntax-backdrop" aria-hidden="true">
     <div class="code-stream">
-<span class="code-comment">// CHRONICLE ARCHIVE LOG RECOVERED</span>
-<span class="code-kw">type</span> <span class="code-type">Chronicle</span> <span class="code-kw">struct</span> {
-    Title  <span class="code-type">string</span>
-    Date   <span class="code-type">time.Time</span>
-    Author <span class="code-type">string</span> <span class="code-str">"@gcg"</span>
+<span class="code-comment">// Ruby on Rails &bull; Early Awakening (~2008)</span>
+<span class="code-kw">class</span> <span class="code-type">CreateHunterProfile</span> &lt; <span class="code-type">ActiveRecord::Migration</span>
+  <span class="code-kw">def</span> <span class="code-fn">change</span>
+    <span class="code-fn">create_table</span> <span class="code-str">:hunters</span> <span class="code-kw">do</span> |t|
+      t.<span class="code-fn">string</span>  <span class="code-str">:handle</span>, <span class="code-type">default:</span> <span class="code-str">"@gcg"</span>
+      t.<span class="code-fn">integer</span> <span class="code-str">:years_active</span>, <span class="code-type">default:</span> 23
+      t.<span class="code-fn">timestamps</span>
+    <span class="code-kw">end</span>
+  <span class="code-kw">end</span>
+<span class="code-kw">end</span>
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// PHP &amp; Laravel &bull; Poltio Stealth Engine (~2014)</span>
+<span class="code-kw">&lt;?php</span>
+<span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'uptime:99.999'</span>, <span class="code-str">'stealth:true'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
+    <span class="code-type">ClusterPool</span>::<span class="code-fn">maintainZeroDowntime</span>();
+});
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// Go &bull; Concurrency &amp; Microservices (~2017)</span>
+<span class="code-kw">package</span> cluster
+<span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, m *<span class="code-type">Mesh</span>) {
+    <span class="code-kw">go</span> <span class="code-kw">func</span>() {
+        <span class="code-kw">select</span> {
+        <span class="code-kw">case</span> &lt;-ctx.<span class="code-fn">Done</span>():
+            m.<span class="code-fn">DrainGracefully</span>()
+        }
+    }()
 }
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
+<span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
+<span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
     </div>
   </div>
 
