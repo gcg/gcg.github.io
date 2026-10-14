@@ -13,4 +13,5 @@ grep -q "mdwriter" index.html || { echo "Missing mdwriter artifact"; exit 1; }
 grep -q "wpchanger" index.html || { echo "Missing wpchanger artifact"; exit 1; }
 grep -q "AWS" index.html || { echo "Missing AWS in infra scope"; exit 1; }
 grep -q "Google Cloud" index.html || { echo "Missing Google Cloud in infra scope"; exit 1; }
+grep -q "phpc.social" index.html || { echo "Missing Mastodon link"; exit 1; }
 echo "Task 5 DOM markup verified"

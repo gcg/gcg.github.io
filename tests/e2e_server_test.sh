@@ -2,7 +2,7 @@
 set -e
 
 # Find available port or use 8000
-PORT=8000
+PORT=8888
 
 # Start local server in background
 python3 -m http.server $PORT &

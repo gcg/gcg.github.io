@@ -10,7 +10,7 @@ A single-page personal portfolio and digital presence inspired by a **Solo Level
 - **Language Grimoire**: Ruby on Rails &rarr; PHP (~2008) &rarr; Laravel (~2014) &rarr; Go (~2017) &rarr; Gleam (~2 yrs ago).
 - **The 12-Year Raid (Poltio)**: Co-founder & CTO for 12 years—keeping platforms bulletproof so nobody notices.
 - **Artifacts & The Lab**: Android apps ([mdwriter](https://github.com/gcg/mdwriter), [wpchanger](https://github.com/gcg/wpchanger)) and upcoming social messaging & gaming app teaser.
-- **The Identity Anchor**: Constant `@gcg` handle with an orbiting rotating social beacon cycling GitHub, X / Twitter, and Instagram.
+- **The Identity Anchor**: Constant `@gcg` handle with an orbiting rotating social beacon cycling GitHub, X / Twitter, Instagram, and Mastodon (`phpc.social/@gcg`).
 
 ---
 
