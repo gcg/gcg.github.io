@@ -103,17 +103,86 @@ function initPortraitFX() {
 
 function initCodeGridParallax() {
   if (typeof document === 'undefined' || typeof window === 'undefined') return;
+  const streamLeft = document.querySelector('.code-stream-left');
+  const streamRight = document.querySelector('.code-stream-right');
   const backdrop = document.querySelector('.code-syntax-backdrop');
-  if (!backdrop) return;
 
-  // Reduced motion check
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!streamLeft && !streamRight && !backdrop) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  let mouseX = 0, mouseY = 0, ticking = false;
+
+  const updateStreams = () => {
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+    if (streamLeft || streamRight) {
+      const vh = window.innerHeight;
+      const leftH = streamLeft ? streamLeft.offsetHeight : 0;
+      const rightH = streamRight ? streamRight.offsetHeight : 0;
+
+      const maxLeftShift = Math.max(leftH - vh + 100, 160);
+      const maxRightShift = Math.max(rightH - vh + 100, 160);
+
+      const leftY = -progress * maxLeftShift + mouseY * 12;
+      const rightY = -progress * maxRightShift + mouseY * 16;
+      const leftX = mouseX * 8;
+      const rightX = -mouseX * 8;
+
+      if (streamLeft) streamLeft.style.transform = `translate3d(${leftX}px, ${leftY}px, 0)`;
+      if (streamRight) streamRight.style.transform = `translate3d(${rightX}px, ${rightY}px, 0)`;
+    } else if (backdrop) {
+      const x = mouseX * 20;
+      const y = mouseY * 20;
+      backdrop.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
+    ticking = false;
+  };
+
+  const requestUpdate = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateStreams);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate, { passive: true });
   window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    backdrop.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    mouseX = (e.clientX / window.innerWidth - 0.5);
+    mouseY = (e.clientY / window.innerHeight - 0.5);
+    requestUpdate();
   }, { passive: true });
+
+  requestUpdate();
+}
+
+function initBackdropSubsystems() {
+  if (typeof document === 'undefined' || !('IntersectionObserver' in window)) return;
+  const sections = document.querySelectorAll('main > section[data-subsystem]');
+  const codeUnits = document.querySelectorAll('.code-block-unit[data-subsystem]');
+  if (!sections.length || !codeUnits.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const activeSubsystem = entry.target.getAttribute('data-subsystem');
+        codeUnits.forEach(unit => {
+          if (unit.getAttribute('data-subsystem') === activeSubsystem) {
+            unit.classList.add('active-subsystem');
+          } else {
+            unit.classList.remove('active-subsystem');
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '-10% 0px -30% 0px',
+    threshold: 0.15
+  });
+
+  sections.forEach(sec => observer.observe(sec));
 }
 
 function initChronicles() {
@@ -143,6 +212,7 @@ function initHunterFx() {
   initScrollObserver();
   initPortraitFX();
   initCodeGridParallax();
+  initBackdropSubsystems();
   initChronicles();
 }
 
@@ -155,6 +225,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initScrollObserver,
     initPortraitFX,
     initCodeGridParallax,
+    initBackdropSubsystems,
     initChronicles
   };
 }
@@ -163,5 +234,6 @@ if (typeof window !== 'undefined') {
   window.formatStatValue = formatStatValue;
   window.animateCounter = animateCounter;
   window.initHunterFx = initHunterFx;
+  window.initBackdropSubsystems = initBackdropSubsystems;
   window.initChronicles = initChronicles;
 }

@@ -25,9 +25,11 @@
 </head>
 <body>
 
-  <!-- Background Atmospheric Code Syntax Streams (Rails, Laravel, Go, Gleam, Linux/Infra) -->
+  <!-- Background Atmospheric Code Syntax Streams (Flanking Rails: Left & Right) -->
   <div class="code-syntax-backdrop" aria-hidden="true">
-    <div class="code-stream">
+    <div class="code-stream-left">
+      <div class="code-block-unit" data-subsystem="hero">
+        <span class="subsystem-tag">// SUBSYSTEM: AWAKENING (RAILS)</span>
 <span class="code-comment">// Ruby on Rails &bull; Early Awakening (~2008)</span>
 <span class="code-kw">class</span> <span class="code-type">CreateHunterProfile</span> &lt; <span class="code-type">ActiveRecord::Migration</span>
   <span class="code-kw">def</span> <span class="code-fn">change</span>
@@ -40,9 +42,10 @@
     <span class="code-fn">add_index</span> <span class="code-str">:hunters</span>, <span class="code-str">:handle</span>, <span class="code-type">unique:</span> <span class="code-kw">true</span>
   <span class="code-kw">end</span>
 <span class="code-kw">end</span>
-    </div>
+      </div>
 
-    <div class="code-stream">
+      <div class="code-block-unit" data-subsystem="poltio">
+        <span class="subsystem-tag">// SUBSYSTEM: POLTIO CORE (LARAVEL)</span>
 <span class="code-comment">// PHP &amp; Laravel &bull; Poltio Stealth Engine (~2014)</span>
 <span class="code-kw">&lt;?php</span>
 <span class="code-kw">namespace</span> App\Infrastructure\Guardian;
@@ -53,9 +56,51 @@
     <span class="code-type">ClusterPool</span>::<span class="code-fn">maintainZeroDowntime</span>();
     <span class="code-type">Shield</span>::<span class="code-fn">preventClientNoticing</span>();
 });
+      </div>
+
+      <div class="code-block-unit" data-subsystem="artifacts">
+        <span class="subsystem-tag">// SUBSYSTEM: BEAM RUNTIME (GLEAM)</span>
+<span class="code-comment">// Gleam &bull; Functional BEAM Hobby</span>
+<span class="code-kw">import</span> gleam/result
+<span class="code-kw">import</span> gleam/otp/actor
+
+<span class="code-kw">pub type</span> <span class="code-type">ServerState</span> {
+  Active(uptime_years: <span class="code-type">Int</span>)
+  Optimal
+}
+
+<span class="code-kw">pub fn</span> <span class="code-fn">maintain_pulse</span>(state: <span class="code-type">ServerState</span>) -&gt; <span class="code-type">actor.Next</span>(<span class="code-type">ServerState</span>) {
+  state
+  |&gt; <span class="code-fn">verify_cluster</span>
+  |&gt; <span class="code-fn">ensure_zero_downtime</span>
+}
+      </div>
+
+      <div class="code-block-unit" data-subsystem="chronicles">
+        <span class="subsystem-tag">// SUBSYSTEM: WARP RIG (NEOVIM LUA)</span>
+<span class="code-comment">-- Neovim &bull; Custom Lua Keybindings &amp; LSP</span>
+<span class="code-kw">local</span> opt = vim.opt
+<span class="code-kw">local</span> keymap = vim.keymap.set
+
+opt.relativenumber = <span class="code-kw">true</span>
+opt.termguicolors = <span class="code-kw">true</span>
+keymap(<span class="code-str">"n"</span>, <span class="code-str">"&lt;leader&gt;pv"</span>, vim.cmd.Ex)
+keymap(<span class="code-str">"n"</span>, <span class="code-str">"&lt;leader&gt;ff"</span>, <span class="code-str">"&lt;cmd&gt;Telescope find_files&lt;cr&gt;"</span>)
+      </div>
     </div>
 
-    <div class="code-stream">
+    <div class="code-stream-right">
+      <div class="code-block-unit" data-subsystem="timelines">
+        <span class="subsystem-tag">// SUBSYSTEM: INFRA MATRIX (LINUX)</span>
+<span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
+<span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
+<span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
+<span class="code-cmd">$</span> ethtool -s eth0 speed 10000 duplex full
+<span class="code-cmd">$</span> uname -r  <span class="code-comment"># 6.x-zenith</span>
+      </div>
+
+      <div class="code-block-unit" data-subsystem="poltio">
+        <span class="subsystem-tag">// SUBSYSTEM: CONCURRENCY MESH (GO)</span>
 <span class="code-comment">// Go &bull; Concurrency &amp; Microservices (~2017)</span>
 <span class="code-kw">package</span> cluster
 
@@ -78,36 +123,34 @@
         }
     }()
 }
-    </div>
+      </div>
 
-    <div class="code-stream">
-<span class="code-comment">// Gleam &bull; Functional BEAM Hobby</span>
-<span class="code-kw">import</span> gleam/result
-<span class="code-kw">import</span> gleam/otp/actor
+      <div class="code-block-unit" data-subsystem="artifacts">
+        <span class="subsystem-tag">// SUBSYSTEM: MOBILE FORGE (KOTLIN)</span>
+<span class="code-comment">// Android &bull; Jetpack Compose &amp; Coroutines</span>
+<span class="code-kw">class</span> <span class="code-type">ArtifactViewModel</span> : <span class="code-type">ViewModel</span>() {
+  <span class="code-kw">val</span> uiState = <span class="code-fn">MutableStateFlow</span>(<span class="code-type">HunterState</span>.Idle)
 
-<span class="code-kw">pub type</span> <span class="code-type">ServerState</span> {
-  Active(uptime_years: <span class="code-type">Int</span>)
-  Optimal
+  <span class="code-kw">fun</span> <span class="code-fn">dispatchSync</span>() = viewModelScope.<span class="code-fn">launch</span> {
+    _state.<span class="code-fn">update</span> { it.<span class="code-fn">copy</span>(online = <span class="code-kw">true</span>) }
+  }
 }
+      </div>
 
-<span class="code-kw">pub fn</span> <span class="code-fn">maintain_pulse</span>(state: <span class="code-type">ServerState</span>) -&gt; <span class="code-type">actor.Next</span>(<span class="code-type">ServerState</span>) {
-  state
-  |&gt; <span class="code-fn">verify_cluster</span>
-  |&gt; <span class="code-fn">ensure_zero_downtime</span>
-}
-    </div>
-
-    <div class="code-stream">
-<span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
-<span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
-<span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
-<span class="code-cmd">$</span> ethtool -s eth0 speed 10000 duplex full
-
+      <div class="code-block-unit" data-subsystem="chronicles">
+        <span class="subsystem-tag">// SUBSYSTEM: CLOUD ORCHESTRATION (TERRAFORM)</span>
 <span class="code-comment"># Terraform Hyperscale (AWS &amp; GCP)</span>
 <span class="code-kw">resource</span> <span class="code-str">"google_container_cluster"</span> <span class="code-str">"core"</span> {
   name     = <span class="code-str">"poltio-infra"</span>
   location = <span class="code-str">"europe-west1"</span>
+  initial_node_count = 12
+
+  node_config {
+    machine_type = <span class="code-str">"c2-standard-16"</span>
+    oauth_scopes = [<span class="code-str">"cloud-platform"</span>]
+  }
 }
+      </div>
     </div>
   </div>
 
@@ -134,7 +177,7 @@
   <main class="webtoon-scroll">
 
     <!-- Prologue: The Hunter Awakening (Hero Section) -->
-    <section class="hero-section reveal-on-scroll">
+    <section class="hero-section reveal-on-scroll" data-subsystem="hero">
       <div class="system-alert-banner">
         <span class="alert-icon">&#9670;</span>
         <span>[SYSTEM NOTIFICATION: PLAYER 001 CONNECTED &mdash; 23 YEARS ONLINE]</span>
@@ -196,7 +239,7 @@
     </div>
 
     <!-- Chapter 1: The Core Engine, Full-Spectrum Infra & The Two Timelines -->
-    <section class="reveal-on-scroll">
+    <section class="reveal-on-scroll" data-subsystem="timelines">
       <div class="system-window">
         <div class="window-header">
           <span class="window-title">&#9671; Operating Core &amp; Evolutionary Paths</span>
@@ -306,7 +349,7 @@
     </div>
 
     <!-- Chapter 2: The 12-Year Raid — Poltio -->
-    <section class="reveal-on-scroll">
+    <section class="reveal-on-scroll" data-subsystem="poltio">
       <div class="system-window monarch-tier">
         <div class="window-header">
           <span class="window-title">&#9671; Guild Raid Chronicle: Poltio</span>
@@ -349,7 +392,7 @@
     </div>
 
     <!-- Chapter 3: Equipped Artifacts & The Lab (Android Apps + Classified Teaser) -->
-    <section class="reveal-on-scroll">
+    <section class="reveal-on-scroll" data-subsystem="artifacts">
       <div class="system-window">
         <div class="window-header">
           <span class="window-title">&#9671; Equipped Artifacts &amp; The Workshop</span>
@@ -423,7 +466,7 @@
     </div>
 
     <!-- Chapter 4: Hunter Chronicles & Archives (Blog Section) -->
-    <section id="hunter-chronicles" class="reveal-on-scroll">
+    <section id="hunter-chronicles" class="reveal-on-scroll" data-subsystem="chronicles">
       <div class="system-window">
         <div class="window-header">
           <span class="window-title">&#9671; Hunter Chronicles &amp; System Archives</span>

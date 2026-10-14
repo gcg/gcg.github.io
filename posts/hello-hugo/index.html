@@ -17,9 +17,11 @@
 </head>
 <body>
 
-  <!-- Atmospheric Background Syntax Stream (Rails, Laravel, Go, Gleam, Linux/Infra) -->
+  <!-- Atmospheric Background Syntax Stream (Flanking Rails: Left & Right) -->
   <div class="code-syntax-backdrop" aria-hidden="true">
-    <div class="code-stream">
+    <div class="code-stream-left">
+      <div class="code-block-unit active-subsystem">
+        <span class="subsystem-tag">// SUBSYSTEM: AWAKENING (RAILS)</span>
 <span class="code-comment">// Ruby on Rails &bull; Early Awakening (~2008)</span>
 <span class="code-kw">class</span> <span class="code-type">CreateHunterProfile</span> &lt; <span class="code-type">ActiveRecord::Migration</span>
   <span class="code-kw">def</span> <span class="code-fn">change</span>
@@ -30,17 +32,21 @@
     <span class="code-kw">end</span>
   <span class="code-kw">end</span>
 <span class="code-kw">end</span>
-    </div>
+      </div>
 
-    <div class="code-stream">
+      <div class="code-block-unit">
+        <span class="subsystem-tag">// SUBSYSTEM: POLTIO CORE (LARAVEL)</span>
 <span class="code-comment">// PHP &amp; Laravel &bull; Poltio Stealth Engine (~2014)</span>
 <span class="code-kw">&lt;?php</span>
 <span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'uptime:99.999'</span>, <span class="code-str">'stealth:true'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
     <span class="code-type">ClusterPool</span>::<span class="code-fn">maintainZeroDowntime</span>();
 });
+      </div>
     </div>
 
-    <div class="code-stream">
+    <div class="code-stream-right">
+      <div class="code-block-unit active-subsystem">
+        <span class="subsystem-tag">// SUBSYSTEM: CONCURRENCY MESH (GO)</span>
 <span class="code-comment">// Go &bull; Concurrency &amp; Microservices (~2017)</span>
 <span class="code-kw">package</span> cluster
 <span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, m *<span class="code-type">Mesh</span>) {
@@ -51,12 +57,14 @@
         }
     }()
 }
-    </div>
+      </div>
 
-    <div class="code-stream">
+      <div class="code-block-unit">
+        <span class="subsystem-tag">// SUBSYSTEM: INFRA MATRIX (LINUX)</span>
 <span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
 <span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
 <span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
+      </div>
     </div>
   </div>
 
