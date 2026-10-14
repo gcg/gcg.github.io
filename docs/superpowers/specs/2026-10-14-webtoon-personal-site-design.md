@@ -3,7 +3,7 @@
 - **Date**: 2026-10-14
 - **Branch**: `redesign-webtoon`
 - **Owner**: Guney Can Gokoglu (@gcg)
-- **Status**: Approved / Draft Spec
+- **Status**: Approved / Updated Spec with Timelines & Infra Range
 
 ---
 
@@ -11,7 +11,7 @@
 
 Transform the personal site of Guney Can Gokoglu (`gcg.github.io` / `gcg.me`) from a legacy Hugo blog into a single-page, high-craft personal portfolio with a **Solo Leveling / Action Manhwa "System Window"** webtoon aesthetic.
 
-The site is built strictly with **vanilla HTML5, CSS3, and modern JavaScript (ES6+)**, with zero external frameworks, libraries, or build dependencies. It showcases 23 years of software tinkering, server infrastructure reliability, co-founding Poltio, open-source projects, and personal Android apps through a vertical webtoon reading experience.
+The site is built strictly with **vanilla HTML5, CSS3, and modern JavaScript (ES6+)**, with zero external frameworks, libraries, or build dependencies. It showcases 23 years of software tinkering, physical-to-cloud server infrastructure reliability, co-founding Poltio, open-source projects, and personal Android apps through an episodic vertical webtoon reading experience.
 
 ---
 
@@ -20,31 +20,46 @@ The site is built strictly with **vanilla HTML5, CSS3, and modern JavaScript (ES
 The webpage reads as a vertical manhwa chapter titled **"Awakening: The Stealth Architect"**.
 
 ### 2.1 The Identity Anchor: `@gcg`
-- **Header HUD**: A constant handle label `@gcg` paired with a rotating holographic orbit badge that cycles through **GitHub**, **Twitter / X**, and **Instagram**.
-- **Behavior**: The active icon smoothly transitions every 3 seconds. Hovering pauses the rotation and displays a direct link tooltip. Clicking immediately opens the active profile.
+- **Header HUD**: Constant handle label `@gcg` paired with a rotating holographic orbit badge that cycles through **GitHub**, **Twitter / X**, and **Instagram**.
+- **Behavior**: Smooth 3D flip every 3.5 seconds. Pauses on hover, displaying an active link tooltip. Clicking immediately opens the active profile.
 
 ### 2.2 Prologue: The Hunter Awakening (Hero Section)
 - **System Announcement Banner**: `[SYSTEM NOTIFICATION: PLAYER 001 CONNECTED — 23 YEARS ONLINE]`
 - **Hunter ID Card**:
   - Portrait: Guney Can Gokoglu (`assets/img/gcg.jpg`), housed in a holographic scanner frame with animated vertical scanlines, corner reticles (`┌ ┐ └ ┘`), and interactive mana glow on hover/click.
   - Class: `Stealth Architect / System Guardian`
-  - Level: `LV. 23` (representing 23 years tinkering with systems and software).
-  - Subtitle: Co-founder & CTO at Poltio, server & infra craftsman, tools and automations builder.
+  - Level: `LV. 23` (representing 23 years of hands-on software & systems mastery).
+  - Subtitle: Co-founder & CTO at Poltio, infrastructure ninja, tools & automation craftsman.
 
-### 2.3 Chapter 1: The Core Engine & Passive Skills
-- **Operating System Core**: Fedora Linux badge with a playful manga dialogue caption: *"Sorry, no Arch btw"*.
-- **Attribute Radar / Stat Bars**:
-  - `Uptime`: 99.999%
-  - `Infra Resilience`: S-Rank
-  - `Stealth / Invisibility`: MAX
-  - `Tinkering`: 23 Years
-- **Passive Skill Window**:
-  - Skill Name: `[Passive: Zero-Downtime Observer]`
-  - Description: *"You keep all infrastructure and systems running so seamlessly that coworkers and clients never notice your existence."*
-- **Affinities**: PHP & Laravel, Go, Gleam.
+### 2.3 Chapter 1: The Core Engine, Passive Skills & The Two Timelines
+This chapter establishes Guney's deep roots through stats, passive abilities, and evolutionary timelines.
+
+#### A. Full-Spectrum Infrastructure Trait
+- **Physical to Cloud Mastery**: Highlight that Guney's infrastructure skills span from physical bare metal (plugging cables into switches, routers, and racking servers) up to managing complex, high-scale deployments on **AWS** and **Google Cloud**.
+- **System Trait Badge**: `[TRAIT: FULL-SPECTRUM INFRASTRUCTURE — L1 BARE-METAL TO L7 MULTI-CLOUD]`.
+
+#### B. The Distro Evolution (Path of the Penguin)
+A horizontal or stepping manhwa milestone progression:
+1. **Ubuntu** (3–4 years): The early adventuring days.
+2. **Gentoo** (5 years): The crucible of source compilation and custom kernel tuning.
+3. **Arch Linux** (5 years): The rolling-release mastery phase (*"I used Arch btw"*).
+4. **Fedora** (Current / Ever Since): The battle-tested, refined workstation and server choice (*"Sorry, no Arch anymore—Fedora is home"*).
+
+#### C. The Language Grimoire Evolution
+A parallel milestone timeline:
+1. **Ruby on Rails** (The Origin): Building dynamic web apps in the early days.
+2. **PHP** (~2008): Stepping into robust, pragmatic backend development.
+3. **Laravel** (~2014): Immediate love for modern expressive architecture and elegant DX.
+4. **Go** (~2017): The concurrent powerhouse for high-performance systems and backend services.
+5. **Gleam** (~2 Years Ago): The latest passion—type-safe functional programming on the BEAM.
+
+#### D. Passive Skill Window
+- **Skill Name**: `[Passive: Zero-Downtime Observer]`
+- **Description**: *"Maintains absolute system resilience so coworkers and clients never notice your existence."*
+- **Stats**: `Uptime: 99.999%`, `Resilience: S-Rank`, `Stealth: MAX`.
 
 ### 2.4 Chapter 2: The 12-Year Raid (Poltio)
-- **Narrative**: Co-founder and CTO for 12 years. The epic tale of building and scaling Poltio's platform without catastrophic outages.
+- **Narrative**: Co-founder and CTO for 12 years. The epic scaleup campaign: architecting infrastructure, guiding engineering, and maintaining rock-solid uptime through rapid growth.
 - **Quest Reward / Dossier CTA**:
   - Button styled as a high-tier dungeon gate: `[VIEW FULL RAID DOSSIER ON LINKEDIN]`, linking directly to Guney's LinkedIn profile.
 
@@ -53,7 +68,7 @@ Presented as an inventory grid of hunter equipment:
 1. **Artifact I: mdwriter**
    - Type: Android Markdown Editor App
    - Link: `https://github.com/gcg/mdwriter`
-   - Description: Lightweight, distraction-free markdown note-taking for mobile.
+   - Description: Distraction-free, fast markdown note-taking for mobile.
 2. **Artifact II: wpchanger**
    - Type: Android Wallpaper Changer App
    - Link: `https://github.com/gcg/wpchanger`
@@ -104,10 +119,6 @@ Floating subtly in the background behind the content panels is a low-opacity (~8
   }
   ```
 
-### 3.3 Typography & Sound Effects
-- Font stacks using clean, modern system/sans-serif and monospace fonts (`ui-monospace`, `SFMono-Regular`, `Menlo`, `system-ui`).
-- Manhwa sound effect accents (*[SYSTEM LOAD]*, *[AWAKEN]*, *[ZERO DOWNTIME]*, *[PULSE]*) placed alongside chapter headings.
-
 ---
 
 ## 4. File Structure & Architecture
@@ -151,6 +162,7 @@ gcg.github.io/
 - **IntersectionObserver**: Observes `.system-window` and `.manhwa-panel` elements. When scrolled into view, adds `.revealed` class triggering smooth entrance transitions.
 - **Dynamic Stat Counters**: Animates numbers from `0` to target (`23` years, `99.999%` uptime, `12` years) when the attributes panel enters the viewport.
 - **Hunter Portrait Scanner**: Interactive trigger on click/hover to replay the vertical scanline HUD effect and mana particle pulse.
+- **Timeline Progression FX**: Illuminates the Linux and Language milestones sequentially as the user scrolls through them.
 - **Parallax Code Particles**: Mild mouse-move tracking on desktop for background code tokens.
 
 ---
@@ -170,11 +182,13 @@ The [Makefile](file:///Users/gcg/Work/src/github.com/gcg/gcg.github.io/Makefile)
 2. **Design Fidelity**:
    - Holographic Solo Leveling aesthetic with crisp glowing borders and glassmorphism.
    - Hunter photo scanline and status HUD rendering correctly.
+   - Linux and Language timelines clearly rendered with their specific milestones.
+   - Physical cable to cloud infra capability prominently featured.
    - Background syntax streams visible but subtle (~10% opacity).
 3. **Interactivity**:
    - Rotating `@gcg` beacon cycles smoothly between GitHub, Twitter, and Instagram, and links are clickable.
    - Stat counters animate on scroll.
-   - All external links (LinkedIn, GitHub repositories) open in new tabs with `rel="noopener noreferrer"`.
+   - All external links open in new tabs with `rel="noopener noreferrer"`.
 4. **Responsiveness**:
    - Clean vertical scroll experience on mobile screens (375px - 430px).
    - High-impact widescreen presentation on desktop displays (1024px+).
