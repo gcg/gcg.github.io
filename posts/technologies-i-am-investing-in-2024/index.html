@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technologies I Am Investing in 2024 — Guney Can Gokoglu (@gcg)</title>
+  <meta name="description" content="As it turns out, I am bad at blogging, who knew? (I knew, since like literally one of the first piece of code I wrote everytime I learn a new language/stack is a blog and I...">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicons/favicon.svg">
+
+  <!-- Core Theme Stylesheets -->
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/manhwa.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Atmospheric Background Syntax Stream -->
+  <div class="code-syntax-backdrop" aria-hidden="true">
+    <div class="code-stream">
+<span class="code-comment">// CHRONICLE ARCHIVE LOG RECOVERED</span>
+<span class="code-kw">type</span> <span class="code-type">Chronicle</span> <span class="code-kw">struct</span> {
+    Title  <span class="code-type">string</span>
+    Date   <span class="code-type">time.Time</span>
+    Author <span class="code-type">string</span> <span class="code-str">"@gcg"</span>
+}
+    </div>
+  </div>
+
+  <!-- Sticky Hunter HUD Navigation -->
+  <header class="hunter-hud-nav" role="banner">
+    <div class="hud-nav-inner">
+      <div class="hud-nav-left">
+        <a href="../../#hunter-chronicles" class="hud-back-btn" title="Return to Hunter Terminal">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Terminal</span>
+        </a>
+      </div>
+
+      <div class="hud-nav-center">
+        <a href="../../" class="beacon-shell" title="Guney Can Gokoglu (@gcg)">
+          <span class="beacon-handle">@gcg</span>
+          <span class="beacon-tooltip">Hunter ID</span>
+        </a>
+      </div>
+
+      <div class="hud-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Webtoon Post Container -->
+  <main class="webtoon-scroll" role="main" style="padding-top: 2rem;">
+
+    <article class="system-window monarch-tier">
+      <!-- Window HUD Header -->
+      <div class="window-header">
+        <div class="window-title">
+          <span class="system-tag">[ARCHIVE]</span>
+          <span>CHRONICLE LOG // technologies-i-am-investing-in-2024</span>
+        </div>
+        <div class="window-badge">RECORD UNLOCKED</div>
+      </div>
+
+      <!-- Post Header Banner -->
+      <header class="chronicle-header" style="margin-bottom: 2rem;">
+        <h1 class="hunter-name" style="font-size: 2.2rem; margin-bottom: 0.75rem;">Technologies I Am Investing in 2024</h1>
+        <div class="chronicle-meta">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span class="chronicle-date">February 1, 2024</span>
+            <span style="color: var(--text-dim);">•</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">3 min read</span>
+          </div>
+          <div class="chronicle-tags">
+            
+          </div>
+        </div>
+      </header>
+
+      <!-- Post Content Body -->
+      <div class="chronicle-prose">
+        <p>As it turns out, I am bad at blogging, who knew? (I knew, since like literally one of the first piece of code I wrote everytime I learn a new language/stack is a blog and I have a blog since 2oo3 but I am still hopeful like an idiot everytime I put up a new blog, I will write lots of posts.)</p>
+
+<p>But I think this is a good concept, like <a href="https://www.relay.fm/cortex/150" target="_blank" rel="noopener noreferrer">yearly themes</a>, setting some tech stacks as key points and some as goals is a good way for me personally to look back and see a good timeline.</p>
+
+<h4 id="i-love-apis-but-client-apps-suck">I love APIs but client apps suck.</h4>
+
+<p>I think first app I break apart from a single full stack monolith to a server side api + client side app was Poltio's social network application in 2015 or 2016.</p>
+
+<p>Back then the idea of having a client app where you can just keep as couple of static files (html, js and css) and host it on a very easy to scale storage buckets like AWS S3 was amazing. Like all good things, we put too much stuff in our client bundles and made everything more complex and worse.</p>
+
+<p>With how things going in client side worlds (eg: nextjs or remix), full stack applications coming back hard and they SHOULD. Like sending a HTML genrated dynamically on the server with minimal css and js required for that route is the best way for web applications.</p>
+
+<p>So after watching nextjs and remix.run re-discover basic http and web concepts 20+ years later for the last couple of years, I am completely giving up and removing react, vue and their hormonal fullstack counterparts from my stack.</p>
+
+<p>We (at Poltio) still have 2 nextjs applications running which I am in the process of replacing with a Laravel + Livewire application and our widgets still powered by Remix.run which will be harder to replace but not impossible.</p>
+
+<p>So no more next/remix for me, thanks for all the fish.</p>
+
+<h4 id="small-services">Small Services</h4>
+
+<p>I love devops, kubernetes and writing isolated services. But I don't like to overcomplicate things to the point where the small teams that I work with have more trouble understanding what the heck is going on. But since I use kubernetes like everywhere thesedays, creating and deploying a new service internally or externally is not a big deal.</p>
+
+<p>For those kind of services my language of choice is Go. I was planning on focusing more on Rust in 2023 but it didn't pan out like I hoped. I really love the desicions Go is making and I have more fun writing Go. Since the memory advantages that Rust has over Go doesn't impact any code I wrote, I get to stick with what I enjoy <3</p>
+
+<h4 id="lua-3">Lua <3</h4>
+
+<p>I freaking LOVE lua. I started with it with neovim config but currently if I have 2 alternatives for an app, one uses lua for config/scriptting and other uses anything else (yaml/toml/etc), I choose the lua one. I love lua.</p>
+
+<p><a href="https://www.hammerspoon.org/" target="_blank" rel="noopener noreferrer">Hammerspoon</a></p>
+<p><a href="https://wezfurlong.org/wezterm/index.html" target="_blank" rel="noopener noreferrer">Wezterm</a></p>
+<p><a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">Neovim</a></p>
+
+<h4 id="llms-and-transformers-are-nfts-in-2024">LLMs and Transformers are NFTs in 2024</h4>
+
+<p>I love machine learning and ai, always have. But like the current bubble we are in where everybody talking about AI and using AI and worshipping AI is not a good place for AI. It gives crypto/nft vibes by people who have no idea about the actual technology but trying to ride the wave.</p>
+
+<p>I am wishing the trend dies down a bit so people who are working on building and training the llm models can go back to building useful stuff.</p>
+
+      </div>
+
+      <!-- Post Footer / Return Anchor -->
+      <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <a href="../../#hunter-chronicles" class="cta-button" style="text-decoration: none;">
+          ← Return to Hunter Terminal
+        </a>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">
+          Chronicle Archive // @gcg
+        </div>
+      </footer>
+    </article>
+
+    <!-- Epilogue Credit -->
+    <footer class="footer-credit" style="margin-top: 2rem;">
+      <span>Forged with vanilla HTML &amp; CSS</span>
+      <span>•</span>
+      <span class="fedora-badge">Fedora Linux (No Arch btw)</span>
+      <span>•</span>
+      <span>&copy; 2003–2026 @gcg</span>
+    </footer>
+
+  </main>
+
+  <!-- Theme Toggle Controller -->
+  <script src="../../assets/js/theme-toggle.js"></script>
+</body>
+</html>
