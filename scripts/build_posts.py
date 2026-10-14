@@ -34,12 +34,13 @@ def parse_frontmatter(raw_content):
     def commit_key(key, lines):
         if not key or not lines:
             return
-        combined = " ".join(l.strip() for l in lines)
-        combined = combined.strip()
+        combined = " ".join(l.strip() for l in lines).strip()
+        val_clean = re.sub(r"^['\"]|['\"]$", "", combined).strip()
+
         # Parse booleans
-        if combined.lower() == "true":
+        if val_clean.lower() in ("true", "yes", "1"):
             meta[key] = True
-        elif combined.lower() == "false":
+        elif val_clean.lower() in ("false", "no", "0"):
             meta[key] = False
         # Parse inline list: ["a", "b"]
         elif combined.startswith("[") and combined.endswith("]"):
@@ -50,9 +51,7 @@ def parse_frontmatter(raw_content):
             items = [re.sub(r"^['\"]|['\"]$", "", l.strip()[2:].strip()) for l in lines if l.strip().startswith("- ")]
             meta[key] = items
         else:
-            if (combined.startswith('"') and combined.endswith('"')) or (combined.startswith("'") and combined.endswith("'")):
-                combined = combined[1:-1]
-            meta[key] = combined
+            meta[key] = val_clean
 
     for line in fm_text.splitlines():
         if not line.strip() or line.strip().startswith("#"):
@@ -75,13 +74,13 @@ def parse_frontmatter(raw_content):
 
 
 def format_date(iso_str):
-    """Converts ISO timestamp into readable string (e.g. February 1, 2024)."""
+    """Converts ISO timestamp into readable string (e.g. February 1, 2024). Platform independent."""
     if not iso_str:
         return "Recent Archive"
     clean_str = str(iso_str).split("T")[0]
     try:
         dt = datetime.strptime(clean_str, "%Y-%m-%d")
-        return dt.strftime("%B %-d, %Y")
+        return f"{dt.strftime('%B')} {dt.day}, {dt.year}"
     except Exception:
         return clean_str
 
@@ -95,7 +94,6 @@ def estimate_reading_time(text):
 
 def extract_excerpt(text):
     """Extracts a short plaintext summary from the markdown body."""
-    # Strip markdown elements
     clean = re.sub(r"```[\s\S]*?```", "", text)
     clean = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", clean)
     clean = re.sub(r"[#*_>`]", "", clean)
@@ -116,6 +114,9 @@ def slugify(text):
 
 def markdown_to_html(md_text):
     """Converts standard Markdown into semantic HTML."""
+    # Normalize line endings
+    md_text = md_text.replace("\r\n", "\n").replace("\r", "\n")
+
     code_blocks = []
 
     def save_code_block(match):
@@ -127,8 +128,8 @@ def markdown_to_html(md_text):
         code_blocks.append(f"<pre><code{cls}>{escaped_code}</code></pre>")
         return f"\n__CODE_BLOCK_{idx}__\n"
 
-    # 1. Preserve fenced code blocks
-    text = re.sub(r"```([a-zA-Z0-9_-]*)\n(.*?)\n```", save_code_block, md_text, flags=re.DOTALL)
+    # 1. Preserve fenced code blocks (handling trailing spaces, tabs, and languages like c++, c#)
+    text = re.sub(r"```([a-zA-Z0-9_+\#-]*)[ \t]*\n(.*?)\n[ \t]*```", save_code_block, md_text, flags=re.DOTALL)
 
     # 2. Linked images: [![alt](src)](url)
     text = re.sub(
@@ -159,18 +160,27 @@ def markdown_to_html(md_text):
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", text)
 
-    # 6. Process line-by-line / block-by-block
+    # 6. Process line-by-line / block-by-block with paragraph accumulation
     lines = text.split("\n")
     output_lines = []
     in_ul = False
     in_ol = False
     in_blockquote = False
+    para_buf = []
+
+    def flush_para():
+        if para_buf:
+            joined = " ".join(para_buf).strip()
+            if joined:
+                output_lines.append(f"<p>{joined}</p>")
+            para_buf.clear()
 
     for line in lines:
         stripped = line.strip()
 
         # Check blockquote
         if stripped.startswith("> "):
+            flush_para()
             if not in_blockquote:
                 output_lines.append("<blockquote>")
                 in_blockquote = True
@@ -182,6 +192,7 @@ def markdown_to_html(md_text):
 
         # Check unordered list
         if stripped.startswith("- ") or stripped.startswith("* "):
+            flush_para()
             if not in_ul:
                 output_lines.append("<ul>")
                 in_ul = True
@@ -195,6 +206,7 @@ def markdown_to_html(md_text):
         # Check ordered list
         ol_match = re.match(r"^\d+\.\s+(.*)$", stripped)
         if ol_match:
+            flush_para()
             if not in_ol:
                 output_lines.append("<ol>")
                 in_ol = True
@@ -204,26 +216,33 @@ def markdown_to_html(md_text):
             output_lines.append("</ol>")
             in_ol = False
 
-        # Headings
+        # Headings (escaped content)
         if stripped.startswith("#### "):
+            flush_para()
             h_text = stripped[5:].strip()
-            output_lines.append(f'<h5 id="{slugify(h_text)}">{h_text}</h5>')
+            output_lines.append(f'<h5 id="{slugify(h_text)}">{html.escape(h_text)}</h5>')
         elif stripped.startswith("### "):
+            flush_para()
             h_text = stripped[4:].strip()
-            output_lines.append(f'<h4 id="{slugify(h_text)}">{h_text}</h4>')
+            output_lines.append(f'<h4 id="{slugify(h_text)}">{html.escape(h_text)}</h4>')
         elif stripped.startswith("## "):
+            flush_para()
             h_text = stripped[3:].strip()
-            output_lines.append(f'<h3 id="{slugify(h_text)}">{h_text}</h3>')
+            output_lines.append(f'<h3 id="{slugify(h_text)}">{html.escape(h_text)}</h3>')
         elif stripped.startswith("# "):
+            flush_para()
             h_text = stripped[2:].strip()
-            output_lines.append(f'<h2 id="{slugify(h_text)}">{h_text}</h2>')
+            output_lines.append(f'<h2 id="{slugify(h_text)}">{html.escape(h_text)}</h2>')
         elif stripped.startswith("__CODE_BLOCK_"):
+            flush_para()
             output_lines.append(stripped)
         elif stripped == "":
+            flush_para()
             output_lines.append("")
         else:
-            output_lines.append(f"<p>{stripped}</p>")
+            para_buf.append(stripped)
 
+    flush_para()
     if in_ul:
         output_lines.append("</ul>")
     if in_ol:
@@ -276,9 +295,14 @@ def build_posts():
 
         meta, body_md = parse_frontmatter(raw_content)
 
-        # Skip drafts
-        if meta.get("draft") is True:
+        post_out_dir = os.path.join(OUTPUT_DIR, slug)
+
+        # Skip and prune drafts
+        is_draft = str(meta.get("draft", "")).strip("'\"").lower() in ("true", "yes", "1")
+        if is_draft:
             print(f"Skipping draft: {slug}")
+            if os.path.isdir(post_out_dir):
+                shutil.rmtree(post_out_dir, ignore_errors=True)
             continue
 
         title = meta.get("title", slug)
@@ -290,11 +314,10 @@ def build_posts():
         if isinstance(tags, str):
             tags = [t.strip() for t in tags.split(",") if t.strip()]
 
-        tags_html = "".join([f'<span class="tag-pill">#{t}</span>' for t in tags])
+        tags_html = "".join([f'<span class="tag-pill">#{html.escape(t)}</span>' for t in tags])
         body_html = markdown_to_html(body_md)
 
         # Create output dir
-        post_out_dir = os.path.join(OUTPUT_DIR, slug)
         os.makedirs(post_out_dir, exist_ok=True)
 
         # Copy sibling assets (e.g. images) if entry was a directory
@@ -352,13 +375,23 @@ def sync_homepage(posts):
     end_tag = "<!-- CHRONICLES_END -->"
 
     if start_tag not in content or end_tag not in content:
-        # Markers will be added in Task 4
         return
 
     cards = []
     for p in posts:
         slug = p["slug"]
-        card = f"""        <!-- Chronicle: {p['title']} -->
+
+        # Re-base relative URLs for images and links in homepage preview
+        preview_html = re.sub(
+            r'(src|href)=([\'"])(?!https?://|/|#)(.*?)\2',
+            rf'\1=\2posts/{slug}/\3\2',
+            p['body_html']
+        )
+
+        escaped_title = html.escape(p['title'])
+        escaped_excerpt = html.escape(p['excerpt'])
+
+        card = f"""        <!-- Chronicle: {escaped_title} -->
         <article class="chronicle-card">
           <header class="chronicle-header">
             <div class="chronicle-meta">
@@ -368,10 +401,10 @@ def sync_homepage(posts):
               </div>
             </div>
             <a href="posts/{slug}/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">{p['title']}</h3>
+              <h3 class="chronicle-title" style="transition: color 0.2s ease;">{escaped_title}</h3>
             </a>
             <p class="chronicle-excerpt">
-              {p['excerpt']}
+              {escaped_excerpt}
             </p>
           </header>
 
@@ -389,7 +422,7 @@ def sync_homepage(posts):
           <!-- Inline Preview Container -->
           <div id="chronicle-{slug}" class="chronicle-content" aria-hidden="true">
             <div class="chronicle-prose">
-              {p['body_html']}
+              {preview_html}
             </div>
           </div>
         </article>"""

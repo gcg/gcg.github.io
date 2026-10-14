@@ -128,11 +128,11 @@ function initChronicles() {
       const isExpanded = content.classList.contains('expanded');
       if (isExpanded) {
         content.classList.remove('expanded');
-        btn.innerHTML = `<span>Read Chronicle &darr;</span>`;
+        btn.innerHTML = `<span>Preview Chronicle</span> <span class="toggle-icon">▾</span>`;
         btn.setAttribute('aria-expanded', 'false');
       } else {
         content.classList.add('expanded');
-        btn.innerHTML = `<span>Close Chronicle &uarr;</span>`;
+        btn.innerHTML = `<span>Close Chronicle</span> <span class="toggle-icon">▴</span>`;
         btn.setAttribute('aria-expanded', 'true');
       }
     });

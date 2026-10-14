@@ -19,12 +19,39 @@ done
 # 3. Check Neovim image asset
 test -s posts/neovim-lua/preview-2.png || { echo "Missing or empty posts/neovim-lua/preview-2.png"; exit 1; }
 
-# 4. Check homepage links
+# 4. Check homepage links and target section ID
+grep -q 'id="hunter-chronicles"' index.html || { echo "index.html missing id=hunter-chronicles"; exit 1; }
+grep -q 'src="posts/neovim-lua/preview-2.png"' index.html || { echo "index.html preview image not re-based"; exit 1; }
+
 for slug in technologies-i-am-investing-in-2024 technologies-i-am-investing-in-2023 neovim-lua hello-hugo; do
   grep -q "posts/${slug}/" index.html || { echo "index.html missing link to posts/${slug}/"; exit 1; }
 done
 
-# 5. Local Server HTTP Verification
+# 5. Draft isolation test
+mkdir -p content/posts/_test_draft
+cat << 'EOF' > content/posts/_test_draft/index.md
+---
+title: "Classified Draft Chronicle"
+date: 2026-10-14
+draft: "true"
+---
+Secret hunter dispatch.
+EOF
+
+python3 scripts/build_posts.py
+if [ -d "posts/_test_draft" ]; then
+  echo "Draft post directory was incorrectly generated!"
+  rm -rf content/posts/_test_draft
+  exit 1
+fi
+if grep -q "Classified Draft Chronicle" index.html; then
+  echo "Draft post was incorrectly listed on homepage!"
+  rm -rf content/posts/_test_draft
+  exit 1
+fi
+rm -rf content/posts/_test_draft
+
+# 6. Local Server HTTP Verification
 python3 -m http.server $PORT &
 SERVER_PID=$!
 
