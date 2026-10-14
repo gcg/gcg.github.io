@@ -1,5 +1,5 @@
 :root {
-  /* Void / Base Palettes */
+  /* Void / Base Palettes (Dark Mode Default) */
   --bg-primary: #06070a;
   --bg-secondary: #0a0d14;
   --bg-surface: #0f131f;
@@ -48,4 +48,68 @@
   /* Corner HUD Accents */
   --bracket-size: 14px;
   --bracket-thickness: 2px;
+}
+
+/* Light Mode Theme: Solo Leveling Awakening Paper */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: rgba(248, 250, 252, 0.95);
+
+  --color-cyan: #0284c7;
+  --color-cyan-dim: #0369a1;
+  --color-cyan-glow: rgba(2, 132, 199, 0.25);
+  --color-cyan-subtle: rgba(2, 132, 199, 0.08);
+
+  --color-monarch: #7c3aed;
+  --color-monarch-dim: #6d28d9;
+  --color-monarch-glow: rgba(124, 58, 237, 0.25);
+  --color-monarch-subtle: rgba(124, 58, 237, 0.08);
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --text-cyan: #0284c7;
+
+  --border-hologram: 1px solid rgba(2, 132, 199, 0.35);
+  --border-hologram-monarch: 1px solid rgba(124, 58, 237, 0.4);
+  --border-subtle: 1px solid rgba(0, 0, 0, 0.08);
+
+  --shadow-hologram: 0 4px 20px rgba(2, 132, 199, 0.12), 0 0 1px rgba(2, 132, 199, 0.3);
+  --shadow-monarch: 0 4px 25px rgba(124, 58, 237, 0.15), 0 0 1px rgba(124, 58, 237, 0.35);
+}
+
+/* System Preference Auto Fallback when no manual override */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-surface: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg-card-hover: rgba(248, 250, 252, 0.95);
+
+    --color-cyan: #0284c7;
+    --color-cyan-dim: #0369a1;
+    --color-cyan-glow: rgba(2, 132, 199, 0.25);
+    --color-cyan-subtle: rgba(2, 132, 199, 0.08);
+
+    --color-monarch: #7c3aed;
+    --color-monarch-dim: #6d28d9;
+    --color-monarch-glow: rgba(124, 58, 237, 0.25);
+    --color-monarch-subtle: rgba(124, 58, 237, 0.08);
+
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-dim: #64748b;
+    --text-cyan: #0284c7;
+
+    --border-hologram: 1px solid rgba(2, 132, 199, 0.35);
+    --border-hologram-monarch: 1px solid rgba(124, 58, 237, 0.4);
+    --border-subtle: 1px solid rgba(0, 0, 0, 0.08);
+
+    --shadow-hologram: 0 4px 20px rgba(2, 132, 199, 0.12), 0 0 1px rgba(2, 132, 199, 0.3);
+    --shadow-monarch: 0 4px 25px rgba(124, 58, 237, 0.15), 0 0 1px rgba(124, 58, 237, 0.35);
+  }
 }

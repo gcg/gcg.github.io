@@ -7,11 +7,15 @@
   <meta name="description" content="23 years of tinkering, infrastructure reliability, scaleup leadership, and open-source craftsmanship. Solo Leveling / Manhwa personal portfolio for Guney Can Gokoglu (@gcg).">
 
   <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
   <link rel="manifest" href="assets/favicons/manifest.json">
+
+  <!-- Immediate Theme Initializer -->
+  <script src="assets/js/theme-toggle.js"></script>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/reset.css">
@@ -83,8 +87,13 @@
         <span>LEVEL: 23 YEARS</span>
       </div>
 
-      <!-- Rotating @gcg Social Beacon -->
-      <div id="rotating-social-beacon"></div>
+      <div class="hud-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <!-- Rotating @gcg Social Beacon -->
+        <div id="rotating-social-beacon"></div>
+      </div>
     </div>
   </header>
 
@@ -371,6 +380,161 @@
           <a href="https://github.com/gcg" target="_blank" rel="noopener noreferrer" class="cta-button">
             <span>Explore All Repositories on GitHub &rarr;</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Webtoon Episode Gutter -->
+    <div class="manhwa-gutter" aria-hidden="true">
+      <span class="gutter-badge">CHAPTER 04 &bull; SYSTEM ARCHIVES</span>
+    </div>
+
+    <!-- Chapter 4: Hunter Chronicles & Archives (Blog Section) -->
+    <section class="reveal-on-scroll">
+      <div class="system-window">
+        <div class="window-header">
+          <span class="window-title">&#9671; Hunter Chronicles &amp; System Archives</span>
+          <span class="comic-sfx">[DISPATCH]</span>
+        </div>
+
+        <div class="chapter-badge-wrap">
+          <span class="chapter-number">Episode 04</span>
+          <span class="window-badge">GRIMOIRE &amp; LOGS</span>
+        </div>
+        <h2 class="chapter-heading">The Field Chronicles</h2>
+        <p class="raid-story-p">
+          Archived dispatches, developer philosophies, tool breakdowns, and year-by-year architectural reflections recorded over 23 years of building.
+        </p>
+
+        <div class="chronicles-list">
+
+          <!-- Article 1: 2024 Tech -->
+          <article class="chronicle-card">
+            <div class="chronicle-header">
+              <div class="chronicle-meta">
+                <span class="chronicle-date">FEB 01, 2024</span>
+                <div class="chronicle-tags">
+                  <span class="tag-pill">Laravel</span>
+                  <span class="tag-pill">Livewire</span>
+                  <span class="tag-pill">Kubernetes</span>
+                  <span class="tag-pill">Go</span>
+                  <span class="tag-pill">Architecture</span>
+                </div>
+              </div>
+              <h3 class="chronicle-title">Technologies I Am Investing in 2024</h3>
+            </div>
+            <p class="chronicle-excerpt">
+              I love APIs, but client apps suck. Why I am completely retiring React and Remix.run in favor of Laravel + Livewire, and keeping microservices lean on Kubernetes.
+            </p>
+            <button class="chronicle-toggle-btn" data-target="post-2024" aria-expanded="false">
+              <span>Read Chronicle &darr;</span>
+            </button>
+            <div id="post-2024" class="chronicle-content">
+              <div class="chronicle-prose">
+                <p>As it turns out, I am bad at blogging, who knew? (I knew, since like literally one of the first piece of code I wrote everytime I learn a new language/stack is a blog and I have a blog since 2003 but I am still hopeful like an idiot everytime I put up a new blog, I will write lots of posts.)</p>
+                <p>But I think this is a good concept, like yearly themes: setting some tech stacks as key points and goals is a good way for me personally to look back and see a clear timeline.</p>
+                <h4>I love APIs but client apps suck</h4>
+                <p>I think the first app I broke apart from a single full stack monolith to a server-side API + client-side app was Poltio's social network application back in 2015 or 2016.</p>
+                <p>Back then, the idea of having a client app where you can just keep a couple of static files (HTML, JS, and CSS) and host it on easy-to-scale storage buckets like AWS S3 was amazing. Like all good things, we put too much stuff in our client bundles and made everything more complex and worse.</p>
+                <p>With how things are going in client-side worlds (Next.js, Remix), full stack applications are coming back hard—and they SHOULD. Sending HTML generated dynamically on the server with minimal CSS and JS required for that route is simply the best way for web applications.</p>
+                <p>So after watching Next.js and Remix re-discover basic HTTP and web concepts 20+ years later, I am completely giving up and removing React, Vue, and their hormonal fullstack counterparts from my primary stack. We replaced our Next.js apps with Laravel + Livewire. So no more Next/Remix for me, thanks for all the fish.</p>
+                <h4>Small Services &amp; Kubernetes</h4>
+                <p>I love DevOps, Kubernetes, and writing isolated services. But I don't like to overcomplicate things to the point where small teams struggle to understand what is going on. Since I use Kubernetes everywhere these days, deploying an isolated service internally or externally is seamless.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2: 2023 Tech -->
+          <article class="chronicle-card">
+            <div class="chronicle-header">
+              <div class="chronicle-meta">
+                <span class="chronicle-date">JAN 03, 2023</span>
+                <div class="chronicle-tags">
+                  <span class="tag-pill">Neovim</span>
+                  <span class="tag-pill">Go Echo</span>
+                  <span class="tag-pill">SwiftUI</span>
+                  <span class="tag-pill">Rust</span>
+                  <span class="tag-pill">Kubernetes</span>
+                </div>
+              </div>
+              <h3 class="chronicle-title">Technologies I Am Investing in 2023</h3>
+            </div>
+            <p class="chronicle-excerpt">
+              As developers, we are drawn to shiny new stacks like moths to light. Setting anchors for Neovim, Go Echo, Tailwind, and Kubernetes to keep focused.
+            </p>
+            <button class="chronicle-toggle-btn" data-target="post-2023" aria-expanded="false">
+              <span>Read Chronicle &darr;</span>
+            </button>
+            <div id="post-2023" class="chronicle-content">
+              <div class="chronicle-prose">
+                <p>As developers, we see shiny new technologies everywhere and, like moths to light, we are drawn to them. But time is finite, unlike the endless stream of frameworks that drop every year. By writing down a few key targets, I can anchor myself down and keep track better.</p>
+                <h4>Core Targets</h4>
+                <ul>
+                  <li><strong>Neovim:</strong> Solidifying the pure Lua workflow and custom LSP integration for terminal velocity.</li>
+                  <li><strong>Go &amp; Echo:</strong> Building lightweight, ultra-fast microservices with high concurrent throughput.</li>
+                  <li><strong>Kubernetes:</strong> Deepening cluster resilience, ingress orchestration, and auto-scaling primitives.</li>
+                  <li><strong>SwiftUI &amp; Rust:</strong> Exploring native desktop tooling and memory-safe systems programming.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3: Neovim Lua -->
+          <article class="chronicle-card">
+            <div class="chronicle-header">
+              <div class="chronicle-meta">
+                <span class="chronicle-date">AUG 20, 2022</span>
+                <div class="chronicle-tags">
+                  <span class="tag-pill">Neovim</span>
+                  <span class="tag-pill">Lua</span>
+                  <span class="tag-pill">Tmux</span>
+                  <span class="tag-pill">Vim</span>
+                </div>
+              </div>
+              <h3 class="chronicle-title">My New Neovim Setup with 100% Lua</h3>
+            </div>
+            <p class="chronicle-excerpt">
+              Switching a 15+ year Vim workflow to Neovim and rewriting everything in pure Lua. Why terminal + Tmux beats any graphical IDE for multi-service productivity.
+            </p>
+            <button class="chronicle-toggle-btn" data-target="post-nvim" aria-expanded="false">
+              <span>Read Chronicle &darr;</span>
+            </button>
+            <div id="post-nvim" class="chronicle-content">
+              <div class="chronicle-prose">
+                <p>I love Vim. It gives me the exact same development environment via SSH whether I am on my main workstation, an iPad, or a server I don't normally touch. But I can't use VSCode or any non-terminal editor thanks to Tmux. I need 3-4 panes open next to my editor, replicated across all the microservices I am actively building.</p>
+                <p>Even though I've tried every editor, Vim remained my daily driver for 15+ years. When I switched to Neovim, I was still hauling old Vimscript configs. I finally rewrote the whole configuration cleanly in 100% Lua using modern Lua-native plugins, built-in LSP, and Null-ls.</p>
+                <p>Configuring plugins and settings in Lua is vastly cleaner, faster, and more modular.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4: Hello Hugo -->
+          <article class="chronicle-card">
+            <div class="chronicle-header">
+              <div class="chronicle-meta">
+                <span class="chronicle-date">AUG 17, 2022</span>
+                <div class="chronicle-tags">
+                  <span class="tag-pill">Hugo</span>
+                  <span class="tag-pill">Static Sites</span>
+                  <span class="tag-pill">Infrastructure</span>
+                </div>
+              </div>
+              <h3 class="chronicle-title">Hello Hugo &amp; The Static Shift</h3>
+            </div>
+            <p class="chronicle-excerpt">
+              Retiring an un-upgradeable Ubuntu VM hosting Ghost in favor of zero-maintenance static architecture hosted on GitHub Pages.
+            </p>
+            <button class="chronicle-toggle-btn" data-target="post-hugo" aria-expanded="false">
+              <span>Read Chronicle &darr;</span>
+            </button>
+            <div id="post-hugo" class="chronicle-content">
+              <div class="chronicle-prose">
+                <p>The old server that used to host my blog was a virtual machine running an older version of Ubuntu powered by Ghost. Since I forgot to upgrade that machine for a while, doing release upgrades became an absolute pain.</p>
+                <p>With something static, I don't need to babysit a database or patch a VM operating system just to host thoughts—I can just trust a global CDN and static hosting. Less maintenance means more time building things that actually matter.</p>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>

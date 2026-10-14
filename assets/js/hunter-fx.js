@@ -116,10 +116,34 @@ function initCodeGridParallax() {
   }, { passive: true });
 }
 
+function initChronicles() {
+  if (typeof document === 'undefined') return;
+  const toggles = document.querySelectorAll('.chronicle-toggle-btn');
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const content = document.getElementById(targetId);
+      if (!content) return;
+
+      const isExpanded = content.classList.contains('expanded');
+      if (isExpanded) {
+        content.classList.remove('expanded');
+        btn.innerHTML = `<span>Read Chronicle &darr;</span>`;
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.add('expanded');
+        btn.innerHTML = `<span>Close Chronicle &uarr;</span>`;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
 function initHunterFx() {
   initScrollObserver();
   initPortraitFX();
   initCodeGridParallax();
+  initChronicles();
 }
 
 // Universal export
@@ -130,7 +154,8 @@ if (typeof module !== 'undefined' && module.exports) {
     initHunterFx,
     initScrollObserver,
     initPortraitFX,
-    initCodeGridParallax
+    initCodeGridParallax,
+    initChronicles
   };
 }
 
@@ -138,4 +163,5 @@ if (typeof window !== 'undefined') {
   window.formatStatValue = formatStatValue;
   window.animateCounter = animateCounter;
   window.initHunterFx = initHunterFx;
+  window.initChronicles = initChronicles;
 }
