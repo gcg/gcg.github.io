@@ -1,24 +1,13 @@
-.PHONY: watch build optimize serve 
+.PHONY: all build serve clean
 
+all: build serve
 
-build: build-theme build-server
+build:
+	python3 scripts/build_posts.py
 
-watch: 
-	@$(MAKE) -j2 watch-theme watch-server
+serve: build
+	@echo "Starting local Solo Leveling Webtoon preview server at http://localhost:8000..."
+	python3 -m http.server 8000
 
-build-server:
-	hugo --minify
-
-install-theme:
-	@cd themes/main; npm i 
-
-build-theme:
-	@cd themes/main; npm i; npm run build
-
-watch-theme:
-	@cd themes/main; npm run watch 
-
-watch-server:
-	hugo server -D --watch 
-
-
+clean:
+	rm -rf .DS_Store

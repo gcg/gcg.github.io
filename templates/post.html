@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} — Guney Can Gokoglu (@gcg)</title>
+  <meta name="description" content="{{excerpt}}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicons/favicon.svg">
+
+  <!-- Core Theme Stylesheets -->
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/manhwa.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Atmospheric Background Syntax Stream -->
+  <div class="code-syntax-backdrop" aria-hidden="true">
+    <div class="code-stream">
+<span class="code-comment">// CHRONICLE ARCHIVE LOG RECOVERED</span>
+<span class="code-kw">type</span> <span class="code-type">Chronicle</span> <span class="code-kw">struct</span> {
+    Title  <span class="code-type">string</span>
+    Date   <span class="code-type">time.Time</span>
+    Author <span class="code-type">string</span> <span class="code-str">"@gcg"</span>
+}
+    </div>
+  </div>
+
+  <!-- Sticky Hunter HUD Navigation -->
+  <header class="hunter-hud-nav" role="banner">
+    <div class="hud-nav-inner">
+      <div class="hud-nav-left">
+        <a href="../../#hunter-chronicles" class="hud-back-btn" title="Return to Hunter Terminal">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Terminal</span>
+        </a>
+      </div>
+
+      <div class="hud-nav-center">
+        <a href="../../" class="beacon-shell" title="Guney Can Gokoglu (@gcg)">
+          <span class="beacon-handle">@gcg</span>
+          <span class="beacon-tooltip">Hunter ID</span>
+        </a>
+      </div>
+
+      <div class="hud-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Webtoon Post Container -->
+  <main class="webtoon-scroll" role="main" style="padding-top: 2rem;">
+
+    <article class="system-window monarch-tier">
+      <!-- Window HUD Header -->
+      <div class="window-header">
+        <div class="window-title">
+          <span class="system-tag">[ARCHIVE]</span>
+          <span>CHRONICLE LOG // {{slug}}</span>
+        </div>
+        <div class="window-badge">RECORD UNLOCKED</div>
+      </div>
+
+      <!-- Post Header Banner -->
+      <header class="chronicle-header" style="margin-bottom: 2rem;">
+        <h1 class="hunter-name" style="font-size: 2.2rem; margin-bottom: 0.75rem;">{{title}}</h1>
+        <div class="chronicle-meta">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span class="chronicle-date">{{formatted_date}}</span>
+            <span style="color: var(--text-dim);">•</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">{{reading_time}}</span>
+          </div>
+          <div class="chronicle-tags">
+            {{tags_html}}
+          </div>
+        </div>
+      </header>
+
+      <!-- Post Content Body -->
+      <div class="chronicle-prose">
+        {{content}}
+      </div>
+
+      <!-- Post Footer / Return Anchor -->
+      <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <a href="../../#hunter-chronicles" class="cta-button" style="text-decoration: none;">
+          ← Return to Hunter Terminal
+        </a>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">
+          Chronicle Archive // @gcg
+        </div>
+      </footer>
+    </article>
+
+    <!-- Epilogue Credit -->
+    <footer class="footer-credit" style="margin-top: 2rem;">
+      <span>Forged with vanilla HTML &amp; CSS</span>
+      <span>•</span>
+      <span class="fedora-badge">Fedora Linux (No Arch btw)</span>
+      <span>•</span>
+      <span>&copy; 2003–2026 @gcg</span>
+    </footer>
+
+  </main>
+
+  <!-- Theme Toggle Controller -->
+  <script src="../../assets/js/theme-toggle.js"></script>
+</body>
+</html>

@@ -1,9 +1,0 @@
-baseURL = 'https://gcg.me'
-languageCode = 'en-us'
-title = 'Guney Can Gokoglu (@gcg) | gcg.me'
-theme = 'main'
-[taxonomies]
-  tag = 'tags'
-	topic = 'topics'
-[params]
-  mainSections = ['posts']
