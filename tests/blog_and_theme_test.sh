@@ -21,4 +21,12 @@ grep -q "Hello Hugo" index.html || { echo "Missing Hello Hugo post in index.html
 # Test 5: Theme toggle button in index.html
 grep -q "theme-toggle" index.html || { echo "Missing theme-toggle button in index.html"; exit 1; }
 
+# Test 6: Full background coverage for light mode
+grep -q "var(--bg-primary)" assets/css/reset.css || { echo "reset.css missing var(--bg-primary)"; exit 1; }
+grep -q "\-\-bg-nav:" assets/css/variables.css || { echo "variables.css missing --bg-nav definition"; exit 1; }
+grep -q "var(--bg-nav)" assets/css/style.css || { echo "style.css missing var(--bg-nav)"; exit 1; }
+grep -q '\[data-theme="light"\] \.code-syntax-backdrop' assets/css/style.css || { echo "style.css missing light mode syntax backdrop"; exit 1; }
+grep -q '\[data-theme="light"\] \.chronicle-prose pre' assets/css/style.css || { echo "style.css missing light mode pre styles"; exit 1; }
+
 echo "Blog and theme test passed!"
+

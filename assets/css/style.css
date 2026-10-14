@@ -41,7 +41,7 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(6, 7, 10, 0.82);
+  background: var(--bg-nav);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 229, 255, 0.2);
@@ -139,7 +139,7 @@
   font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: var(--text-main);
   text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
 }
 
@@ -272,7 +272,7 @@
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1.15;
-  color: #fff;
+  color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
@@ -311,8 +311,8 @@
 }
 
 .stat-metric-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   text-align: center;
@@ -361,7 +361,7 @@
 .chapter-heading {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 1.25rem;
 }
 
@@ -394,8 +394,8 @@
 
 .infra-pole {
   flex: 1;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   padding: 0.6rem 0.8rem;
   border-radius: var(--radius-sm);
   font-size: 0.82rem;
@@ -448,8 +448,8 @@
 }
 
 .timeline-node {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 1rem;
   position: relative;
@@ -483,7 +483,7 @@
 .node-name {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 0.35rem;
 }
 
@@ -619,8 +619,8 @@
 }
 
 .artifact-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 1.35rem;
   position: relative;
@@ -663,7 +663,7 @@
 .artifact-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 0.4rem;
 }
 
@@ -739,7 +739,7 @@
   font-size: 0.82rem;
   color: var(--text-main);
   padding: 0.4rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
 }
@@ -774,8 +774,8 @@
 }
 
 .chronicle-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 1.5rem;
   transition: all 0.25s ease;
@@ -980,3 +980,109 @@
     box-sizing: border-box;
   }
 }
+
+/* Light Mode Theme Overrides */
+[data-theme="light"] .hunter-hud-nav {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .code-syntax-backdrop {
+  opacity: 0.12;
+  color: var(--color-cyan-dim);
+}
+
+[data-theme="light"] .chronicle-prose pre {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+[data-theme="light"] .cta-button {
+  color: var(--text-main);
+}
+
+[data-theme="light"] .cta-button:hover {
+  color: #ffffff;
+}
+
+[data-theme="light"] .cta-button.monarch:hover {
+  color: #ffffff;
+}
+
+[data-theme="light"] .chronicle-toggle-btn:hover {
+  color: #0f172a;
+}
+
+[data-theme="light"] .beacon-tooltip {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .portrait-frame {
+  background: #e2e8f0;
+}
+
+[data-theme="light"] .portrait-frame .rank-pill {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-cyan);
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .hunter-hud-nav {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  :root:not([data-theme="dark"]) .code-syntax-backdrop {
+    opacity: 0.12;
+    color: var(--color-cyan-dim);
+  }
+
+  :root:not([data-theme="dark"]) .chronicle-prose pre {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+
+  :root:not([data-theme="dark"]) .cta-button {
+    color: var(--text-main);
+  }
+
+  :root:not([data-theme="dark"]) .cta-button:hover {
+    color: #ffffff;
+  }
+
+  :root:not([data-theme="dark"]) .cta-button.monarch:hover {
+    color: #ffffff;
+  }
+
+  :root:not([data-theme="dark"]) .chronicle-toggle-btn:hover {
+    color: #0f172a;
+  }
+
+  :root:not([data-theme="dark"]) .beacon-tooltip {
+    background: var(--bg-surface);
+    color: var(--text-main);
+    border-color: var(--border-subtle);
+  }
+
+  :root:not([data-theme="dark"]) .portrait-frame {
+    background: #e2e8f0;
+  }
+
+  :root:not([data-theme="dark"]) .portrait-frame .rank-pill {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-cyan);
+    box-shadow: 0 0 10px rgba(2, 132, 199, 0.2);
+  }
+
+  :root:not([data-theme="dark"]) .theme-toggle-btn:hover {
+    color: #ffffff;
+  }
+}
+

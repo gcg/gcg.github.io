@@ -5,6 +5,7 @@
   --bg-surface: #0f131f;
   --bg-card: rgba(15, 19, 31, 0.78);
   --bg-card-hover: rgba(22, 29, 48, 0.88);
+  --bg-nav: rgba(6, 7, 10, 0.85);
 
   /* Solo Leveling Neons */
   --color-cyan: #00e5ff;
@@ -57,6 +58,7 @@
   --bg-surface: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.88);
   --bg-card-hover: rgba(248, 250, 252, 0.95);
+  --bg-nav: rgba(248, 250, 252, 0.92);
 
   --color-cyan: #0284c7;
   --color-cyan-dim: #0369a1;
@@ -89,6 +91,7 @@
     --bg-surface: #ffffff;
     --bg-card: rgba(255, 255, 255, 0.88);
     --bg-card-hover: rgba(248, 250, 252, 0.95);
+    --bg-nav: rgba(248, 250, 252, 0.92);
 
     --color-cyan: #0284c7;
     --color-cyan-dim: #0369a1;
