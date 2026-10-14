@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guney Can Gokoglu (@gcg) | The Stealth Architect</title>
+  <meta name="description" content="23 years of tinkering, infrastructure reliability, scaleup leadership, and open-source craftsmanship. Solo Leveling / Manhwa personal portfolio for Guney Can Gokoglu (@gcg).">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+  <link rel="manifest" href="assets/favicons/manifest.json">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/manhwa.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Background Atmospheric Code Syntax Streams (PHP/Laravel, Go, Gleam) -->
+  <div class="code-syntax-backdrop" aria-hidden="true">
+    <div class="code-stream">
+<span class="code-comment">// PHP & Laravel Engine</span>
+<span class="code-kw">&lt;?php</span>
+<span class="code-kw">namespace</span> App\Infrastructure\Guardian;
+
+<span class="code-kw">use</span> Illuminate\Support\Facades\Route;
+
+<span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'auth:system'</span>, <span class="code-str">'uptime:99.999'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
+    <span class="code-type">Cluster</span>::<span class="code-fn">maintainResilience</span>();
+    <span class="code-type">ServerPool</span>::<span class="code-fn">preventDowntime</span>();
+});
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// Go Concurrency Cluster</span>
+<span class="code-kw">package</span> main
+
+<span class="code-kw">import</span> (
+    <span class="code-str">"context"</span>
+    <span class="code-str">"time"</span>
+)
+
+<span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, cluster *<span class="code-type">InfraMesh</span>) {
+    <span class="code-kw">go</span> <span class="code-kw">func</span>() {
+        <span class="code-kw">select</span> {
+        <span class="code-kw">case</span> &lt;-ctx.<span class="code-fn">Done</span>():
+            cluster.<span class="code-fn">GracefulShutdown</span>()
+        <span class="code-kw">case</span> &lt;-time.<span class="code-fn">After</span>(23 * 365 * 24 * time.Hour):
+            cluster.<span class="code-fn">KeepStealth</span>()
+        }
+    }()
+}
+    </div>
+
+    <div class="code-stream">
+<span class="code-comment">// Gleam Functional BEAM</span>
+<span class="code-kw">import</span> gleam/result
+
+<span class="code-kw">pub type</span> <span class="code-type">ServerStatus</span> {
+  Active
+  UptimeOptimal
+}
+
+<span class="code-kw">pub fn</span> <span class="code-fn">maintain_uptime</span>(server: <span class="code-type">Server</span>) -&gt; <span class="code-type">Result</span>(<span class="code-type">ServerStatus</span>, <span class="code-type">Nil</span>) {
+  server
+  |&gt; <span class="code-fn">monitor_cluster</span>
+  |&gt; <span class="code-fn">ensure_zero_downtime</span>
+}
+    </div>
+  </div>
+
+  <!-- Sticky Top Hunter HUD Nav -->
+  <header class="hunter-hud-nav">
+    <div class="hud-nav-inner">
+      <div class="hud-status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="system-tag">[SYSTEM: ONLINE]</span>
+        <span>LEVEL: 23 YEARS</span>
+      </div>
+
+      <!-- Rotating @gcg Social Beacon -->
+      <div id="rotating-social-beacon"></div>
+    </div>
+  </header>
+
+  <!-- Vertical Webtoon Scroll Episode -->
+  <main class="webtoon-scroll">
+
+    <!-- Prologue: The Hunter Awakening (Hero Section) -->
+    <section class="hero-section reveal-on-scroll">
+      <div class="system-alert-banner">
+        <span class="alert-icon">&#9670;</span>
+        <span>[SYSTEM NOTIFICATION: PLAYER 001 CONNECTED &mdash; 23 YEARS ONLINE]</span>
+      </div>
+
+      <div class="system-window">
+        <div class="window-header">
+          <span class="window-title">&#9671; Hunter Status Dossier</span>
+          <span class="window-badge">QUEST PROLOGUE</span>
+        </div>
+
+        <div class="hunter-profile-grid">
+          <!-- Hunter Portrait & Holographic Scanline Frame -->
+          <div class="portrait-wrapper">
+            <div class="portrait-frame portrait-container" title="Click to trigger holographic scanner">
+              <img src="assets/img/gcg.jpg" alt="Guney Can Gokoglu" class="portrait-img">
+              <div class="scanline-overlay"></div>
+              <div class="rank-pill">RANK S &bull; LV. 23</div>
+            </div>
+          </div>
+
+          <!-- Hunter Identification & Lore -->
+          <div class="hunter-details">
+            <div class="hunter-headline">
+              <span class="player-title-tag">The Stealth Guardian</span>
+              <h1 class="hunter-name">Guney Can Gokoglu</h1>
+              <div class="hunter-class-badge">&#9733; CLASS: STEALTH ARCHITECT &bull; CO-FOUNDER &amp; CTO</div>
+            </div>
+
+            <p class="hunter-lore-bio">
+              A computer nerd tinkering with software, hardware, and networks for <strong>23 years</strong>. 
+              Maintains servers, designs resilient infrastructures, crafts mobile apps, and engineers automations. 
+              Operating in the shadows so systems never stumble and nobody ever has to notice.
+            </p>
+
+            <!-- Dynamic Counter Metrics -->
+            <div class="stat-counters-row">
+              <div class="stat-metric-card">
+                <span class="stat-number counter-val" data-target-val="23" data-format="int">0</span>
+                <span class="stat-label">Years Tinkering</span>
+              </div>
+              <div class="stat-metric-card">
+                <span class="stat-number counter-val" data-target-val="99.999" data-format="percent">0%</span>
+                <span class="stat-label">System Uptime</span>
+              </div>
+              <div class="stat-metric-card">
+                <span class="stat-number counter-val" data-target-val="12" data-format="int">0</span>
+                <span class="stat-label">Years at Poltio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Webtoon Episode Gutter -->
+    <div class="manhwa-gutter" aria-hidden="true">
+      <span class="gutter-badge">CHAPTER 01 &bull; CORE ENGINE</span>
+    </div>
+
+    <!-- Chapter 1: The Core Engine, Full-Spectrum Infra & The Two Timelines -->
+    <section class="reveal-on-scroll">
+      <div class="system-window">
+        <div class="window-header">
+          <span class="window-title">&#9671; Operating Core &amp; Evolutionary Paths</span>
+          <span class="comic-sfx">[AWAKEN]</span>
+        </div>
+
+        <div class="chapter-badge-wrap">
+          <span class="chapter-number">Episode 01</span>
+          <span class="window-badge">ORIGIN LOGS</span>
+        </div>
+        <h2 class="chapter-heading">The Infrastructure Engine &amp; Distro Path</h2>
+
+        <!-- Full-Spectrum Infrastructure Trait -->
+        <div class="infra-spectrum-box">
+          <div class="infra-spectrum-title">&#9881; Skill Trait: Full-Spectrum Infrastructure Mastery</div>
+          <div class="infra-spectrum-scale">
+            <div class="infra-pole">
+              <span class="pole-level">L1 &bull; Physical Bare-Metal</span>
+              <span class="pole-desc">Crimping ethernet cables, configuring physical routers, racking switches, and maintaining on-premise server hardware.</span>
+            </div>
+            <div class="spectrum-connector">&harr;</div>
+            <div class="infra-pole">
+              <span class="pole-level">L7 &bull; Cloud Hyperscale</span>
+              <span class="pole-desc">Architecting, automating, and scaling multi-region, resilient cloud infrastructure on <strong>AWS</strong> and <strong>Google Cloud</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline 1: The Distro Evolution -->
+        <div class="timeline-block">
+          <div class="timeline-title">
+            <span>&#9654; Distro Evolution (Path of the Penguin)</span>
+            <span class="comic-sfx" style="font-size: 0.8rem;">[FEDORA FOREVER]</span>
+          </div>
+          <div class="timeline-track">
+            <div class="timeline-node">
+              <div class="node-epoch">GENESIS &bull; 3-4 YRS</div>
+              <div class="node-name">Ubuntu</div>
+              <div class="node-desc">The gateway distro. Discovering Linux and first production servers.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">CRUCIBLE &bull; 5 YRS</div>
+              <div class="node-name">Gentoo</div>
+              <div class="node-desc">Custom kernel tuning, compiling everything from source code.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">ROLLING &bull; 5 YRS</div>
+              <div class="node-name">Arch Linux</div>
+              <div class="node-desc">Living on the bleeding-edge rolling release. <em>"I used Arch btw."</em></div>
+            </div>
+            <div class="timeline-node current-stage">
+              <div class="node-epoch">CURRENT &bull; EVER SINCE</div>
+              <div class="node-name">Fedora</div>
+              <div class="node-desc">The battle-tested daily driver workstation &amp; server OS. <strong>Sorry, no Arch btw.</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline 2: Language Grimoire Evolution -->
+        <div class="timeline-block">
+          <div class="timeline-title">&#9654; Language Grimoire Evolution</div>
+          <div class="timeline-track">
+            <div class="timeline-node">
+              <div class="node-epoch">EARLY DAYS</div>
+              <div class="node-name">Ruby on Rails</div>
+              <div class="node-desc">Crafting expressive web applications during the golden era.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">~2008</div>
+              <div class="node-name">PHP</div>
+              <div class="node-desc">Pragmatic, resilient backend workhorses powering the web.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">~2014 &bull; BELOVED</div>
+              <div class="node-name">Laravel</div>
+              <div class="node-desc">Immediate love for expressive syntax, architecture, and superb DX.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">~2017 &bull; HIGH SCALE</div>
+              <div class="node-name">Go</div>
+              <div class="node-desc">Heavy artillery for concurrency, speed, and backend microservices.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="node-epoch">~2 YRS AGO &bull; HOBBY</div>
+              <div class="node-name">Gleam</div>
+              <div class="node-desc">Type-safe functional joy on the Erlang BEAM runtime.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passive Skill Window -->
+        <div class="passive-skill-card">
+          <div class="skill-header">
+            <span class="skill-title">&#9889; [Passive Skill: Zero-Downtime Observer]</span>
+            <span class="skill-type">S-RANK PASSIVE</span>
+          </div>
+          <p class="skill-quote">
+            &ldquo;You maintain servers and cloud systems with such flawless reliability that coworkers and clients never even notice your existence.&rdquo;
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Webtoon Episode Gutter -->
+    <div class="manhwa-gutter" aria-hidden="true">
+      <span class="gutter-badge">CHAPTER 02 &bull; THE 12-YEAR RAID</span>
+    </div>
+
+    <!-- Chapter 2: The 12-Year Raid — Poltio -->
+    <section class="reveal-on-scroll">
+      <div class="system-window monarch-tier">
+        <div class="window-header">
+          <span class="window-title">&#9671; Guild Raid Chronicle: Poltio</span>
+          <span class="comic-sfx monarch">[BOSS RAID]</span>
+        </div>
+
+        <div class="chapter-badge-wrap">
+          <span class="chapter-number" style="color: var(--color-monarch);">Episode 02</span>
+          <span class="window-badge">CO-FOUNDER &amp; CTO</span>
+        </div>
+        <h2 class="chapter-heading">The 12-Year Scaleup Campaign</h2>
+
+        <p class="raid-story-p">
+          For over <strong>12 years</strong>, I have served as <strong>Co-Founder and CTO at Poltio</strong>. 
+          From early-stage inception to enterprise-tier scale, my mission has been simple: engineer 
+          resilient architectures, prevent catastrophic failures, and ensure the platform delivers uninterrupted 
+          uptime to millions of users worldwide.
+        </p>
+
+        <p class="raid-story-p">
+          When infrastructure is designed properly, nothing catches fire, alerts remain silent, and everyone 
+          forgets who set it up. That is the highest badge of honor for a stealth architect.
+        </p>
+
+        <div class="raid-quest-box">
+          <div class="quest-info">
+            <div class="quest-label">Quest Completion Requirement</div>
+            <div class="quest-desc">Want to inspect the complete corporate raid log, leadership trajectory, and career milestones?</div>
+          </div>
+          <a href="https://www.linkedin.com/in/guneycangokoglu" target="_blank" rel="noopener noreferrer" class="cta-button monarch">
+            <span>View Dossier on LinkedIn &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Webtoon Episode Gutter -->
+    <div class="manhwa-gutter" aria-hidden="true">
+      <span class="gutter-badge">CHAPTER 03 &bull; EQUIPPED ARTIFACTS</span>
+    </div>
+
+    <!-- Chapter 3: Equipped Artifacts & The Lab (Android Apps + Classified Teaser) -->
+    <section class="reveal-on-scroll">
+      <div class="system-window">
+        <div class="window-header">
+          <span class="window-title">&#9671; Equipped Artifacts &amp; The Workshop</span>
+          <span class="comic-sfx">[INVENTORY]</span>
+        </div>
+
+        <div class="chapter-badge-wrap">
+          <span class="chapter-number">Episode 03</span>
+          <span class="window-badge">SIDE QUESTS &amp; LAB</span>
+        </div>
+        <h2 class="chapter-heading">Android Artifacts &amp; Inventions</h2>
+
+        <div class="artifact-grid">
+          <!-- Artifact 1: mdwriter -->
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-tier">Artifact I &bull; Utility</span>
+              <span class="window-badge">Android</span>
+            </div>
+            <h3 class="artifact-title">mdwriter</h3>
+            <p class="artifact-desc">
+              A streamlined, distraction-free markdown note-taking and writing application engineered for Android devices.
+            </p>
+            <a href="https://github.com/gcg/mdwriter" target="_blank" rel="noopener noreferrer" class="artifact-link">
+              <span>Inspect Source on GitHub &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Artifact 2: wpchanger -->
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-tier">Artifact II &bull; Automation</span>
+              <span class="window-badge">Android</span>
+            </div>
+            <h3 class="artifact-title">wpchanger</h3>
+            <p class="artifact-desc">
+              Automated wallpaper switching utility for Android, refreshing device backgrounds seamlessly on schedule.
+            </p>
+            <a href="https://github.com/gcg/wpchanger" target="_blank" rel="noopener noreferrer" class="artifact-link">
+              <span>Inspect Source on GitHub &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Artifact 3: Upcoming Social Messaging & Gaming App (Classified) -->
+          <div class="artifact-card classified">
+            <div class="artifact-header">
+              <span class="artifact-tier" style="color: var(--color-monarch);">Artifact III &bull; S-Rank Rare</span>
+              <span class="window-badge" style="color: var(--color-monarch); border-color: rgba(168,85,247,0.4);">In Forge</span>
+            </div>
+            <h3 class="artifact-title">[CLASSIFIED] Social &amp; Gaming</h3>
+            <p class="artifact-desc">
+              An upcoming social messaging and gaming hybrid platform currently under active development in the shadows.
+            </p>
+            <div class="vault-badge">
+              <span>&#128274; AWAKENING SOON</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="https://github.com/gcg" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <span>Explore All Repositories on GitHub &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Epilogue: Chapter Complete (Footer) -->
+    <footer class="epilogue-card reveal-on-scroll">
+      <div class="to-be-continued">[TO BE CONTINUED]</div>
+      <p class="epilogue-desc">
+        The system remains online. The server pulse never stops. 
+        Catch up on new quests, tools, and code drops across social channels.
+      </p>
+
+      <div class="social-links-row">
+        <a href="https://github.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">GitHub / @gcg</a>
+        <a href="https://twitter.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">X (Twitter) / @gcg</a>
+        <a href="https://instagram.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">Instagram / @gcg</a>
+        <a href="https://www.linkedin.com/in/guneycangokoglu" target="_blank" rel="noopener noreferrer" class="social-item-link">LinkedIn</a>
+      </div>
+
+      <div class="footer-credit">
+        <span>&copy; 2026 Guney Can Gokoglu (@gcg).</span>
+        <span>&bull;</span>
+        <span class="fedora-badge">&#633; Fedora OS</span>
+        <span>&bull;</span>
+        <span>Pure Vanilla Web</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Client-Side Scripts -->
+  <script src="assets/js/rotating-id.js"></script>
+  <script src="assets/js/hunter-fx.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
