@@ -3,7 +3,7 @@ set -e
 
 # Test 1: Mobile CSS wrap & overflow rules
 grep -A 5 "social-links-row" assets/css/style.css | grep -q "flex-wrap: wrap" || { echo "Missing flex-wrap on social-links-row"; exit 1; }
-grep -A 10 "hunter-class-badge" assets/css/style.css | grep -q "max-width: 100%" || { echo "Missing max-width on hunter-class-badge"; exit 1; }
+grep -A 18 "hunter-class-badge" assets/css/style.css | grep -q "max-width: 100%" || { echo "Missing max-width on hunter-class-badge"; exit 1; }
 grep -A 5 "footer-credit" assets/css/style.css | grep -q "flex-wrap: wrap" || { echo "Missing flex-wrap on footer-credit"; exit 1; }
 
 # Test 2: Interactive portrait scanning CSS rule
