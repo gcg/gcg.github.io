@@ -261,6 +261,9 @@
   font-size: 0.78rem;
   font-weight: 700;
   width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .hunter-lore-bio {
@@ -696,8 +699,9 @@
 
 .social-links-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -722,6 +726,7 @@
   font-size: 0.75rem;
   color: var(--text-dim);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -776,5 +781,15 @@
   }
   .timeline-track {
     grid-template-columns: 1fr;
+  }
+  .artifact-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-button {
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
   }
 }

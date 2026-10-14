@@ -74,6 +74,8 @@ class RotatingBeacon {
 
     this.container.addEventListener('mouseenter', () => this.pause());
     this.container.addEventListener('mouseleave', () => this.resume());
+    this.container.addEventListener('focusin', () => this.pause());
+    this.container.addEventListener('focusout', () => this.resume());
   }
 
   advance() {
@@ -101,10 +103,15 @@ class RotatingBeacon {
 
   pause() {
     this.isPaused = true;
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
   }
 
   resume() {
     this.isPaused = false;
+    this.start();
   }
 
   destroy() {

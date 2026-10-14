@@ -205,6 +205,17 @@
   }
 }
 
+.portrait-container.scanning {
+  box-shadow: 0 0 35px var(--color-cyan), inset 0 0 20px var(--color-cyan);
+  border-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.portrait-container.scanning .scanline-overlay {
+  height: 35%;
+  animation: scanlineSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Scroll Entrance State */
 .reveal-on-scroll {
   opacity: 0;
