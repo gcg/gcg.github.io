@@ -169,9 +169,250 @@ a {
 }
 
 /* ==========================================================================
+   Scene panels (painted art) and lettering
+   Overlays are positioned in % and sized in cqw, so each panel scales like its painting.
+   ========================================================================== */
+
+.scene {
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+  box-shadow: 0 20px 60px #0b143066;
+  color: #fff;
+}
+
+.scene > img.art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.scene--cover { aspect-ratio: 928 / 1152; }
+.scene--hero  { aspect-ratio: 896 / 1200; }
+.scene--cliff { aspect-ratio: 1200 / 896; }
+
+.scene p { margin: 0; }
+
+/* Small epic caps. */
+.label {
+  margin: 0;
+  font: 800 11px/1.3 var(--font-display);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Big brush lettering with a dark outline and a plum glow. */
+.brush {
+  font-family: var(--font-brush);
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  -webkit-text-stroke: max(1.5px, 0.42cqw) #0b1430;
+  paint-order: stroke fill;
+  text-shadow: 0 0 2.6cqw var(--plum), 0 0 5cqw #ff7aa888, 0.6cqw 0.8cqw 0 #0b1430;
+}
+
+/* Narration box. */
+.narr {
+  position: absolute;
+  z-index: 2;
+  max-width: 52%;
+  padding: 1.6cqw 2.3cqw;
+  background: var(--narr-bg);
+  border-left: max(3px, 0.7cqw) solid var(--narr-rule);
+  box-shadow: 0 1cqw 3cqw #0008;
+  color: #eef2ff;
+  font: italic 500 max(13px, 2.9cqw)/1.3 var(--font-body);
+}
+
+/* Sound effects. */
+.sfx {
+  position: absolute;
+  z-index: 2;
+  font: 400 20cqw/1 var(--font-brush);
+  color: #fff;
+  -webkit-text-stroke: 0.7cqw #0b1030;
+  paint-order: stroke fill;
+  text-shadow: 0 0 4cqw var(--qi), 0 0 9cqw var(--qi);
+  transform: rotate(-14deg);
+  pointer-events: none;
+}
+
+/* --- Cover --- */
+.talismans {
+  position: absolute;
+  top: -0.5%;
+  right: 4%;
+  z-index: 2;
+  display: flex;
+  gap: 1.6cqw;
+}
+
+.talisman {
+  writing-mode: vertical-rl;
+  padding: 2cqw 0.9cqw 3cqw;
+  background: linear-gradient(#fffdf8, #f3ead6);
+  border: 1.5px solid #b4233c;
+  border-top: 0;
+  box-shadow: 0 0 2cqw #ffffff80, 2px 4px 0 #0004;
+  color: #1a1020;
+  font: 600 max(12px, 2.4cqw)/1 var(--font-body);
+  text-decoration: none;
+  transform-origin: top center;
+  animation: talisman-sway 4s ease-in-out infinite alternate;
+}
+
+.talisman b { color: #b4233c; }
+.talisman:nth-child(2) { animation-delay: -1s; padding-bottom: 4.3cqw; }
+.talisman:nth-child(3) { animation-delay: -2s; padding-bottom: 3.6cqw; }
+.talisman:nth-child(4) { animation-delay: -3s; }
+
+.talisman:hover,
+.talisman:focus-visible {
+  background: #fff;
+  box-shadow: 0 0 3cqw #fff, 0 0 2cqw var(--plum);
+}
+
+.talisman:focus-visible { outline: 3px solid var(--qi); outline-offset: 2px; }
+
+@keyframes talisman-sway {
+  from { transform: rotate(-3deg); }
+  to   { transform: rotate(3deg); }
+}
+
+.brush--title {
+  position: absolute;
+  top: 31%;
+  right: 6%;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  font-size: 13cqw;
+  letter-spacing: 1cqw;
+}
+
+/* Soft scrim so the name block stays legible over snow. */
+.scene--cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 75% 34% at 22% 86%, #0b1430c0, transparent 72%);
+  pointer-events: none;
+}
+
+.cover-who {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  z-index: 2;
+  max-width: 64%;
+  text-shadow: 0 0.3cqw 2cqw #0b1430, 0 0 0.5cqw #0b1430;
+}
+
+.cover-who .label { font-size: max(10px, 2cqw); color: #ffd3e4; }
+
+.cover-who h1 {
+  margin: 1cqw 0 1.4cqw;
+  font: 800 6.3cqw/1.05 var(--font-display);
+  letter-spacing: 0.15cqw;
+}
+
+.cover-who .tagline { font: italic 600 max(14px, 3.1cqw)/1.3 var(--font-body); }
+
+/* --- Hero --- */
+.qi {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+}
+
+.qa {
+  fill: none;
+  stroke: url(#qi-arc);
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.qb ellipse { fill: var(--plum); }
+.qb-core { fill: var(--qi-core); }
+
+/* The sword arts draw themselves in as the panel scrolls into view. */
+@supports (animation-timeline: view()) {
+  .qa {
+    animation: qi-draw linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 45%;
+  }
+  .qa:nth-child(2n) { animation-range: entry 30% cover 50%; }
+  .qa:nth-child(3n) { animation-range: entry 40% cover 55%; }
+}
+
+@keyframes qi-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.scene--hero .narr--top { top: 3.5%; left: 4%; }
+.scene--hero .sfx { top: 40%; left: 3%; }
+
+.technique {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  z-index: 2;
+  text-align: right;
+}
+
+.technique .brush {
+  font-size: 11cqw;
+  background: linear-gradient(180deg, #fff 30%, var(--qi-core) 65%, var(--qi));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  filter: drop-shadow(0 0 1.6cqw var(--qi)) drop-shadow(0.5cqw 0.7cqw 0 #0b1030);
+}
+
+.technique-name {
+  margin-top: 1cqw;
+  font: 800 max(10px, 2cqw)/1.2 var(--font-display);
+  letter-spacing: 0.5cqw;
+  text-transform: uppercase;
+  color: var(--qi-core);
+  text-shadow: 0 0 1.3cqw var(--qi), 0 0.2cqw 0.6cqw #0b1030;
+}
+
+.technique code {
+  display: inline-block;
+  margin-top: 1.4cqw;
+  padding: 0.8cqw 1.5cqw;
+  background: var(--narr-bg);
+  border: 1px solid #ff8fbf88;
+  box-shadow: 0 0 2.6cqw #ff5c9a66;
+  color: #fff;
+  font: 600 max(11px, 2.2cqw)/1.2 var(--font-mono);
+}
+
+/* --- Cliff --- */
+.scene--cliff .narr--top { top: 6%; left: 4%; }
+.scene--cliff .narr--bottom { bottom: 6%; left: 4%; max-width: 46%; }
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .petals { display: none; }
+  .qa { animation: none; stroke-dashoffset: 0; }
+  .talisman { animation: none; }
 }
