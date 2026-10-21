@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guney Can Gokoglu (@gcg) | The Stealth Architect</title>
-  <meta name="description" content="Infrastructure reliability, scaleup leadership, and open-source craftsmanship since 2001. Solo Leveling / Manhwa personal portfolio for Guney Can Gokoglu (@gcg).">
+  <title>Guney Can Gokoglu (@gcg) · The Nameless Formation Master</title>
+  <meta name="description" content="Guney Can Gokoglu (@gcg): GNU/Linux since 2001, co-founder and CTO of Poltio. A Mount Hua webtoon chapter about the formations nobody noticed.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
@@ -14,776 +14,236 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
   <link rel="manifest" href="assets/favicons/manifest.json">
 
-  <!-- Immediate Theme Initializer -->
-  <script src="assets/js/theme-toggle.js"></script>
+  <!-- Apply a saved day/night choice before first paint -->
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme-preference');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 
-  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/manhwa.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="assets/js/theme-toggle.js" defer></script>
+  <script src="assets/js/petals.js" defer></script>
+  <script src="assets/js/glossary.js" defer></script>
 </head>
 <body>
 
-  <!-- Background Atmospheric Code Syntax Streams (Flanking Rails: Left & Right) -->
-  <div class="code-syntax-backdrop" aria-hidden="true">
-    <div class="code-stream-left">
-      <div class="code-block-unit" data-subsystem="hero">
-        <span class="subsystem-tag">// SUBSYSTEM: AWAKENING (RAILS)</span>
-<span class="code-comment">// Ruby on Rails &bull; Early Awakening (~2008)</span>
-<span class="code-kw">class</span> <span class="code-type">CreateHunterProfile</span> &lt; <span class="code-type">ActiveRecord::Migration</span>
-  <span class="code-kw">def</span> <span class="code-fn">change</span>
-    <span class="code-fn">create_table</span> <span class="code-str">:hunters</span> <span class="code-kw">do</span> |t|
-      t.<span class="code-fn">string</span>  <span class="code-str">:handle</span>, <span class="code-type">default:</span> <span class="code-str">"@gcg"</span>
-      t.<span class="code-fn">integer</span> <span class="code-str">:years_active</span>, <span class="code-type">default:</span> 23
-      t.<span class="code-fn">string</span>  <span class="code-str">:distro</span>, <span class="code-type">default:</span> <span class="code-str">"Fedora"</span>
-      t.<span class="code-fn">timestamps</span>
-    <span class="code-kw">end</span>
-    <span class="code-fn">add_index</span> <span class="code-str">:hunters</span>, <span class="code-str">:handle</span>, <span class="code-type">unique:</span> <span class="code-kw">true</span>
-  <span class="code-kw">end</span>
-<span class="code-kw">end</span>
-      </div>
-
-      <div class="code-block-unit" data-subsystem="poltio">
-        <span class="subsystem-tag">// SUBSYSTEM: POLTIO CORE (LARAVEL)</span>
-<span class="code-comment">// PHP &amp; Laravel &bull; Poltio Stealth Engine (~2014)</span>
-<span class="code-kw">&lt;?php</span>
-<span class="code-kw">namespace</span> App\Infrastructure\Guardian;
-
-<span class="code-kw">use</span> Illuminate\Support\Facades\Route;
-
-<span class="code-type">Route</span>::<span class="code-fn">middleware</span>([<span class="code-str">'uptime:99.999'</span>, <span class="code-str">'stealth:true'</span>])-&gt;<span class="code-fn">group</span>(<span class="code-kw">function</span> () {
-    <span class="code-type">ClusterPool</span>::<span class="code-fn">maintainZeroDowntime</span>();
-    <span class="code-type">Shield</span>::<span class="code-fn">preventClientNoticing</span>();
-});
-      </div>
-
-      <div class="code-block-unit" data-subsystem="artifacts">
-        <span class="subsystem-tag">// SUBSYSTEM: BEAM RUNTIME (GLEAM)</span>
-<span class="code-comment">// Gleam &bull; Functional BEAM Hobby</span>
-<span class="code-kw">import</span> gleam/result
-<span class="code-kw">import</span> gleam/otp/actor
-
-<span class="code-kw">pub type</span> <span class="code-type">ServerState</span> {
-  Active(uptime_years: <span class="code-type">Int</span>)
-  Optimal
-}
-
-<span class="code-kw">pub fn</span> <span class="code-fn">maintain_pulse</span>(state: <span class="code-type">ServerState</span>) -&gt; <span class="code-type">actor.Next</span>(<span class="code-type">ServerState</span>) {
-  state
-  |&gt; <span class="code-fn">verify_cluster</span>
-  |&gt; <span class="code-fn">ensure_zero_downtime</span>
-}
-      </div>
-
-      <div class="code-block-unit" data-subsystem="chronicles">
-        <span class="subsystem-tag">// SUBSYSTEM: WARP RIG (NEOVIM LUA)</span>
-<span class="code-comment">-- Neovim &bull; Custom Lua Keybindings &amp; LSP</span>
-<span class="code-kw">local</span> opt = vim.opt
-<span class="code-kw">local</span> keymap = vim.keymap.set
-
-opt.relativenumber = <span class="code-kw">true</span>
-opt.termguicolors = <span class="code-kw">true</span>
-keymap(<span class="code-str">"n"</span>, <span class="code-str">"&lt;leader&gt;pv"</span>, vim.cmd.Ex)
-keymap(<span class="code-str">"n"</span>, <span class="code-str">"&lt;leader&gt;ff"</span>, <span class="code-str">"&lt;cmd&gt;Telescope find_files&lt;cr&gt;"</span>)
-      </div>
-    </div>
-
-    <div class="code-stream-right">
-      <div class="code-block-unit" data-subsystem="timelines">
-        <span class="subsystem-tag">// SUBSYSTEM: INFRA MATRIX (LINUX)</span>
-<span class="code-comment">// Linux Journey &bull; Bare-Metal to Cloud</span>
-<span class="code-cmd">$</span> <span class="code-kw">sudo</span> dnf upgrade --refresh -y  <span class="code-comment"># Fedora (No Arch btw)</span>
-<span class="code-cmd">$</span> ip link set eth0 up mtu 9000   <span class="code-comment"># 10Gbps Bare-Metal Racking</span>
-<span class="code-cmd">$</span> ethtool -s eth0 speed 10000 duplex full
-<span class="code-cmd">$</span> uname -r  <span class="code-comment"># 6.x-zenith</span>
-      </div>
-
-      <div class="code-block-unit" data-subsystem="poltio">
-        <span class="subsystem-tag">// SUBSYSTEM: CONCURRENCY MESH (GO)</span>
-<span class="code-comment">// Go &bull; Concurrency &amp; Microservices (~2017)</span>
-<span class="code-kw">package</span> cluster
-
-<span class="code-kw">import</span> (
-    <span class="code-str">"context"</span>
-    <span class="code-str">"time"</span>
-)
-
-<span class="code-kw">func</span> <span class="code-fn">OrchestrateInfra</span>(ctx context.Context, m *<span class="code-type">Mesh</span>) {
-    <span class="code-kw">go</span> <span class="code-kw">func</span>() {
-        ticker := time.<span class="code-fn">NewTicker</span>(time.Second)
-        <span class="code-kw">for</span> {
-            <span class="code-kw">select</span> {
-            <span class="code-kw">case</span> &lt;-ctx.<span class="code-fn">Done</span>():
-                m.<span class="code-fn">DrainGracefully</span>()
-                <span class="code-kw">return</span>
-            <span class="code-kw">case</span> &lt;-ticker.C:
-                m.<span class="code-fn">KeepStealth</span>()
-            }
-        }
-    }()
-}
-      </div>
-
-      <div class="code-block-unit" data-subsystem="artifacts">
-        <span class="subsystem-tag">// SUBSYSTEM: MOBILE FORGE (KOTLIN)</span>
-<span class="code-comment">// Android &bull; Jetpack Compose &amp; Coroutines</span>
-<span class="code-kw">class</span> <span class="code-type">ArtifactViewModel</span> : <span class="code-type">ViewModel</span>() {
-  <span class="code-kw">val</span> uiState = <span class="code-fn">MutableStateFlow</span>(<span class="code-type">HunterState</span>.Idle)
-
-  <span class="code-kw">fun</span> <span class="code-fn">dispatchSync</span>() = viewModelScope.<span class="code-fn">launch</span> {
-    _state.<span class="code-fn">update</span> { it.<span class="code-fn">copy</span>(online = <span class="code-kw">true</span>) }
-  }
-}
-      </div>
-
-      <div class="code-block-unit" data-subsystem="chronicles">
-        <span class="subsystem-tag">// SUBSYSTEM: CLOUD ORCHESTRATION (TERRAFORM)</span>
-<span class="code-comment"># Terraform Hyperscale (AWS &amp; GCP)</span>
-<span class="code-kw">resource</span> <span class="code-str">"google_container_cluster"</span> <span class="code-str">"core"</span> {
-  name     = <span class="code-str">"poltio-infra"</span>
-  location = <span class="code-str">"europe-west1"</span>
-  initial_node_count = 12
-
-  node_config {
-    machine_type = <span class="code-str">"c2-standard-16"</span>
-    oauth_scopes = [<span class="code-str">"cloud-platform"</span>]
-  }
-}
-      </div>
-    </div>
+  <div class="backdrop" aria-hidden="true">
+    <img class="art art--day" src="assets/img/art/backdrop-day.webp" alt="" loading="lazy" decoding="async">
+    <img class="art art--night" src="assets/img/art/backdrop-night.webp" alt="" loading="lazy" decoding="async">
   </div>
+  <div id="petals-back" class="petals" aria-hidden="true"></div>
 
-  <!-- Sticky Top Hunter HUD Nav -->
-  <header class="hunter-hud-nav">
-    <div class="hud-nav-inner">
-      <div class="hud-status-indicator">
-        <span class="pulse-dot"></span>
-        <span class="system-tag">[SYSTEM: ONLINE]</span>
-      </div>
+  <aside class="side-rail" aria-hidden="true" lang="zh">华山 · 无名阵师</aside>
 
-      <div class="hud-actions">
-        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        </button>
-        <!-- Rotating @gcg Social Beacon -->
-        <div id="rotating-social-beacon"></div>
-      </div>
-    </div>
-  </header>
+  <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch between day and night">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+  </button>
 
-  <!-- Vertical Webtoon Scroll Episode -->
-  <main class="webtoon-scroll">
+  <main class="strip">
 
-    <!-- Prologue: The Hunter Awakening (Hero Section) -->
-    <section class="hero-section reveal-on-scroll" data-subsystem="hero">
-      <div class="system-alert-banner">
-        <span class="alert-icon">&#9670;</span>
-        <span>[SYSTEM NOTIFICATION: PLAYER 001 CONNECTED &mdash; ARCHITECT ACTIVE]</span>
-      </div>
-
-      <div class="system-window">
-        <div class="window-header">
-          <span class="window-title">&#9671; Hunter Status Dossier</span>
-          <span class="window-badge">QUEST PROLOGUE</span>
-        </div>
-
-        <div class="hunter-profile-grid">
-          <!-- Hunter Portrait & Holographic Scanline Frame -->
-          <div class="portrait-wrapper">
-            <div class="portrait-frame portrait-container" title="Click to trigger holographic scanner">
-              <img src="assets/img/gcg.jpg" alt="Guney Can Gokoglu" class="portrait-img">
-              <div class="scanline-overlay"></div>
-              <div class="rank-pill">RANK S &bull; ARCHITECT</div>
-            </div>
-          </div>
-
-          <!-- Hunter Identification & Lore -->
-          <div class="hunter-details">
-            <div class="hunter-headline">
-              <span class="player-title-tag">The Stealth Guardian</span>
-              <h1 class="hunter-name">Guney Can Gokoglu</h1>
-              <div class="hunter-class-badge">&#9733; CLASS: STEALTH ARCHITECT &bull; CO-FOUNDER &amp; CTO</div>
-            </div>
-
-            <p class="hunter-lore-bio">
-              A computer nerd tinkering with software, hardware, and networks since <strong>2001</strong>. 
-              Maintains servers, designs resilient infrastructures, crafts mobile apps, and engineers automations. 
-              Operating in the shadows so systems never stumble and nobody ever has to notice.
-            </p>
-
-            <!-- Dynamic Counter Metrics -->
-            <div class="stat-counters-row">
-              <div class="stat-metric-card">
-                <span class="stat-number counter-val" data-target-val="99.999" data-format="percent">0%</span>
-                <span class="stat-label">System Uptime</span>
-              </div>
-              <div class="stat-metric-card">
-                <span class="stat-number counter-val" data-target-val="12" data-format="int">0</span>
-                <span class="stat-label">Years at Poltio</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- 1 · Cover -->
+    <section class="scene scene--cover" aria-labelledby="cover-name">
+      <img class="art art--day" src="assets/img/art/cover-day.webp" alt="" fetchpriority="high" decoding="async">
+      <img class="art art--night" src="assets/img/art/cover-night.webp" alt="" loading="lazy" decoding="async">
+      <nav class="talismans" aria-label="@gcg elsewhere">
+        <a class="talisman" href="https://github.com/gcg">github <b>@gcg</b></a>
+        <a class="talisman" href="https://twitter.com/gcg">x <b>@gcg</b></a>
+        <a class="talisman" href="https://instagram.com/gcg">insta <b>@gcg</b></a>
+        <a class="talisman" href="https://phpc.social/@gcg" rel="me">mastodon <b>@gcg</b></a>
+      </nav>
+      <p class="brush brush--title" lang="zh">无名阵师</p>
+      <div class="cover-who">
+        <p class="label">The Nameless Formation Master</p>
+        <h1 id="cover-name">Guney Can Gokoglu</h1>
+        <p class="tagline">If you saw me fight, I didn't prepare enough.</p>
       </div>
     </section>
 
-    <!-- Webtoon Episode Gutter -->
-    <div class="manhwa-gutter" aria-hidden="true">
-      <span class="gutter-badge">CHAPTER 01 &bull; SKILLS &amp; TRAITS</span>
-    </div>
-
-    <!-- Chapter 1: Skills & Traits, Full-Spectrum Infra & The Two Timelines -->
-    <section class="reveal-on-scroll" data-subsystem="timelines">
-      <div class="system-window">
-        <div class="window-header">
-          <span class="window-title">&#9671; Skills &amp; Traits</span>
-          <span class="comic-sfx">[AWAKEN]</span>
-        </div>
-
-        <div class="chapter-badge-wrap">
-          <span class="chapter-number">Episode 01</span>
-          <span class="window-badge">SKILLS &amp; TRAITS</span>
-        </div>
-
-        <!-- Full-Spectrum Infrastructure Trait -->
-        <div class="infra-spectrum-box">
-          <div class="infra-spectrum-title">&#9881; Skill Trait: Full-Spectrum Infrastructure Mastery</div>
-          <div class="infra-spectrum-scale">
-            <div class="infra-pole">
-              <span class="pole-level">L1 &bull; Physical Bare-Metal</span>
-              <span class="pole-desc">Crimping ethernet cables, configuring physical routers, racking switches, and maintaining on-premise server hardware.</span>
-            </div>
-            <div class="spectrum-connector">&harr;</div>
-            <div class="infra-pole">
-              <span class="pole-level">L7 &bull; Cloud Hyperscale</span>
-              <span class="pole-desc">Architecting, automating, and scaling multi-region, resilient cloud infrastructure on <strong>AWS</strong> and <strong>Google Cloud</strong>.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Timeline 1: Distro Traits -->
-        <div class="timeline-block">
-          <div class="timeline-title">
-            <span>&#9654; Distro Traits (Path of the Penguin)</span>
-            <span class="comic-sfx" style="font-size: 0.8rem;">[FEDORA FOREVER]</span>
-          </div>
-          <div class="timeline-track">
-            <div class="timeline-node">
-              <div class="node-epoch">GENESIS &bull; 3-4 YRS</div>
-              <div class="node-name">Ubuntu</div>
-              <div class="node-desc">The gateway distro. Discovering Linux and first production servers.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">CRUCIBLE &bull; 5 YRS</div>
-              <div class="node-name">Gentoo</div>
-              <div class="node-desc">Custom kernel tuning, compiling everything from source code.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">ROLLING &bull; 5 YRS</div>
-              <div class="node-name">Arch Linux</div>
-              <div class="node-desc">Living on the bleeding-edge rolling release. <em>"I used Arch btw."</em></div>
-            </div>
-            <div class="timeline-node current-stage">
-              <div class="node-epoch">CURRENT &bull; EVER SINCE</div>
-              <div class="node-name">Fedora</div>
-              <div class="node-desc">The battle-tested daily driver workstation &amp; server OS. <strong>Sorry, no Arch btw.</strong></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Timeline 2: Language Skills -->
-        <div class="timeline-block">
-          <div class="timeline-title">&#9654; Language Skills (The Grimoire)</div>
-          <div class="timeline-track">
-            <div class="timeline-node">
-              <div class="node-epoch">EARLY DAYS</div>
-              <div class="node-name">Ruby on Rails</div>
-              <div class="node-desc">Crafting expressive web applications during the golden era.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">~2008</div>
-              <div class="node-name">PHP</div>
-              <div class="node-desc">Pragmatic, resilient backend workhorses powering the web.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">~2014 &bull; BELOVED</div>
-              <div class="node-name">Laravel</div>
-              <div class="node-desc">Immediate love for expressive syntax, architecture, and superb DX.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">~2017 &bull; HIGH SCALE</div>
-              <div class="node-name">Go</div>
-              <div class="node-desc">Heavy artillery for concurrency, speed, and backend microservices.</div>
-            </div>
-            <div class="timeline-node">
-              <div class="node-epoch">~2 YRS AGO &bull; HOBBY</div>
-              <div class="node-name">Gleam</div>
-              <div class="node-desc">Type-safe functional joy on the Erlang BEAM runtime.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Passive Skill Window -->
-        <div class="passive-skill-card">
-          <div class="skill-header">
-            <span class="skill-title">&#9889; [Passive Skill: Zero-Downtime Observer]</span>
-            <span class="skill-type">S-RANK PASSIVE</span>
-          </div>
-          <p class="skill-quote">
-            &ldquo;You maintain servers and cloud systems with such flawless reliability that coworkers and clients never even notice your existence.&rdquo;
-          </p>
-        </div>
+    <!-- 2 · Hero -->
+    <section class="scene scene--hero" aria-label="Plum Blossom Sword Art">
+      <img class="art art--day" src="assets/img/art/hero-day.webp" alt="A cultivator seen from behind on a snowy Mount Hua peak, sword lowered, plum blossoms bursting" loading="lazy" decoding="async">
+      <img class="art art--night" src="assets/img/art/hero-night.webp" alt="A cultivator seen from behind on a snowy Mount Hua peak, sword lowered, plum blossoms bursting" loading="lazy" decoding="async">
+      <svg class="qi" viewBox="0 0 896 1200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="qi-arc" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" style="stop-color:var(--qi);stop-opacity:0"/><stop offset=".45" style="stop-color:var(--qi)"/><stop offset=".6" style="stop-color:var(--qi-core)"/><stop offset="1" style="stop-color:var(--qi);stop-opacity:0"/>
+        </linearGradient>
+        <filter id="qi-bloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="qi-bloom-s" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g class="qi-arcs" filter="url(#qi-bloom)"><path class="qa" pathLength="1" d="M621 806 A 83 51 0 0 1 778 791" stroke-width="12.4"/><path class="qa" pathLength="1" d="M581 823 A 123 76 0 0 1 785 755" stroke-width="10.4"/><path class="qa" pathLength="1" d="M554 855 A 163 101 0 0 1 782 722" stroke-width="6.6"/><path class="qa" pathLength="1" d="M500 808 A 203 126 0 0 1 776 692" stroke-width="9.9"/><path class="qa" pathLength="1" d="M469 855 A 243 151 0 0 1 785 668" stroke-width="12.3"/><path class="qa" pathLength="1" d="M448 741 A 283 175 0 0 1 971 758" stroke-width="10.2"/><path class="qa" pathLength="1" d="M538 647 A 323 200 0 0 1 990 722" stroke-width="7.6"/><path class="qa" pathLength="1" d="M365 735 A 363 225 0 0 1 812 594" stroke-width="13.7"/></g>
+      <g class="qi-blossoms" filter="url(#qi-bloom-s)"><g class="qb"><ellipse cx="637" cy="771" rx="6.3" ry="5.2" transform="rotate(30 637 771)"/><ellipse cx="630" cy="774" rx="6.3" ry="5.2" transform="rotate(102 630 774)"/><ellipse cx="624" cy="768" rx="6.3" ry="5.2" transform="rotate(174 624 768)"/><ellipse cx="628" cy="762" rx="6.3" ry="5.2" transform="rotate(246 628 762)"/><ellipse cx="636" cy="763" rx="6.3" ry="5.2" transform="rotate(318 636 763)"/><circle cx="631" cy="768" r="3.4" class="qb-core"/></g><g class="qb"><ellipse cx="736" cy="886" rx="5.5" ry="4.6" transform="rotate(5 736 886)"/><ellipse cx="732" cy="891" rx="5.5" ry="4.6" transform="rotate(77 732 891)"/><ellipse cx="725" cy="888" rx="5.5" ry="4.6" transform="rotate(149 725 888)"/><ellipse cx="726" cy="881" rx="5.5" ry="4.6" transform="rotate(221 726 881)"/><ellipse cx="733" cy="880" rx="5.5" ry="4.6" transform="rotate(293 733 880)"/><circle cx="730" cy="885" r="3.0" class="qb-core"/></g><g class="qb"><ellipse cx="494" cy="760" rx="3.3" ry="2.8" transform="rotate(63 494 760)"/><ellipse cx="490" cy="760" rx="3.3" ry="2.8" transform="rotate(135 490 760)"/><ellipse cx="489" cy="755" rx="3.3" ry="2.8" transform="rotate(207 489 755)"/><ellipse cx="493" cy="753" rx="3.3" ry="2.8" transform="rotate(279 493 753)"/><ellipse cx="496" cy="756" rx="3.3" ry="2.8" transform="rotate(351 496 756)"/><circle cx="492" cy="757" r="1.8" class="qb-core"/></g><g class="qb"><ellipse cx="806" cy="837" rx="7.2" ry="6.0" transform="rotate(16 806 837)"/><ellipse cx="798" cy="843" rx="7.2" ry="6.0" transform="rotate(88 798 843)"/><ellipse cx="791" cy="837" rx="7.2" ry="6.0" transform="rotate(160 791 837)"/><ellipse cx="793" cy="829" rx="7.2" ry="6.0" transform="rotate(232 793 829)"/><ellipse cx="802" cy="828" rx="7.2" ry="6.0" transform="rotate(304 802 828)"/><circle cx="798" cy="835" r="3.9" class="qb-core"/></g><g class="qb"><ellipse cx="491" cy="891" rx="4.5" ry="3.7" transform="rotate(36 491 891)"/><ellipse cx="486" cy="893" rx="4.5" ry="3.7" transform="rotate(108 486 893)"/><ellipse cx="483" cy="888" rx="4.5" ry="3.7" transform="rotate(180 483 888)"/><ellipse cx="486" cy="883" rx="4.5" ry="3.7" transform="rotate(252 486 883)"/><ellipse cx="491" cy="885" rx="4.5" ry="3.7" transform="rotate(324 491 885)"/><circle cx="487" cy="888" r="2.4" class="qb-core"/></g><g class="qb"><ellipse cx="487" cy="814" rx="3.1" ry="2.6" transform="rotate(59 487 814)"/><ellipse cx="483" cy="813" rx="3.1" ry="2.6" transform="rotate(131 483 813)"/><ellipse cx="482" cy="809" rx="3.1" ry="2.6" transform="rotate(203 482 809)"/><ellipse cx="486" cy="807" rx="3.1" ry="2.6" transform="rotate(275 486 807)"/><ellipse cx="489" cy="810" rx="3.1" ry="2.6" transform="rotate(347 489 810)"/><circle cx="485" cy="811" r="1.7" class="qb-core"/></g><g class="qb"><ellipse cx="678" cy="871" rx="5.5" ry="4.6" transform="rotate(59 678 871)"/><ellipse cx="671" cy="870" rx="5.5" ry="4.6" transform="rotate(131 671 870)"/><ellipse cx="669" cy="864" rx="5.5" ry="4.6" transform="rotate(203 669 864)"/><ellipse cx="675" cy="860" rx="5.5" ry="4.6" transform="rotate(275 675 860)"/><ellipse cx="681" cy="865" rx="5.5" ry="4.6" transform="rotate(347 681 865)"/><circle cx="675" cy="866" r="3.0" class="qb-core"/></g><g class="qb"><ellipse cx="559" cy="717" rx="4.9" ry="4.1" transform="rotate(16 559 717)"/><ellipse cx="554" cy="720" rx="4.9" ry="4.1" transform="rotate(88 554 720)"/><ellipse cx="549" cy="717" rx="4.9" ry="4.1" transform="rotate(160 549 717)"/><ellipse cx="551" cy="711" rx="4.9" ry="4.1" transform="rotate(232 551 711)"/><ellipse cx="557" cy="711" rx="4.9" ry="4.1" transform="rotate(304 557 711)"/><circle cx="554" cy="715" r="2.7" class="qb-core"/></g><g class="qb"><ellipse cx="572" cy="737" rx="3.3" ry="2.8" transform="rotate(9 572 737)"/><ellipse cx="569" cy="740" rx="3.3" ry="2.8" transform="rotate(81 569 740)"/><ellipse cx="565" cy="739" rx="3.3" ry="2.8" transform="rotate(153 565 739)"/><ellipse cx="566" cy="734" rx="3.3" ry="2.8" transform="rotate(225 566 734)"/><ellipse cx="570" cy="734" rx="3.3" ry="2.8" transform="rotate(297 570 734)"/><circle cx="568" cy="737" r="1.8" class="qb-core"/></g><g class="qb"><ellipse cx="718" cy="890" rx="7.9" ry="6.6" transform="rotate(27 718 890)"/><ellipse cx="709" cy="895" rx="7.9" ry="6.6" transform="rotate(99 709 895)"/><ellipse cx="701" cy="888" rx="7.9" ry="6.6" transform="rotate(171 701 888)"/><ellipse cx="706" cy="879" rx="7.9" ry="6.6" transform="rotate(243 706 879)"/><ellipse cx="716" cy="880" rx="7.9" ry="6.6" transform="rotate(315 716 880)"/><circle cx="710" cy="887" r="4.3" class="qb-core"/></g><g class="qb"><ellipse cx="809" cy="959" rx="5.2" ry="4.3" transform="rotate(39 809 959)"/><ellipse cx="803" cy="961" rx="5.2" ry="4.3" transform="rotate(111 803 961)"/><ellipse cx="799" cy="955" rx="5.2" ry="4.3" transform="rotate(183 799 955)"/><ellipse cx="804" cy="950" rx="5.2" ry="4.3" transform="rotate(255 804 950)"/><ellipse cx="810" cy="953" rx="5.2" ry="4.3" transform="rotate(327 810 953)"/><circle cx="805" cy="956" r="2.8" class="qb-core"/></g><g class="qb"><ellipse cx="551" cy="850" rx="5.3" ry="4.5" transform="rotate(33 551 850)"/><ellipse cx="544" cy="852" rx="5.3" ry="4.5" transform="rotate(105 544 852)"/><ellipse cx="540" cy="847" rx="5.3" ry="4.5" transform="rotate(177 540 847)"/><ellipse cx="544" cy="841" rx="5.3" ry="4.5" transform="rotate(249 544 841)"/><ellipse cx="550" cy="843" rx="5.3" ry="4.5" transform="rotate(321 550 843)"/><circle cx="546" cy="846" r="2.9" class="qb-core"/></g><g class="qb"><ellipse cx="610" cy="696" rx="4.4" ry="3.7" transform="rotate(71 610 696)"/><ellipse cx="605" cy="694" rx="4.4" ry="3.7" transform="rotate(143 605 694)"/><ellipse cx="605" cy="689" rx="4.4" ry="3.7" transform="rotate(215 605 689)"/><ellipse cx="610" cy="687" rx="4.4" ry="3.7" transform="rotate(287 610 687)"/><ellipse cx="613" cy="691" rx="4.4" ry="3.7" transform="rotate(359 613 691)"/><circle cx="609" cy="691" r="2.4" class="qb-core"/></g><g class="qb"><ellipse cx="432" cy="923" rx="4.8" ry="4.0" transform="rotate(41 432 923)"/><ellipse cx="426" cy="925" rx="4.8" ry="4.0" transform="rotate(113 426 925)"/><ellipse cx="423" cy="919" rx="4.8" ry="4.0" transform="rotate(185 423 919)"/><ellipse cx="427" cy="915" rx="4.8" ry="4.0" transform="rotate(257 427 915)"/><ellipse cx="433" cy="917" rx="4.8" ry="4.0" transform="rotate(329 433 917)"/><circle cx="428" cy="920" r="2.6" class="qb-core"/></g><g class="qb"><ellipse cx="593" cy="760" rx="3.3" ry="2.8" transform="rotate(54 593 760)"/><ellipse cx="589" cy="760" rx="3.3" ry="2.8" transform="rotate(126 589 760)"/><ellipse cx="587" cy="756" rx="3.3" ry="2.8" transform="rotate(198 587 756)"/><ellipse cx="591" cy="754" rx="3.3" ry="2.8" transform="rotate(270 591 754)"/><ellipse cx="594" cy="756" rx="3.3" ry="2.8" transform="rotate(342 594 756)"/><circle cx="591" cy="757" r="1.8" class="qb-core"/></g><g class="qb"><ellipse cx="691" cy="886" rx="7.3" ry="6.1" transform="rotate(43 691 886)"/><ellipse cx="681" cy="888" rx="7.3" ry="6.1" transform="rotate(115 681 888)"/><ellipse cx="677" cy="879" rx="7.3" ry="6.1" transform="rotate(187 677 879)"/><ellipse cx="683" cy="872" rx="7.3" ry="6.1" transform="rotate(259 683 872)"/><ellipse cx="692" cy="876" rx="7.3" ry="6.1" transform="rotate(331 692 876)"/><circle cx="685" cy="880" r="4.0" class="qb-core"/></g></g>
+    </svg>
+      <p class="narr narr--top">Tallinn, in winter.<br>Twenty-five years since the first install.</p>
+      <p class="sfx" lang="zh" aria-hidden="true">唰!!</p>
+      <div class="technique">
+        <p class="brush" lang="zh">梅花剑法</p>
+        <p class="technique-name">Plum Blossom Sword Art · Form 25</p>
+        <code>$ sudo dnf upgrade --refresh</code>
       </div>
     </section>
 
-    <!-- Webtoon Episode Gutter -->
-    <div class="manhwa-gutter" aria-hidden="true">
-      <span class="gutter-badge">CHAPTER 02 &bull; THE 12-YEAR RAID</span>
-    </div>
+    <!-- 3 · Sect registry -->
+    <section class="panel registry" aria-labelledby="registry-title">
+      <header class="registry-head">
+        <p class="label">Sect registry</p>
+        <h2 id="registry-title"><span lang="zh">修士</span> · Cultivator</h2>
+      </header>
+      <dl class="registry-rows">
+        <dt>Name</dt><dd>Guney Can Gokoglu · @gcg</dd>
+        <dt>Dao</dt><dd>Formation Master · System Architect</dd>
+        <dt>Sect</dt><dd>Poltio</dd>
+        <dt>Rank</dt><dd>Co-founder &amp; CTO</dd>
+        <dt>Sword forms</dt>
+        <dd>
+          <ol class="forms">
+            <li><b lang="zh" aria-hidden="true">一</b>Ruby</li>
+            <li><b lang="zh" aria-hidden="true">二</b>PHP</li>
+            <li><b lang="zh" aria-hidden="true">三</b>Laravel</li>
+            <li><b lang="zh" aria-hidden="true">四</b>Go</li>
+            <li><b lang="zh" aria-hidden="true">五</b>Gleam</li>
+          </ol>
+        </dd>
+      </dl>
+      <svg class="realm" viewBox="0 0 560 300" aria-hidden="true" focusable="false">
+        <path class="realm-mountain" d="M0 290 L120 230 L210 170 L300 100 L360 60 L395 30 L430 55 L470 120 L520 170 L560 200 L560 300 L0 300Z"/>
+        <path class="realm-path" d="M20 280 C 60 270, 70 255, 70 250 S 150 205, 180 190 S 260 140, 290 120 S 370 70, 390 52"/>
+        <circle class="realm-stop" cx="70" cy="250" r="9"/>
+        <text class="realm-zh" x="88" y="246" lang="zh">练气</text><text class="realm-en" x="88" y="264">Ubuntu · <tspan class="realm-yrs">3–4 yrs</tspan></text>
+        <circle class="realm-stop" cx="180" cy="190" r="9"/>
+        <text class="realm-zh" x="198" y="186" lang="zh">筑基</text><text class="realm-en" x="198" y="204">Gentoo · <tspan class="realm-yrs">5 yrs</tspan></text>
+        <circle class="realm-stop" cx="290" cy="120" r="9"/>
+        <text class="realm-zh" x="308" y="116" lang="zh">金丹</text><text class="realm-en" x="308" y="134">Arch · <tspan class="realm-yrs">5 yrs, btw</tspan></text>
+        <circle class="realm-stop realm-stop--now" cx="390" cy="52" r="13"/>
+        <text class="realm-zh" x="370" y="40" text-anchor="end" lang="zh">元婴</text><text class="realm-en" x="370" y="58" text-anchor="end">Fedora · <tspan class="realm-yrs">current realm</tspan></text>
+        <g class="realm-blossom" transform="translate(398 30)"><circle cx="0" cy="-5" r="4.5"/><circle cx="4.8" cy="-1.5" r="4.5"/><circle cx="3" cy="4" r="4.5"/><circle cx="-3" cy="4" r="4.5"/><circle cx="-4.8" cy="-1.5" r="4.5"/><circle class="realm-blossom-core" r="2.4"/></g>
+      </svg>
+      <ol class="realm-list" aria-label="Cultivation realms">
+        <li><span lang="zh" aria-hidden="true">练气</span> <span class="visually-hidden">Qi Refining:</span> Ubuntu · <i>3–4 yrs</i></li>
+        <li><span lang="zh" aria-hidden="true">筑基</span> <span class="visually-hidden">Foundation Establishment:</span> Gentoo · <i>5 yrs</i></li>
+        <li><span lang="zh" aria-hidden="true">金丹</span> <span class="visually-hidden">Golden Core:</span> Arch · <i>5 yrs, btw</i></li>
+        <li class="now"><span lang="zh" aria-hidden="true">元婴</span> <span class="visually-hidden">Nascent Soul:</span> Fedora · <i>current realm</i></li>
+      </ol>
+    </section>
 
-    <!-- Chapter 2: The 12-Year Raid — Poltio -->
-    <section class="reveal-on-scroll" data-subsystem="poltio">
-      <div class="system-window monarch-tier">
-        <div class="window-header">
-          <span class="window-title">&#9671; Guild Raid Chronicle: Poltio</span>
-          <span class="comic-sfx monarch">[BOSS RAID]</span>
-        </div>
+    <!-- 4 · Main arc: the Poltio Sect -->
+    <section class="panel arc" aria-labelledby="arc-title">
+      <p class="label">Main arc · 2014 — now</p>
+      <p class="brush arc-brush" lang="zh">第二卷 · 立宗</p>
+      <h2 id="arc-title">The Poltio Sect: Twelve Years</h2>
+      <a class="arc-link" href="https://www.poltio.com">poltio.com ↗</a>
+    </section>
 
-        <div class="chapter-badge-wrap">
-          <span class="chapter-number" style="color: var(--color-monarch);">Episode 02</span>
-          <span class="window-badge">CO-FOUNDER &amp; CTO</span>
-        </div>
-        <h2 class="chapter-heading">The 12-Year Scaleup Campaign</h2>
+    <!-- 4 · Cliff (continues the arc) -->
+    <section class="scene scene--cliff" aria-label="Twelve years ago">
+      <img class="art art--day" src="assets/img/art/cliff-day.webp" alt="The same cultivator seated on a cliff ledge, looking over a misty Mount Hua range" loading="lazy" decoding="async">
+      <img class="art art--night" src="assets/img/art/cliff-night.webp" alt="The same cultivator seated on a cliff ledge, looking over a misty Mount Hua range" loading="lazy" decoding="async">
+      <p class="narr narr--top">Twelve years ago, a sect was founded.</p>
+      <p class="narr narr--bottom">Some build a sect to be remembered. Others build one that simply never falls.</p>
+    </section>
 
-        <p class="raid-story-p">
-          For over <strong>12 years</strong>, I have served as <strong>Co-Founder and CTO at Poltio</strong>. 
-          From early-stage inception to enterprise-tier scale, my mission has been simple: engineer 
-          resilient architectures, prevent catastrophic failures, and ensure the platform delivers uninterrupted 
-          uptime to millions of users worldwide.
-        </p>
+    <!-- 5 · The Formation Master's Creed -->
+    <section class="panel creed" aria-labelledby="creed-title">
+      <p class="brush creed-vertical" lang="zh">善战者<br>无智名<br>无勇功</p>
+      <div class="creed-body">
+        <h2 id="creed-title" class="label">The Formation Master's Creed</h2>
+        <blockquote>
+          <p>“Those who fight well earn no fame for wisdom, and no credit for courage.”</p>
+          <cite>— Sun Tzu, <i>The Art of War</i>, IV</cite>
+        </blockquote>
+        <p class="creed-twist">The best formation is the one no disciple ever notices. Twelve years. Nobody noticed. That was the point.</p>
+      </div>
+    </section>
 
-        <p class="raid-story-p">
-          When infrastructure is designed properly, nothing catches fire, alerts remain silent, and everyone 
-          forgets who set it up. That is the highest badge of honor for a stealth architect.
-        </p>
-
-        <div class="raid-quest-box">
-          <div class="quest-info">
-            <div class="quest-label">Quest Completion Requirement</div>
-            <div class="quest-desc">Want to inspect the complete corporate raid log, leadership trajectory, and career milestones?</div>
-          </div>
-          <a href="https://www.linkedin.com/in/guneycan" target="_blank" rel="noopener noreferrer" class="cta-button monarch">
-            <span>View Dossier on LinkedIn &rarr;</span>
+    <!-- 6 · Treasure Pavilion -->
+    <section class="panel treasures" aria-labelledby="treasures-title">
+      <h2 id="treasures-title" class="label">Treasure Pavilion · Side projects</h2>
+      <ul class="treasure-grid">
+        <li>
+          <a class="treasure" href="https://github.com/gcg/mdwriter">
+            <span class="treasure-kind">Android artifact</span>
+            <span class="treasure-name">mdwriter</span>
+            <span class="treasure-desc">Distraction-free markdown notes.</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Webtoon Episode Gutter -->
-    <div class="manhwa-gutter" aria-hidden="true">
-      <span class="gutter-badge">CHAPTER 03 &bull; LATEST GEAR DROPS</span>
-    </div>
-
-    <!-- Chapter 3: Latest Gear Drops & The Lab (Android Apps + Classified Teaser) -->
-    <section class="reveal-on-scroll" data-subsystem="artifacts">
-      <div class="system-window">
-        <div class="window-header">
-          <span class="window-title">&#9671; Latest Gear Drops &amp; Inventory</span>
-          <span class="comic-sfx">[INVENTORY]</span>
-        </div>
-
-        <div class="chapter-badge-wrap">
-          <span class="chapter-number">Episode 03</span>
-          <span class="window-badge">GEAR DROPS &amp; LAB</span>
-        </div>
-        <h2 class="chapter-heading">Android Artifacts &amp; Inventions</h2>
-
-        <div class="artifact-grid">
-          <!-- Artifact 1: mdwriter -->
-          <div class="artifact-card">
-            <div class="artifact-header">
-              <span class="artifact-tier">Artifact I &bull; Utility</span>
-              <span class="window-badge">Android</span>
-            </div>
-            <h3 class="artifact-title">mdwriter</h3>
-            <p class="artifact-desc">
-              A streamlined, distraction-free markdown note-taking and writing application engineered for Android devices.
-            </p>
-            <a href="https://github.com/gcg/mdwriter" target="_blank" rel="noopener noreferrer" class="artifact-link">
-              <span>Inspect Source on GitHub &rarr;</span>
-            </a>
-          </div>
-
-          <!-- Artifact 2: wpchanger -->
-          <div class="artifact-card">
-            <div class="artifact-header">
-              <span class="artifact-tier">Artifact II &bull; Automation</span>
-              <span class="window-badge">Android</span>
-            </div>
-            <h3 class="artifact-title">wpchanger</h3>
-            <p class="artifact-desc">
-              Automated wallpaper switching utility for Android, refreshing device backgrounds seamlessly on schedule.
-            </p>
-            <a href="https://github.com/gcg/wpchanger" target="_blank" rel="noopener noreferrer" class="artifact-link">
-              <span>Inspect Source on GitHub &rarr;</span>
-            </a>
-          </div>
-
-          <!-- Artifact 3: Upcoming Social Messaging & Gaming App (Classified) -->
-          <div class="artifact-card classified">
-            <div class="artifact-header">
-              <span class="artifact-tier" style="color: var(--color-monarch);">Artifact III &bull; S-Rank Rare</span>
-              <span class="window-badge" style="color: var(--color-monarch); border-color: rgba(168,85,247,0.4);">In Forge</span>
-            </div>
-            <h3 class="artifact-title">[CLASSIFIED] Social &amp; Gaming</h3>
-            <p class="artifact-desc">
-              An upcoming social messaging and gaming hybrid platform currently under active development in the shadows.
-            </p>
-            <div class="vault-badge">
-              <span>&#128274; AWAKENING SOON</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 1.5rem;">
-          <a href="https://github.com/gcg" target="_blank" rel="noopener noreferrer" class="cta-button">
-            <span>Explore All Repositories on GitHub &rarr;</span>
+        </li>
+        <li>
+          <a class="treasure" href="https://github.com/gcg/wpchanger">
+            <span class="treasure-kind">Android artifact</span>
+            <span class="treasure-name">wpchanger</span>
+            <span class="treasure-desc">Wallpapers that rotate themselves.</span>
           </a>
-        </div>
-      </div>
+        </li>
+        <li class="treasure treasure--sealed">
+          <span class="seal-talisman" lang="zh" aria-hidden="true">封印</span>
+          <span class="treasure-kind">Sealed · opening soon</span>
+        </li>
+        <li class="treasure treasure--sealed">
+          <span class="seal-talisman" lang="zh" aria-hidden="true">封印</span>
+          <span class="treasure-kind">Sealed · opening soon</span>
+        </li>
+      </ul>
     </section>
 
-    <!-- Webtoon Episode Gutter -->
-    <div class="manhwa-gutter" aria-hidden="true">
-      <span class="gutter-badge">CHAPTER 04 &bull; QUEST LOGS</span>
-    </div>
-
-    <!-- Chapter 4: Hunter Chronicles & Archives (Blog Section) -->
-    <section id="hunter-chronicles" class="reveal-on-scroll" data-subsystem="chronicles">
-      <div class="system-window">
-        <div class="window-header">
-          <span class="window-title">&#9671; Quest Logs &amp; Adventure Archives</span>
-          <span class="comic-sfx">[DISPATCH]</span>
-        </div>
-
-        <div class="chapter-badge-wrap">
-          <span class="chapter-number">Episode 04</span>
-          <span class="window-badge">QUEST ARCHIVES</span>
-        </div>
-        <h2 class="chapter-heading">The Field Dispatches &amp; Quest Logs</h2>
-        <p class="raid-story-p">
-          Archived dispatches, developer philosophies, tool breakdowns, and year-by-year architectural reflections recorded across two decades of building.
-        </p>
-
-        <div class="chronicles-list">
-<!-- CHRONICLES_START -->
-        <!-- Chronicle: Technologies I Am Investing in 2024 -->
-        <article class="chronicle-card">
-          <header class="chronicle-header">
-            <div class="chronicle-meta">
-              <span class="chronicle-date">February 1, 2024</span>
-              <div class="chronicle-tags">
-                <span class="tag-pill">#neovim</span><span class="tag-pill">#laravel</span><span class="tag-pill">#echo</span><span class="tag-pill">#tailwind</span><span class="tag-pill">#github</span><span class="tag-pill">#kubernetes</span><span class="tag-pill">#go</span><span class="tag-pill">#lua</span>
-              </div>
-            </div>
-            <a href="posts/technologies-i-am-investing-in-2024/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">Technologies I Am Investing in 2024</h3>
-            </a>
-            <p class="chronicle-excerpt">
-              As it turns out, I am bad at blogging, who knew? (I knew, since like literally one of the first piece of code I wrote everytime I learn a new language/stack is a blog and I...
-            </p>
-          </header>
-
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <button class="chronicle-toggle-btn" type="button" aria-expanded="false" data-target="chronicle-technologies-i-am-investing-in-2024">
-              <span>Preview Chronicle</span>
-              <span class="toggle-icon">▾</span>
-            </button>
-            <a href="posts/technologies-i-am-investing-in-2024/" class="chronicle-toggle-btn" style="text-decoration: none; border-color: rgba(0, 229, 255, 0.4);" title="Open full chronicle on dedicated page">
-              <span>Open Full Chronicle</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-          <!-- Inline Preview Container -->
-          <div id="chronicle-technologies-i-am-investing-in-2024" class="chronicle-content" aria-hidden="true">
-            <div class="chronicle-prose">
-              <p>As it turns out, I am bad at blogging, who knew? (I knew, since like literally one of the first piece of code I wrote everytime I learn a new language/stack is a blog and I have a blog since 2oo3 but I am still hopeful like an idiot everytime I put up a new blog, I will write lots of posts.)</p>
-
-<p>But I think this is a good concept, like <a href="https://www.relay.fm/cortex/150" target="_blank" rel="noopener noreferrer">yearly themes</a>, setting some tech stacks as key points and some as goals is a good way for me personally to look back and see a good timeline.</p>
-
-<h4 id="i-love-apis-but-client-apps-suck">I love APIs but client apps suck.</h4>
-
-<p>I think first app I break apart from a single full stack monolith to a server side api + client side app was Poltio's social network application in 2015 or 2016.</p>
-
-<p>Back then the idea of having a client app where you can just keep as couple of static files (html, js and css) and host it on a very easy to scale storage buckets like AWS S3 was amazing. Like all good things, we put too much stuff in our client bundles and made everything more complex and worse.</p>
-
-<p>With how things going in client side worlds (eg: nextjs or remix), full stack applications coming back hard and they SHOULD. Like sending a HTML genrated dynamically on the server with minimal css and js required for that route is the best way for web applications.</p>
-
-<p>So after watching nextjs and remix.run re-discover basic http and web concepts 20+ years later for the last couple of years, I am completely giving up and removing react, vue and their hormonal fullstack counterparts from my stack.</p>
-
-<p>We (at Poltio) still have 2 nextjs applications running which I am in the process of replacing with a Laravel + Livewire application and our widgets still powered by Remix.run which will be harder to replace but not impossible.</p>
-
-<p>So no more next/remix for me, thanks for all the fish.</p>
-
-<h4 id="small-services">Small Services</h4>
-
-<p>I love devops, kubernetes and writing isolated services. But I don't like to overcomplicate things to the point where the small teams that I work with have more trouble understanding what the heck is going on. But since I use kubernetes like everywhere thesedays, creating and deploying a new service internally or externally is not a big deal.</p>
-
-<p>For those kind of services my language of choice is Go. I was planning on focusing more on Rust in 2023 but it didn't pan out like I hoped. I really love the desicions Go is making and I have more fun writing Go. Since the memory advantages that Rust has over Go doesn't impact any code I wrote, I get to stick with what I enjoy <3</p>
-
-<h4 id="lua-3">Lua &lt;3</h4>
-
-<p>I freaking LOVE lua. I started with it with neovim config but currently if I have 2 alternatives for an app, one uses lua for config/scriptting and other uses anything else (yaml/toml/etc), I choose the lua one. I love lua.</p>
-
-<p><a href="https://www.hammerspoon.org/" target="_blank" rel="noopener noreferrer">Hammerspoon</a> <a href="https://wezfurlong.org/wezterm/index.html" target="_blank" rel="noopener noreferrer">Wezterm</a> <a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">Neovim</a></p>
-
-<h4 id="llms-and-transformers-are-nfts-in-2024">LLMs and Transformers are NFTs in 2024</h4>
-
-<p>I love machine learning and ai, always have. But like the current bubble we are in where everybody talking about AI and using AI and worshipping AI is not a good place for AI. It gives crypto/nft vibes by people who have no idea about the actual technology but trying to ride the wave.</p>
-
-<p>I am wishing the trend dies down a bit so people who are working on building and training the llm models can go back to building useful stuff.</p>
-
-            </div>
-          </div>
-        </article>
-
-        <!-- Chronicle: Technologies I Am Investing in 2023 -->
-        <article class="chronicle-card">
-          <header class="chronicle-header">
-            <div class="chronicle-meta">
-              <span class="chronicle-date">January 3, 2023</span>
-              <div class="chronicle-tags">
-                <span class="tag-pill">#neovim</span><span class="tag-pill">#laravel</span><span class="tag-pill">#echo</span><span class="tag-pill">#tailwind</span><span class="tag-pill">#nextjs</span><span class="tag-pill">#remix.run</span><span class="tag-pill">#github</span><span class="tag-pill">#kubernetes</span><span class="tag-pill">#playwright</span><span class="tag-pill">#cassandra</span><span class="tag-pill">#typescript</span><span class="tag-pill">#rust</span><span class="tag-pill">#swiftui</span>
-              </div>
-            </div>
-            <a href="posts/technologies-i-am-investing-in-2023/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">Technologies I Am Investing in 2023</h3>
-            </a>
-            <p class="chronicle-excerpt">
-              So Ben Awad on Youtube makes a video every year to list out the technologies he is interested in learning and also how his past year went. You can see his last video from here:...
-            </p>
-          </header>
-
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <button class="chronicle-toggle-btn" type="button" aria-expanded="false" data-target="chronicle-technologies-i-am-investing-in-2023">
-              <span>Preview Chronicle</span>
-              <span class="toggle-icon">▾</span>
-            </button>
-            <a href="posts/technologies-i-am-investing-in-2023/" class="chronicle-toggle-btn" style="text-decoration: none; border-color: rgba(0, 229, 255, 0.4);" title="Open full chronicle on dedicated page">
-              <span>Open Full Chronicle</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-          <!-- Inline Preview Container -->
-          <div id="chronicle-technologies-i-am-investing-in-2023" class="chronicle-content" aria-hidden="true">
-            <div class="chronicle-prose">
-              <p>So Ben Awad on Youtube makes a video every year to list out the technologies he is interested in learning and also how his past year went. You can see his last video from here: https://www.youtube.com/watch?v=dCCaYEG5KeA</p>
-
-<p>This makes so much sense. As a developer we see new and shiny new technologies everywhere and as moths to light, we are drawn to them. But time is finite unlike the amount of shiny new stacks that comes out every year :) By writing couple of them down I think I can anchor myself down and keep track better.</p>
-
-<p>This will be a good record after couple of years as well, so here it goes;</p>
-
-<h3 id="neovim">NeoVim</h3>
-
-<p>I think the best thing happened to me in 2022 is NeoVim. As a vim user for almost 2 decades, neovim is the most I love using my editor. LSP is amazing, Lua is amazing. Overall it's just super duper enjoyable for me to use my editor.</p>
-
-<h3 id="laravel">Laravel</h3>
-
-<p>Laravel is my go to framework for testing ideas. It has pretty much everything to make an MVP for a web app or api. It works well, scales well and I feel very comfortable using it. The most important part about using Laravel is I can focus on what I am building instead of how I am building it. And I will planning on keeping it in my toolbelt in 2023 as well.</p>
-
-<h3 id="tailwind">Tailwind</h3>
-
-<p>Tailwind is kind of the best thing that I invested in 2022 and I can't be more happier about it. As a backend developer, I never had fun when I had to write CSS. But with tailwind it's weirdly satisfying.</p>
-
-<p>I am buying everything that the creators releasae like the tailwindui which makes everything 10x easier.</p>
-
-<h3 id="nextjs">NextJS</h3>
-
-<p>In 2022 I didn't like NextJS that much. For Poltio frontend stuff, we decided to use Remix. That is not going well. Nothing specificially bad about remix but if it's not a hobby project, you want your framework to have best practices, documentation and examples for every case and that is not the case for remix since it's so new.</p>
-
-<p>In 2023 I am planning on investing on NextJS more since it is more mature ecosystem.</p>
-
-<h3 id="github-actions">Github Actions</h3>
-
-<p>I was using Github Actions for some pipelines but most of the mission critical pipelines were still on Google Cloud Build and AWS CodeDeploy and CodeBuild. In 2023 I am planning on moving ALL of my pipelines to Github Actions and packaging up my random JavaScript code containing yaml files as official action packages. I think pipelines should be more connected to Pull Requests and github actions fits so well.</p>
-
-<h3 id="kubernetes">Kubernetes</h3>
-
-<p>In 2020 while we were migrating to Google Cloud from AWS for Poltio, I migrated pretty much all of our workloads to kuberenetes. 2 years later, I can't love kubernetes more. It makes so much sense, it works pretty much how you expect all of the time and Google Cloud is making working with k8s so easy.</p>
-
-<p>This year I am planning on investing on more and improving our reporting and logging stacks more.</p>
-
-<h3 id="playwright">Playwright</h3>
-
-<p>I have a pretty good relationship with k6.io and stress/load tests. This year I am planning on learning to use e2e better to improve our CI pipelines and among all the options playwright seems most interesting.</p>
-
-<h3 id="cassandra">Cassandra</h3>
-
-<p>TBH, I was planning to actively use Cassandra almost 4 years now :) But Redis + a traditional DB like MySQL or PostgreSQL was still pretty good for me so I am hoping this year I will have a chance to use Cassandra since we are starting to play with bigger but more temporary data sets that has different schemas.</p>
-
-<h3 id="echo">Echo</h3>
-
-<p>Although the last 3 services I wrote used Gin, Echo is still my go to framework for creating Go microservices. If the service has a single file I just can't bring myself to use a framework but if we have more files, I will pick Echo everytime and plan on using it on 2 new services this year.</p>
-
-<h3 id="typescript">TypeScript</h3>
-
-<p>Since I don't get to write that much JS code on day to day basis, I wasn't succesful on convincing my team mates to switch to TS in 2022 but we are finally working on the PR to move our new remix stack to typescript and I am very hopeful that 2023 will be the year of TS for our frontend stack.</p>
-
-<h3 id="rust">Rust</h3>
-
-<p>During 2022 most of my most used Gnome applications switched to Rust as their backend. I was planning on investing more time and learning to use Rust more efficiently but after switching back to macos since the 14" macbook pro is simply the best hardware that kind of took a back seat. Hopefully in 2023 I can invent a reason to dive back in :)</p>
-
-<h3 id="swiftui">SwiftUI</h3>
-
-<p>I was planning on developing a duo finder for LoL to teach myself SwiftUI. I made couple of example apps locally with SwiftUI, in 2023 I am planning on finishing and releasing the app in app store just to keep my muscle memory fresh since my last mobile project was back in 2019 :/</p>
-
-            </div>
-          </div>
-        </article>
-
-        <!-- Chronicle: My New Neovim Setup with 100% Lua -->
-        <article class="chronicle-card">
-          <header class="chronicle-header">
-            <div class="chronicle-meta">
-              <span class="chronicle-date">August 20, 2022</span>
-              <div class="chronicle-tags">
-                <span class="tag-pill">#lua</span><span class="tag-pill">#vim</span><span class="tag-pill">#nvim</span><span class="tag-pill">#neovim</span><span class="tag-pill">#development</span>
-              </div>
-            </div>
-            <a href="posts/neovim-lua/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">My New Neovim Setup with 100% Lua</h3>
-            </a>
-            <p class="chronicle-excerpt">
-              I love vim. It gives me the same development environment via SSH even I am working on my iPad or a computer that I don&#x27;t normally use. But VSCode is good too, it can do pretty...
-            </p>
-          </header>
-
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <button class="chronicle-toggle-btn" type="button" aria-expanded="false" data-target="chronicle-neovim-lua">
-              <span>Preview Chronicle</span>
-              <span class="toggle-icon">▾</span>
-            </button>
-            <a href="posts/neovim-lua/" class="chronicle-toggle-btn" style="text-decoration: none; border-color: rgba(0, 229, 255, 0.4);" title="Open full chronicle on dedicated page">
-              <span>Open Full Chronicle</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-          <!-- Inline Preview Container -->
-          <div id="chronicle-neovim-lua" class="chronicle-content" aria-hidden="true">
-            <div class="chronicle-prose">
-              <p>I love vim. It gives me the same development environment via SSH even I am working on my iPad or a computer that I don't normally use. But VSCode is good too, it can do pretty much anything that any other IDE does and it does it fast. VSCode is also very popular which makes the extension space really good. You can pretty much find any extension or theme that you want or need. But I can't use it nor any other non-terminal editor thanks to Tmux. I need at least 3-4 panes open next to my editor and I need this setup replicated for all the projects I am currently working. Considering that I have like 9 repos only on Poltio that I actively work on (thanks to microservices) VSCode and any other viable editor is not as productive as for me as working with Vim+Tmux.</p>
-
-<p>And even tho I love trying new things and used all popular editors and IDEs, my main editor of choice remained Vim for the last 15+ years. And I switched to <a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">Neovim</a> couple of years ago but I was still using my old config/plugins written in <a href="https://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="noopener noreferrer">Vimscript</a>. Vimscript is not very developer friendly and I never was too into learning it. I copied and pasted lots of lines in vimscript as any good developer but never learn to actually use it.</p>
-
-<p>I was already hearing gospels for <a href="https://www.lua.org/docs.html" target="_blank" rel="noopener noreferrer">Lua</a> from the nvim and redis communities and I was curious, since using an actual mature programming language as your config will bring lots of flexibility.</p>
-
-<p>So, I did end up writing my new nvim config completely with Lua and used plugins that were mostly written in Lua instead of using old vimscript versions.</p>
-
-<p>I am so happy with the end result, it became a new fresh wind and boosted my productivity. (not because it's so much faster or better then my previous setup but because it's new and shiny :) )</p>
-
-<p><a href="posts/neovim-lua/preview-2.png" target="_blank" rel="noopener noreferrer"><img src="posts/neovim-lua/preview-2.png" alt="Preview" loading="lazy"></a></p>
-
-<p>Here is the relevant PR for my dotfiles: https://github.com/gcg/dotfiles/pull/1 And you can find the most up to date version of my dot files from the same repo.</p>
-
-<h4 id="notes">Notes;</h4>
-
-<ul>
-<li><a href="https://github.com/LunarVim/Neovim-from-scratch" target="_blank" rel="noopener noreferrer">Neovim From Scratch</a> is amazing. They have a youtube playlist in the readme which was the most helpful for me of understanding how lua config works and the steps I should take.</li>
-<li><a href="https://github.com/LunarVim/LunarVim" target="_blank" rel="noopener noreferrer">LunarVim</a> is amazing. And it's self contained. So you can just get it and run it isolated with it's own binary <code>lvim</code> without it effecting your own nvim setup. So you can experiment without any risks.</li>
-<li>Switching to built in language server (LSP) from CoC is really faster for most of the cases.</li>
-<li><a href="https://github.com/jose-elias-alvarez/null-ls.nvim" target="_blank" rel="noopener noreferrer">Null-ls.nvim</a> is better then <a href="https://github.com/dense-analysis/ale" target="_blank" rel="noopener noreferrer">Ale</a></li>
-<li>Pretty much all plugins written in vimscript will keep working even if you use lua 100%.</li>
-<li>Configuring plugins and settings in Lua is way easier to understand (especially if you don't know vimscript)</li>
-<li>Lua is not OCD about most of the styles so if you are OCD and use a standard writing style, configure something like <a href="https://github.com/JohnnyMorganz/StyLua" target="_blank" rel="noopener noreferrer">StyLua</a> (it's eslint / gofmt / prettier / phpcs for lua )</li>
-</ul>
-
-            </div>
-          </div>
-        </article>
-
-        <!-- Chronicle: Hello Hugo -->
-        <article class="chronicle-card">
-          <header class="chronicle-header">
-            <div class="chronicle-meta">
-              <span class="chronicle-date">August 17, 2022</span>
-              <div class="chronicle-tags">
-                <span class="tag-pill">#hugo</span><span class="tag-pill">#blog</span>
-              </div>
-            </div>
-            <a href="posts/hello-hugo/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">Hello Hugo</h3>
-            </a>
-            <p class="chronicle-excerpt">
-              Wow, it has been a while hasn&#x27;t it? I think the last time I blog was at 2019 about how I am going to start blogging more, which aged perfectly at this point.
-            </p>
-          </header>
-
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <button class="chronicle-toggle-btn" type="button" aria-expanded="false" data-target="chronicle-hello-hugo">
-              <span>Preview Chronicle</span>
-              <span class="toggle-icon">▾</span>
-            </button>
-            <a href="posts/hello-hugo/" class="chronicle-toggle-btn" style="text-decoration: none; border-color: rgba(0, 229, 255, 0.4);" title="Open full chronicle on dedicated page">
-              <span>Open Full Chronicle</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-          <!-- Inline Preview Container -->
-          <div id="chronicle-hello-hugo" class="chronicle-content" aria-hidden="true">
-            <div class="chronicle-prose">
-              <p>Wow, it has been a while hasn't it? I think the last time I blog was at 2019 about how I am going to start blogging more, which aged perfectly at this point.</p>
-
-<p>Well, instead of actually blogging, from now on, I am planning on starting to share small thoughts, lessons I learn, things I discover and like. This page will be more like a public bookmark engine rather than a personal blog from now on. Hence, I am not gonna move previos blog entries.</p>
-
-<p>I was planning on learning how to use a tool like <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> or <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> for sometime now for <a href="https://www.poltio.com" target="_blank" rel="noopener noreferrer">Poltio Landing Page</a> Since we are not updating that page often, using React is overkill. But before I start building Poltio landing page with a static site generator, I felt more comfortable of using my personal page as my playground for learning and I picked Hugo because I like <a href="https://go.dev/" target="_blank" rel="noopener noreferrer">Go</a>.</p>
-
-<p>Me switching to a static site generator for this site will bring another benefit, the old server that used to host my blog which was powered by <a href="https://ghost.org" target="_blank" rel="noopener noreferrer">Ghost</a> was a virtual machine that was running an older version of Ubuntu. Since I forget to upgrade that machine for a while, it was impossible to do relaase upgrade on it anymore. Which is exactly I hate this update cycles (rolling release FTW) (i use arch btw). I wish cloud providers offer more distros that uses rolling release. Long story short, with something static like Hugo, I don't need to manage my own hosting and just trust any cdn host to host and maintain my site. I picked <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">Github Pages</a> since I am a huge GH fan <3</p>
-
-<p>Well, don't get your hopes high, if my past blogs were any indication, this will be probably the first and last entry, but if the stars align, I will post about, learning and using lua for nvim, kubernetes and gke, using rust and gtk4 and go probably.</p>
-
-            </div>
-          </div>
-        </article>
-        <!-- CHRONICLES_END -->
-        </div>
-      </div>
+    <!-- 7 · Scripture Pavilion (filled by scripts/build_posts.py) -->
+    <section class="panel pavilion" id="scripture-pavilion" aria-labelledby="pavilion-title">
+      <h2 id="pavilion-title" class="label"><span lang="zh">藏经阁</span> · Scripture Pavilion · Blog</h2>
+      <ol class="scrolls"><!-- CHRONICLES_START -->
+<li class="scroll-row"><a href="posts/technologies-i-am-investing-in-2024/">Technologies I Am Investing in 2024</a><span class="scroll-year">2024</span></li>
+<li class="scroll-row"><a href="posts/technologies-i-am-investing-in-2023/">Technologies I Am Investing in 2023</a><span class="scroll-year">2023</span></li>
+<li class="scroll-row"><a href="posts/neovim-lua/">My New Neovim Setup with 100% Lua</a><span class="scroll-year">2022</span></li>
+<li class="scroll-row"><a href="posts/hello-hugo/">Hello Hugo</a><span class="scroll-year">2022</span></li>
+<!-- CHRONICLES_END --></ol>
     </section>
 
-    <!-- Epilogue: Chapter Complete (Footer) -->
-    <footer class="epilogue-card reveal-on-scroll">
-      <div class="to-be-continued">[TO BE CONTINUED]</div>
-      <p class="epilogue-desc">
-        The system remains online. The server pulse never stops. 
-        Catch up on new quests, tools, and code drops across social channels.
-      </p>
-
-      <div class="social-links-row">
-        <a href="https://github.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">GitHub / @gcg</a>
-        <a href="https://twitter.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">X (Twitter) / @gcg</a>
-        <a href="https://instagram.com/gcg" target="_blank" rel="noopener noreferrer" class="social-item-link">Instagram / @gcg</a>
-        <a href="https://phpc.social/@gcg" target="_blank" rel="noopener noreferrer me" class="social-item-link">Mastodon / @gcg</a>
-        <a href="https://www.linkedin.com/in/guneycan" target="_blank" rel="noopener noreferrer" class="social-item-link">LinkedIn</a>
-      </div>
-
-      <div class="footer-credit">
-        <span>&copy; 2026 Guney Can Gokoglu (@gcg).</span>
-        <span>&bull;</span>
-        <span class="fedora-badge">&#633; Fedora OS</span>
-        <span>&bull;</span>
-        <span>Pure Vanilla Web</span>
-      </div>
+    <!-- 8 · Ending -->
+    <footer class="panel end">
+      <p class="brush end-brush" lang="zh">未完待续</p>
+      <p class="end-tbc"><i>To be continued…</i></p>
+      <a class="end-cv" href="assets/cv/Guney-Can-Gokoglu-CV.pdf">Read the full sect records (CV) ↗</a>
+      <a class="end-li" href="https://www.linkedin.com/in/guneycan">LinkedIn</a>
     </footer>
+
 
   </main>
 
-  <!-- Client-Side Scripts -->
-  <script src="assets/js/rotating-id.js"></script>
-  <script src="assets/js/hunter-fx.js"></script>
-  <script src="assets/js/main.js"></script>
+  <footer class="site-footer">
+    <nav class="site-footer-links" aria-label="Site">
+      <button type="button" class="link-button" popovertarget="glossary">Translator's notes</button>
+      <a href="assets/cv/Guney-Can-Gokoglu-CV.pdf">CV</a>
+      <a href="https://github.com/gcg/gcg.github.io">Source</a>
+    </nav>
+    <p>© 2003–2026 Guney Can Gokoglu · @gcg</p>
+    <p class="site-footer-made">Hand-made with HTML, CSS and a little JS, on Fedora. No Arch, btw.</p>
+  </footer>
+
+  <!-- Translator's notes: every Chinese phrase on the site, opened from the footer -->
+  <div id="glossary" class="glossary-modal" popover role="dialog" aria-labelledby="glossary-title">
+    <header class="glossary-head">
+      <h2 id="glossary-title" class="label">Translator's notes</h2>
+      <button type="button" class="glossary-close" popovertarget="glossary" popovertargetaction="hide" aria-label="Close translator's notes">×</button>
+    </header>
+    <p class="glossary-intro">What the Chinese on this page means. All of it is Simplified Chinese, borrowed from cultivation novels: pinyin in italics, then the meaning, then each character.</p>
+    <dl class="glossary-list">
+        <div><dt lang="zh">无名阵师</dt><dd><i>wúmíng zhènshī</i>, the Nameless Formation Master: a formation master builds the arrays that protect a sect, and the best ones are never noticed. <span lang="zh">无</span> without · <span lang="zh">名</span> name, fame · <span lang="zh">阵</span> formation · <span lang="zh">师</span> master.</dd></div>
+        <div><dt lang="zh">华山</dt><dd><i>Huàshān</i>, Mount Hua: the sacred mountain of the plum-blossom sword sect. <span lang="zh">华</span> splendid, flowering · <span lang="zh">山</span> mountain.</dd></div>
+        <div><dt lang="zh">唰</dt><dd><i>shuā</i>: the swish of a sword cut, a sound effect.</dd></div>
+        <div><dt lang="zh">梅花剑法</dt><dd><i>méihuā jiànfǎ</i>, Plum Blossom Sword Art. <span lang="zh">梅花</span> plum blossom · <span lang="zh">剑</span> sword · <span lang="zh">法</span> method, art.</dd></div>
+        <div><dt lang="zh">修士</dt><dd><i>xiūshì</i>, cultivator: someone who trains body and spirit toward immortality. <span lang="zh">修</span> cultivate · <span lang="zh">士</span> person, scholar.</dd></div>
+        <div><dt lang="zh">一 二 三 四 五</dt><dd><i>yī èr sān sì wǔ</i>: one to five, numbering the sword forms (the languages).</dd></div>
+        <div><dt lang="zh">练气</dt><dd><i>liànqì</i>, Qi Refining: the first realm of cultivation (Ubuntu). <span lang="zh">练</span> refine, train · <span lang="zh">气</span> qi, breath.</dd></div>
+        <div><dt lang="zh">筑基</dt><dd><i>zhùjī</i>, Foundation Establishment: the second realm (Gentoo). <span lang="zh">筑</span> build · <span lang="zh">基</span> foundation.</dd></div>
+        <div><dt lang="zh">金丹</dt><dd><i>jīndān</i>, Golden Core: the third realm (Arch). <span lang="zh">金</span> gold · <span lang="zh">丹</span> elixir, pill.</dd></div>
+        <div><dt lang="zh">元婴</dt><dd><i>yuányīng</i>, Nascent Soul: the fourth realm (Fedora, current). <span lang="zh">元</span> primordial · <span lang="zh">婴</span> infant.</dd></div>
+        <div><dt lang="zh">第二卷 · 立宗</dt><dd><i>dì èr juàn · lì zōng</i>, Volume Two · Founding the Sect: the Poltio arc. <span lang="zh">第二</span> second · <span lang="zh">卷</span> volume, scroll · <span lang="zh">立</span> establish · <span lang="zh">宗</span> sect.</dd></div>
+        <div><dt lang="zh">善战者 无智名 无勇功</dt><dd><i>shàn zhàn zhě, wú zhì míng, wú yǒng gōng</i>: “Those who fight well earn no fame for wisdom, and no credit for courage” (Sun Tzu, <i>The Art of War</i>, IV). <span lang="zh">善</span> good at · <span lang="zh">战</span> fighting · <span lang="zh">者</span> one who · <span lang="zh">无</span> without · <span lang="zh">智</span> wisdom · <span lang="zh">名</span> fame · <span lang="zh">勇</span> courage · <span lang="zh">功</span> credit.</dd></div>
+        <div><dt lang="zh">封印</dt><dd><i>fēngyìn</i>, Sealed: a talisman seal on a treasure that isn't ready yet. <span lang="zh">封</span> seal shut · <span lang="zh">印</span> stamp, seal.</dd></div>
+        <div><dt lang="zh">藏经阁</dt><dd><i>cáng jīng gé</i>, Scripture Pavilion: a sect's library, here the blog. <span lang="zh">藏</span> store · <span lang="zh">经</span> scriptures · <span lang="zh">阁</span> pavilion.</dd></div>
+        <div><dt lang="zh">未完待续</dt><dd><i>wèi wán dài xù</i>, To be continued. <span lang="zh">未</span> not yet · <span lang="zh">完</span> finished · <span lang="zh">待</span> await · <span lang="zh">续</span> continuation.</dd></div>
+      </dl>
+  </div><!-- /glossary -->
+
+  <div id="petals-front" class="petals petals--front" aria-hidden="true"></div>
+
 </body>
 </html>

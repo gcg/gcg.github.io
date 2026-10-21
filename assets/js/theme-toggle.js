@@ -1,4 +1,5 @@
-// Solo Leveling Theme Switcher (Auto System Preference + Manual Toggle)
+// Day / moonlit-night theme switcher (follows the OS until the visitor picks one).
+// The saved choice is applied before first paint by an inline snippet in <head>.
 
 const STORAGE_KEY = 'theme-preference';
 
