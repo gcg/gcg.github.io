@@ -40,6 +40,34 @@ def theme_tokens():
     return out
 
 
+class LangChecker(HTMLParser):
+    """Records Chinese text that is not inside an element with lang="zh"."""
+    VOID = {"meta", "link", "img", "br", "input", "hr", "source", "circle", "path", "ellipse", "rect", "stop", "feGaussianBlur", "feMergeNode"}
+
+    def __init__(self):
+        super().__init__()
+        self.stack, self.unmarked = [], []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.VOID:
+            return
+        lang = dict(attrs).get("lang")
+        self.stack.append(lang if lang else (self.stack[-1] if self.stack else "en"))
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        if tag not in self.VOID and self.stack:
+            self.stack.pop()
+
+    def handle_data(self, data):
+        current = self.stack[-1] if self.stack else "en"
+        for run in re.findall(r"[\u3000-\u9fff]+", data):
+            if current != "zh":
+                self.unmarked.append(run)
+
+
 class LinkCollector(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -105,6 +133,28 @@ class Site(unittest.TestCase):
                 if ratio < 4.5:
                     failures.append(f"{theme}: --{token} {t[token]} on --paper {t['paper']} = {ratio:.2f}:1")
         self.assertEqual(failures, [])
+
+    def test_glossary_explains_every_chinese_phrase(self):
+        with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
+            home = f.read()
+        m = re.search(r'<details class="panel glossary".*?</details>', home, re.S)
+        self.assertIsNotNone(m, "no glossary on the homepage")
+        terms = re.findall(r"<dt[^>]*>(.*?)</dt>", m.group(0), re.S)
+        pages_text = home.replace(m.group(0), "")
+        with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as f:
+            pages_text += f.read()
+        runs = set(re.findall(r"[\u3000-\u9fff]+", pages_text))
+        missing = sorted(r for r in runs if not any(r in t for t in terms))
+        self.assertEqual(missing, [], "Chinese without a glossary entry")
+
+    def test_chinese_text_is_marked_lang_zh(self):
+        problems = []
+        for path in (os.path.join(ROOT, "index.html"), os.path.join(ROOT, "templates", "post.html")):
+            checker = LangChecker()
+            with open(path, encoding="utf-8") as f:
+                checker.feed(f.read())
+            problems += [f"{os.path.relpath(path, ROOT)}: {run}" for run in checker.unmarked]
+        self.assertEqual(problems, [])
 
     def test_reduced_motion_rules_exist(self):
         with open(os.path.join(ROOT, "assets", "css", "style.css"), encoding="utf-8") as f:

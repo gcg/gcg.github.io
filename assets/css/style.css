@@ -109,20 +109,20 @@ a {
   100% { transform: translate(var(--dx), 112vh) rotate(560deg) rotateX(720deg); }
 }
 
-/* The chapter: one centred webtoon column. */
+/* The chapter: one continuous webtoon column, panels touching like a real strip. */
 .strip {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 72px 16px 96px;
+  width: min(600px, 100%);
+  margin: 72px auto 96px;
+  box-shadow: 0 24px 70px #0b143066;
 }
 
-@media (min-width: 640px) {
-  .strip { padding-left: 0; padding-right: 0; }
+/* Phones: edge to edge, like a webtoon reader. */
+@media (max-width: 640px) {
+  .strip { margin: 0 auto; }
 }
 
 /* Faint vertical calligraphy in the wide-screen margins. */
@@ -180,7 +180,7 @@ a {
   position: relative;
   overflow: hidden;
   container-type: inline-size;
-  box-shadow: 0 20px 60px #0b143066;
+  background: var(--page-top);
   color: #fff;
 }
 
@@ -423,10 +423,10 @@ a {
   padding: 22px 24px;
   background: var(--paper);
   color: var(--ink);
-  border: 3px solid var(--ink-border);
-  border-radius: 3px 7px 4px 6px;
-  box-shadow: 4px 6px 0 #14161a26, 0 20px 50px #0b143033;
 }
+
+/* Consecutive paper panels get a hairline so they still read as separate panels. */
+.panel + .panel { border-top: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); }
 
 .panel h2 {
   margin: 0;
@@ -714,6 +714,41 @@ a.treasure:hover { box-shadow: 0 0 0 2px var(--plum), 0 0 18px color-mix(in srgb
 }
 
 .end-li { font-size: 15px; }
+
+/* --- Translator's notes (glossary) --- */
+.glossary { padding: 0; }
+
+.glossary summary {
+  padding: 16px 24px;
+  cursor: pointer;
+  font: 800 12px/1.4 var(--font-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.glossary summary span { letter-spacing: 0.08em; color: var(--muted); }
+.glossary summary:focus-visible { outline: 3px solid var(--qi); outline-offset: -3px; }
+
+.glossary-intro { margin: 0 24px 10px; font-size: 16px; color: var(--muted); }
+
+.glossary-list { margin: 0; padding: 0 24px 22px; }
+
+.glossary-list div {
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.glossary-list dt { font: 400 22px/1.2 var(--font-brush); color: var(--accent); }
+.glossary-list dd { margin: 0; font-size: 16px; line-height: 1.45; }
+.glossary-list dd i { color: var(--muted); }
+
+@media (max-width: 420px) {
+  .glossary-list div { grid-template-columns: 1fr; gap: 2px; }
+}
 
 /* ==========================================================================
    Post page: a scripture scroll

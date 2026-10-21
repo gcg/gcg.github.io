@@ -23,7 +23,7 @@ print("".join(sorted(set(re.findall(r"[　-鿿＀-￯]", text)))))
 "$PYFTSUBSET" "$SRC/MaShanZheng-Regular.ttf" --text="${CJK}!?· " \
   --flavor=woff2 --layout-features='*' --output-file="$OUT/ma-shan-zheng.woff2"
 
-LATIN="U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2190-2193,U+2197,U+20AC"
+LATIN="U+0000-00FF,U+0100-017F,U+01CD-01DC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2190-2193,U+2197,U+20AC"
 latin() {
   "$PYFTSUBSET" "$SRC/$1" --unicodes="$LATIN" --flavor=woff2 --layout-features='*' --output-file="$OUT/$2"
 }

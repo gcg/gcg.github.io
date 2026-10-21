@@ -154,7 +154,8 @@ That's the webtoon title-card look from the spike.
 
 ### 3.7 Panel language
 - **Strip:** a single centred column, max about 600px.
-- **Scene panels** (cover, hero, cliff): **full-bleed painted panels with no border**, like Korean webtoons. They are separated by generous vertical space (about 40px).
+- **Scene panels** (cover, hero, cliff): **full-bleed painted panels with no border**, like Korean webtoons.
+- **No gaps:** every panel touches the next, like a real webtoon strip (Guney's call). Consecutive paper panels get a hairline between them. On phones the strip runs edge to edge.
 - **Text panels** (registry, arc title, creed, treasures, blog, ending): ink-and-paper panels with 3px ink borders and slightly uneven corners, sitting on the backdrop. They must feel like part of the same painted world, not UI cards.
   - The approved ink "sect registry" from the earlier mockups is the baseline.
   - Neon is not allowed.
@@ -269,6 +270,10 @@ A 2×2 grid:
   - *To be continued…*
   - "Read the full sect records (CV) ↗", linking to the CV PDF
   - a small LinkedIn link (https://www.linkedin.com/in/guneycan)
+
+### Panel 9 · Translator's notes (glossary)
+- A collapsed `<details>` panel after the ending, like scanlation TL notes, explaining every Chinese phrase on the site: the characters, pinyin, meaning, and each character.
+- A test (`test_glossary_explains_every_chinese_phrase`) fails if Chinese text is added without a glossary entry.
 
 ## 5. Blog post pages
 - **Source:** Markdown in `content/posts/<slug>/index.md`, built to `posts/<slug>/index.html` via `scripts/build_posts.py` and `templates/post.html`.
