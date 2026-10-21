@@ -134,18 +134,35 @@ class Site(unittest.TestCase):
                     failures.append(f"{theme}: --{token} {t[token]} on --paper {t['paper']} = {ratio:.2f}:1")
         self.assertEqual(failures, [])
 
+    def _glossary(self, home):
+        m = re.search(r'<div[^>]*\bid="glossary"[^>]*>.*?<!-- /glossary -->', home, re.S)
+        self.assertIsNotNone(m, "no glossary popover (id=glossary ... <!-- /glossary -->) on the homepage")
+        return m.group(0)
+
     def test_glossary_explains_every_chinese_phrase(self):
         with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
             home = f.read()
-        m = re.search(r'<details class="panel glossary".*?</details>', home, re.S)
-        self.assertIsNotNone(m, "no glossary on the homepage")
-        terms = re.findall(r"<dt[^>]*>(.*?)</dt>", m.group(0), re.S)
-        pages_text = home.replace(m.group(0), "")
+        glossary = self._glossary(home)
+        terms = re.findall(r"<dt[^>]*>(.*?)</dt>", glossary, re.S)
+        pages_text = home.replace(glossary, "")
         with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as f:
             pages_text += f.read()
         runs = set(re.findall(r"[\u3000-\u9fff]+", pages_text))
         missing = sorted(r for r in runs if not any(r in t for t in terms))
         self.assertEqual(missing, [], "Chinese without a glossary entry")
+
+    def test_glossary_opens_from_the_footer(self):
+        with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
+            home = f.read()
+        self.assertRegex(self._glossary(home), r'^<div[^>]*\bpopover\b')
+        footer = re.search(r'<footer class="site-footer".*?</footer>', home, re.S)
+        self.assertIsNotNone(footer, "no site footer on the homepage")
+        self.assertIn('popovertarget="glossary"', footer.group(0))
+        with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as f:
+            post = f.read()
+        post_footer = re.search(r'<footer class="site-footer".*?</footer>', post, re.S)
+        self.assertIsNotNone(post_footer, "no site footer on post pages")
+        self.assertIn('href="../../#glossary"', post_footer.group(0))
 
     def test_chinese_text_is_marked_lang_zh(self):
         problems = []

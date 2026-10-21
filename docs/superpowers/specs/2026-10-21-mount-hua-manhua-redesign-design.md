@@ -271,9 +271,14 @@ A 2×2 grid:
   - "Read the full sect records (CV) ↗", linking to the CV PDF
   - a small LinkedIn link (https://www.linkedin.com/in/guneycan)
 
-### Panel 9 · Translator's notes (glossary)
-- A collapsed `<details>` panel after the ending, like scanlation TL notes, explaining every Chinese phrase on the site: the characters, pinyin, meaning, and each character.
-- A test (`test_glossary_explains_every_chinese_phrase`) fails if Chinese text is added without a glossary entry.
+### Site footer and translator's notes
+- **Footer** (homepage and post pages), below the strip:
+  - links: Translator's notes · CV · Source (https://github.com/gcg/gcg.github.io),
+  - "© 2003–2026 Guney Can Gokoglu · @gcg",
+  - "Hand-made with HTML, CSS and a little JS, on Fedora. No Arch, btw."
+- **Translator's notes** open in a modal (native `popover`, no JS needed, Esc or click outside to close). They explain every Chinese phrase on the site: characters, pinyin, meaning, and each character.
+  - Post pages link to `../../#glossary`; `assets/js/glossary.js` opens the notes when the homepage is reached with that hash.
+  - Tests: `test_glossary_explains_every_chinese_phrase` (no Chinese without an entry) and `test_glossary_opens_from_the_footer`.
 
 ## 5. Blog post pages
 - **Source:** Markdown in `content/posts/<slug>/index.md`, built to `posts/<slug>/index.html` via `scripts/build_posts.py` and `templates/post.html`.

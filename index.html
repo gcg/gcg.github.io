@@ -24,6 +24,7 @@
 
   <script src="assets/js/theme-toggle.js" defer></script>
   <script src="assets/js/petals.js" defer></script>
+  <script src="assets/js/glossary.js" defer></script>
 </head>
 <body>
 
@@ -202,11 +203,27 @@
       <a class="end-li" href="https://www.linkedin.com/in/guneycan">LinkedIn</a>
     </footer>
 
-    <!-- Translator's notes: every Chinese phrase on the site -->
-    <details class="panel glossary" id="glossary">
-      <summary>Translator's notes <span>· what the Chinese on this page means</span></summary>
-      <p class="glossary-intro">All of it is Simplified Chinese, borrowed from cultivation novels. Pinyin in italics, then the meaning, then each character.</p>
-      <dl class="glossary-list">
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer-links" aria-label="Site">
+      <button type="button" class="link-button" popovertarget="glossary">Translator's notes</button>
+      <a href="assets/cv/Guney-Can-Gokoglu-CV.pdf">CV</a>
+      <a href="https://github.com/gcg/gcg.github.io">Source</a>
+    </nav>
+    <p>© 2003–2026 Guney Can Gokoglu · @gcg</p>
+    <p class="site-footer-made">Hand-made with HTML, CSS and a little JS, on Fedora. No Arch, btw.</p>
+  </footer>
+
+  <!-- Translator's notes: every Chinese phrase on the site, opened from the footer -->
+  <div id="glossary" class="glossary-modal" popover role="dialog" aria-labelledby="glossary-title">
+    <header class="glossary-head">
+      <h2 id="glossary-title" class="label">Translator's notes</h2>
+      <button type="button" class="glossary-close" popovertarget="glossary" popovertargetaction="hide" aria-label="Close translator's notes">×</button>
+    </header>
+    <p class="glossary-intro">What the Chinese on this page means. All of it is Simplified Chinese, borrowed from cultivation novels: pinyin in italics, then the meaning, then each character.</p>
+    <dl class="glossary-list">
         <div><dt lang="zh">无名阵师</dt><dd><i>wúmíng zhènshī</i>, the Nameless Formation Master: a formation master builds the arrays that protect a sect, and the best ones are never noticed. <span lang="zh">无</span> without · <span lang="zh">名</span> name, fame · <span lang="zh">阵</span> formation · <span lang="zh">师</span> master.</dd></div>
         <div><dt lang="zh">华山</dt><dd><i>Huàshān</i>, Mount Hua: the sacred mountain of the plum-blossom sword sect. <span lang="zh">华</span> splendid, flowering · <span lang="zh">山</span> mountain.</dd></div>
         <div><dt lang="zh">唰</dt><dd><i>shuā</i>: the swish of a sword cut, a sound effect.</dd></div>
@@ -223,9 +240,7 @@
         <div><dt lang="zh">藏经阁</dt><dd><i>cáng jīng gé</i>, Scripture Pavilion: a sect's library, here the blog. <span lang="zh">藏</span> store · <span lang="zh">经</span> scriptures · <span lang="zh">阁</span> pavilion.</dd></div>
         <div><dt lang="zh">未完待续</dt><dd><i>wèi wán dài xù</i>, To be continued. <span lang="zh">未</span> not yet · <span lang="zh">完</span> finished · <span lang="zh">待</span> await · <span lang="zh">续</span> continuation.</dd></div>
       </dl>
-    </details>
-
-  </main>
+  </div><!-- /glossary -->
 
   <div id="petals-front" class="petals petals--front" aria-hidden="true"></div>
 
