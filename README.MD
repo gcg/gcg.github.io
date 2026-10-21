@@ -1,51 +1,30 @@
-# Guney Can Gokoglu (@gcg) &bull; Personal Site
+# gcg.me
 
-A single-page personal portfolio and digital presence inspired by a **Solo Leveling / Action Manhwa "System Window"** webtoon aesthetic.
+The personal site of Guney Can Gokoglu (@gcg), told as a chapter of a full-colour murim webtoon:
+**无名阵师, The Nameless Formation Master**. It's Mount Hua in an Estonian winter, with painted
+scenes, plum-blossom sword qi, falling petals, and a moonlit night version. The blog lives in the
+Scripture Pavilion.
 
-## Narrative & Highlights
+Plain HTML, CSS and a little JS, plus a zero-dependency Python script that builds the blog.
+Deployed to GitHub Pages by `.github/workflows/pages.yaml`.
 
-- **23 Years of Mastery**: Tinkering with computers, maintaining servers, architecting resilient infrastructures, building tools and automations.
-- **Full-Spectrum Infrastructure**: Spanning from physical bare-metal (crimping cables, racking switches/routers) to multi-region cloud hyperscale on AWS & Google Cloud.
-- **The Distro Journey**: Ubuntu (3-4 yrs) &rarr; Gentoo (5 yrs compiling kernels) &rarr; Arch (5 yrs rolling release) &rarr; **Fedora** (Ever since; daily driver).
-- **Language Grimoire**: Ruby on Rails &rarr; PHP (~2008) &rarr; Laravel (~2014) &rarr; Go (~2017) &rarr; Gleam (~2 yrs ago).
-- **The 12-Year Raid (Poltio)**: Co-founder & CTO for 12 years—keeping platforms bulletproof so nobody notices.
-- **Artifacts & The Lab**: Android apps ([mdwriter](https://github.com/gcg/mdwriter), [wpchanger](https://github.com/gcg/wpchanger)) and upcoming social messaging & gaming app teaser.
-- **The Identity Anchor**: Constant `@gcg` handle with an orbiting rotating social beacon cycling GitHub, X / Twitter, Instagram, and Mastodon (`phpc.social/@gcg`).
-
----
-
-## Architecture
-
-- **Pure Vanilla Web**: Semantic HTML5, modern CSS3 (Custom properties, grid, flexbox, glassmorphism, animations), and vanilla ES6+ JavaScript.
-- **Zero Dependencies**: No node_modules, no bundlers, no external frameworks.
-- **Static Hosting**: Ready for GitHub Pages (`https://gcg.me` / `https://gcg.github.io`).
-
----
-
-## Local Development
-
-To run the site locally:
+## Develop
 
 ```bash
-make
-# or
-make serve
+make        # build posts and serve at http://localhost:8000
+make test   # build, then run the checks in tests/
 ```
 
-This starts Python's built-in HTTP server at:
-**[http://localhost:8000](http://localhost:8000)**
+Write posts as Markdown in `content/posts/<slug>/index.md`. `make build` turns them into
+`posts/<slug>/index.html` and refills the Scripture Pavilion list on the homepage.
 
----
+## Art
 
-## Tests & Verification
+The scenes in `assets/img/art/` were painted with Figma AI from text prompts, with no photos involved.
+The prompts are in the design spec (`docs/superpowers/specs/2026-10-21-mount-hua-manhua-redesign-design.md`,
+Appendix A, plus the plan's Task 1). The full-size masters are kept locally in `.superpowers/redesign-assets/`.
 
-Automated test verification scripts are located in `tests/`:
+## Fonts
 
-```bash
-bash tests/task1_verify.sh
-bash tests/task2_css_verify.sh
-node tests/task3_rotating_id_test.js
-node tests/task4_hunter_fx_test.js
-bash tests/task5_dom_verify.sh
-bash tests/e2e_server_test.sh
-```
+The fonts are self-hosted and subset (SIL OFL). After adding Chinese text, re-run `scripts/subset_fonts.sh`
+(it needs fonttools and brotli; see the script header).
