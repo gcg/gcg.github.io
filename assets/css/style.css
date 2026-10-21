@@ -408,6 +408,272 @@ a {
 .scene--cliff .narr--bottom { bottom: 6%; left: 4%; max-width: 46%; }
 
 /* ==========================================================================
+   Text panels: ink and paper
+   ========================================================================== */
+
+.panel {
+  position: relative;
+  padding: 22px 24px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--ink-border);
+  border-radius: 3px 7px 4px 6px;
+  box-shadow: 4px 6px 0 #14161a26, 0 20px 50px #0b143033;
+}
+
+.panel h2 {
+  margin: 0;
+  font: 700 26px/1.15 var(--font-body);
+}
+
+.panel h2.label { font: 800 11px/1.3 var(--font-display); }
+
+.panel a:not(.treasure) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.panel a:focus-visible,
+.treasure:focus-visible {
+  outline: 3px solid var(--qi);
+  outline-offset: 2px;
+}
+
+/* Brush lettering inside paper panels is plain ink. */
+.panel .brush {
+  color: var(--ink);
+  -webkit-text-stroke: 0;
+  text-shadow: 2px 2px 0 color-mix(in srgb, var(--plum) 45%, transparent);
+}
+
+/* --- Sect registry --- */
+.registry { padding-bottom: 0; }
+
+.registry-head {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink-border);
+}
+
+.registry-head h2 { margin-top: 4px; font-size: 30px; }
+.registry-head h2 span { font-family: var(--font-brush); font-weight: 400; }
+
+.registry-rows {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 12px;
+  margin: 14px 0 6px;
+  font-size: 18px;
+}
+
+.registry-rows dt {
+  font: 800 10.5px/2 var(--font-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.registry-rows dd { margin: 0; }
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.forms li {
+  padding: 1px 9px;
+  border: 1.5px solid var(--ink-border);
+  background: var(--paper);
+  font-size: 15px;
+}
+
+.forms b {
+  margin-right: 4px;
+  font: 400 15px var(--font-brush);
+  color: var(--accent);
+}
+
+.realm {
+  display: block;
+  width: calc(100% + 48px);
+  max-width: none;
+  margin: 0 -24px;
+}
+
+.realm-mountain { fill: color-mix(in srgb, var(--ink) 9%, transparent); }
+.realm-path { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 5 6; }
+.realm-stop { fill: var(--paper); stroke: var(--ink); stroke-width: 2.5; }
+.realm-stop--now { fill: var(--accent); }
+.realm-zh { font: 400 21px var(--font-brush); fill: var(--accent); }
+.realm-en { font: 700 15px var(--font-body); fill: var(--ink); }
+.realm-yrs { font-style: italic; font-weight: 500; fill: var(--muted); }
+.realm-blossom circle { fill: var(--plum); }
+.realm-blossom .realm-blossom-core { fill: var(--bud); }
+
+@media (max-width: 420px) {
+  .registry-rows { grid-template-columns: 1fr; gap: 2px; }
+  .registry-rows dd { margin-bottom: 8px; }
+}
+
+/* --- Arc title --- */
+.arc {
+  padding: 30px 24px;
+  text-align: center;
+  background: radial-gradient(ellipse at center, var(--paper), color-mix(in srgb, var(--ink) 7%, var(--paper)));
+}
+
+.arc::before,
+.arc::after {
+  content: '';
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ink), transparent);
+}
+
+.arc::before { top: 14px; }
+.arc::after { bottom: 14px; }
+
+.arc-brush { margin: 8px 0 6px; font-size: 48px; }
+.arc h2 { font-size: 22px; }
+.arc-link { display: inline-block; margin-top: 8px; font: 600 16px var(--font-body); }
+
+/* --- Creed --- */
+.creed {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: center;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--ink) 7%, var(--paper)), var(--paper) 32%);
+}
+
+.creed-vertical {
+  margin: 0;
+  writing-mode: vertical-rl;
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+.creed blockquote { margin: 8px 0 0; }
+.creed blockquote p { margin: 0; font: italic 500 21px/1.3 var(--font-body); }
+.creed cite { display: block; margin-top: 4px; font: normal 14px var(--font-body); letter-spacing: 0.04em; color: var(--muted); }
+.creed-twist { margin: 14px 0 0; font: 800 14px/1.45 var(--font-hand); }
+
+/* --- Treasure Pavilion --- */
+.treasure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+@media (max-width: 420px) {
+  .treasure-grid { grid-template-columns: 1fr; }
+}
+
+.treasure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 104px;
+  height: 100%;
+  padding: 12px;
+  border: 2px solid var(--ink-border);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.treasure:hover { box-shadow: 0 0 0 2px var(--plum), 0 0 18px color-mix(in srgb, var(--plum) 60%, transparent); }
+
+.treasure-kind {
+  font: 800 10px/1.5 var(--font-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.treasure-name { font: 700 22px/1.1 var(--font-body); }
+.treasure-desc { font-size: 15px; line-height: 1.35; }
+
+.treasure--sealed {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 128px;
+  background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--ink) 8%, transparent) 0 8px, transparent 8px 16px), var(--paper);
+}
+
+.seal-talisman {
+  writing-mode: vertical-rl;
+  padding: 6px 3px;
+  background: #fffdf8;
+  border: 1.5px solid #b4233c;
+  color: #b4233c;
+  font: 400 19px/1 var(--font-brush);
+  transform: rotate(-4deg);
+  box-shadow: 2px 3px 0 #0003;
+}
+
+/* --- Scripture Pavilion --- */
+.scrolls { margin: 10px 0 0; padding: 0; }
+
+.scroll-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 2px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+.scroll-row:last-child { border-bottom: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); }
+
+.panel .scroll-row a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.panel .scroll-row a:hover { color: var(--accent); text-decoration: underline; }
+
+.scroll-year { flex: none; font: italic 500 15px var(--font-body); color: var(--muted); }
+
+/* --- Ending --- */
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 34px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--paper) 40%, color-mix(in srgb, #5d9bd6 22%, var(--paper)));
+}
+
+.end p { margin: 0; }
+.end-brush { font-size: 44px; }
+.end-tbc { font-size: 19px; }
+
+.panel .end-cv {
+  margin-top: 6px;
+  padding: 7px 14px;
+  border: 1.5px solid var(--accent);
+  text-decoration: none;
+  font: 800 12px/1.3 var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.end-li { font-size: 15px; }
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 
