@@ -316,7 +316,11 @@ a {
   text-shadow: 0 0.3cqw 2cqw #0b1430, 0 0 0.5cqw #0b1430;
 }
 
-.cover-who .label { font-size: max(10px, 2cqw); color: #ffd3e4; }
+.cover-who .label { font-size: max(11px, 2cqw); color: #ffd3e4; }
+
+@media (max-width: 480px) {
+  .scene--cover::after { background: radial-gradient(ellipse 100% 50% at 24% 80%, #0b1430d9, transparent 74%); }
+}
 
 .cover-who h1 {
   margin: 1cqw 0 1.4cqw;
@@ -517,9 +521,38 @@ a {
 .realm-blossom circle { fill: var(--plum); }
 .realm-blossom .realm-blossom-core { fill: var(--bud); }
 
+/* On wide screens the realm list is for screen readers only; on phones it replaces the SVG labels. */
+.realm-list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 @media (max-width: 420px) {
   .registry-rows { grid-template-columns: 1fr; gap: 2px; }
   .registry-rows dd { margin-bottom: 8px; }
+
+  .realm text { display: none; }
+
+  .realm-list {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    margin: 0 0 16px;
+    padding: 0;
+    font-size: 17px;
+  }
+
+  .realm-list li { padding: 3px 0; border-bottom: 1px dashed color-mix(in srgb, var(--ink) 30%, transparent); }
+  .realm-list li span[lang] { display: inline-block; width: 2.6em; font: 400 20px var(--font-brush); color: var(--accent); }
+  .realm-list i { color: var(--muted); }
+  .realm-list .now { font-weight: 700; }
 }
 
 /* --- Arc title --- */
@@ -542,7 +575,7 @@ a {
 .arc::before { top: 14px; }
 .arc::after { bottom: 14px; }
 
-.arc-brush { margin: 8px 0 6px; font-size: 48px; }
+.arc-brush { margin: 8px 0 6px; font-size: clamp(28px, 10vw, 48px); white-space: nowrap; }
 .arc h2 { font-size: 22px; }
 .arc-link { display: inline-block; margin-top: 8px; font: 600 16px var(--font-body); }
 
@@ -658,6 +691,12 @@ a.treasure:hover { box-shadow: 0 0 0 2px var(--plum), 0 0 18px color-mix(in srgb
   padding: 34px 24px;
   text-align: center;
   background: linear-gradient(180deg, var(--paper) 40%, color-mix(in srgb, #5d9bd6 22%, var(--paper)));
+}
+
+:root[data-theme="dark"] .end { background: linear-gradient(180deg, var(--paper) 40%, color-mix(in srgb, #5d9bd6 12%, var(--paper))); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .end { background: linear-gradient(180deg, var(--paper) 40%, color-mix(in srgb, #5d9bd6 12%, var(--paper))); }
 }
 
 .end p { margin: 0; }

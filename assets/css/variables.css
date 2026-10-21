@@ -36,7 +36,7 @@
   --ink: #e6edf5;
   --ink-border: #c7d3e3;
   --muted: #8fa0b8;
-  --accent: #e0435f;
+  --accent: #f06a82;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,6 +48,6 @@
     --ink: #e6edf5;
     --ink-border: #c7d3e3;
     --muted: #8fa0b8;
-    --accent: #e0435f;
+    --accent: #f06a82;
   }
 }

@@ -11,6 +11,35 @@ def pages():
     return [os.path.join(ROOT, "index.html")] + sorted(glob.glob(os.path.join(ROOT, "posts", "*", "index.html")))
 
 
+def _luminance(hex_colour):
+    channels = [int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    lin = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in channels]
+    return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
+
+
+def contrast(a, b):
+    hi, lo = sorted((_luminance(a), _luminance(b)), reverse=True)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def theme_tokens():
+    """Returns {block name: {token: hex}} for the day block and both night blocks in variables.css."""
+    with open(os.path.join(ROOT, "assets", "css", "variables.css"), encoding="utf-8") as f:
+        css = f.read()
+    blocks = {
+        "day": re.search(r":root \{(.*?)\n\}", css, re.S).group(1),
+        "night (data-theme)": re.search(r':root\[data-theme="dark"\] \{(.*?)\n\}', css, re.S).group(1),
+        "night (OS)": re.search(r':root:not\(\[data-theme="light"\]\) \{(.*?)\n  \}', css, re.S).group(1),
+    }
+    day = dict(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{6})\b", blocks["day"]))
+    out = {}
+    for name, body in blocks.items():
+        tokens = dict(day)
+        tokens.update(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{6})\b", body))
+        out[name] = tokens
+    return out
+
+
 class LinkCollector(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -67,6 +96,15 @@ class Site(unittest.TestCase):
                 text = f.read()
             hits += [f"{os.path.relpath(path, ROOT)}: {word}" for word in banned if word in text]
         self.assertEqual(hits, [])
+
+    def test_text_colours_meet_wcag_aa_on_paper(self):
+        failures = []
+        for theme, t in theme_tokens().items():
+            for token in ("ink", "muted", "accent"):
+                ratio = contrast(t[token], t["paper"])
+                if ratio < 4.5:
+                    failures.append(f"{theme}: --{token} {t[token]} on --paper {t['paper']} = {ratio:.2f}:1")
+        self.assertEqual(failures, [])
 
     def test_reduced_motion_rules_exist(self):
         with open(os.path.join(ROOT, "assets", "css", "style.css"), encoding="utf-8") as f:
