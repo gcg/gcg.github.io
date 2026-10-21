@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicons/apple-icon-180x180.png">
 
   <!-- Apply a saved day/night choice before first paint -->
-  <script>try{var t=localStorage.getItem('theme-preference');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme-preference');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 
   <link rel="stylesheet" href="../../assets/css/fonts.css">
   <link rel="stylesheet" href="../../assets/css/reset.css">

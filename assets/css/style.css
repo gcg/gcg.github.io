@@ -146,8 +146,10 @@ a {
   .side-rail { display: block; }
 }
 
-/* Theme toggle. */
-.theme-toggle {
+/* Theme toggle (needs JS, so hidden until the head snippet marks <html class="js">). */
+.theme-toggle { display: none; }
+
+.js .theme-toggle {
   position: fixed;
   top: 14px;
   left: 14px;
