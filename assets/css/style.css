@@ -136,6 +136,7 @@ a {
   writing-mode: vertical-rl;
   font: 400 40px/1 var(--font-brush);
   letter-spacing: 12px;
+  white-space: nowrap;
   color: var(--ink);
   opacity: 0.14;
   pointer-events: none;
@@ -672,6 +673,92 @@ a.treasure:hover { box-shadow: 0 0 0 2px var(--plum), 0 0 18px color-mix(in srgb
 }
 
 .end-li { font-size: 15px; }
+
+/* ==========================================================================
+   Post page: a scripture scroll
+   ========================================================================== */
+
+.scene--strip { aspect-ratio: 600 / 180; }
+.scene--strip > img.art { object-position: center 18%; }
+
+.narr--home {
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.narr--home:hover,
+.narr--home:focus-visible { border-left-color: var(--qi-core); outline: none; box-shadow: 0 0 0 2px var(--qi); }
+
+.strip-brush {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 12cqw;
+}
+
+.scroll-page { padding: 28px 28px 22px; }
+
+.scroll-page-head {
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--ink-border);
+}
+
+.scroll-page-head h1 { margin: 6px 0 10px; font: 700 34px/1.12 var(--font-body); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag-pill {
+  padding: 1px 8px;
+  border: 1.5px solid var(--ink-border);
+  font: 600 13px/1.5 var(--font-mono);
+  color: var(--muted);
+}
+
+.prose { font-size: 20px; line-height: 1.6; }
+.prose > * + * { margin-top: 0.9em; }
+.prose h2, .prose h3, .prose h4 { margin-top: 1.4em; font-family: var(--font-body); font-weight: 700; line-height: 1.2; }
+.prose h2 { font-size: 28px; }
+.prose h3 { font-size: 23px; }
+.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.3em; }
+.prose img { max-width: 100%; height: auto; border: 2px solid var(--ink-border); }
+.prose blockquote { padding-left: 14px; border-left: 3px solid var(--plum); font-style: italic; }
+
+.prose code {
+  padding: 0 5px;
+  background: color-mix(in srgb, var(--ink) 9%, transparent);
+  border-radius: 3px;
+  font: 500 0.82em var(--font-mono);
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: 14px 16px;
+  background: #0b1030;
+  border-left: 4px solid var(--narr-rule);
+  color: #e6edf5;
+  font: 500 14px/1.55 var(--font-mono);
+}
+
+.prose pre code { padding: 0; background: none; color: inherit; font: inherit; }
+
+.scroll-page-foot {
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+.scroll-page-foot a { font-weight: 700; }
 
 /* ==========================================================================
    Reduced motion
