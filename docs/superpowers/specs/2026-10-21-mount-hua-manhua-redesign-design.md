@@ -101,7 +101,7 @@ Pink plum blossom is the one warm accent.
    - Text never gets baked into a painting.
 
 ### 3.3 Approved reference: cover, day
-`.superpowers/redesign-assets/ai/cover-bg-day.png` (928×1152) is **approved**. It shows:
+`.superpowers/redesign-assets/ai/cover-day.png` (928×1152) is **approved**. It shows:
 - a deep blue sky with a white sun upper right,
 - a snow-dusted plum branch with pink blossoms and red buds entering from the top left,
 - a sea of clouds with a pavilion on a left cliff,
@@ -203,7 +203,7 @@ Copy marked **(draft)** is my wording in the voice Guney approved. Content gets 
 ### Panel 2 · Hero (scene panel)
 - **Painting:**
   - The protagonist **from behind**, standing on a snowy granite peak at blue hour, sword lowered at the right side.
-  - Robes, a topknot with a flowing ribbon, and a plum-blossom emblem on the back of the robe.
+  - Dark charcoal-grey robes with white trim, small plum-blossom motifs at the collar tips, cuffs and hem corners (plain back), and a topknot with a flowing white ribbon.
   - Mount Hua spires and a cloud sea below, lit pink from the right by the sword's glow.
   - Night version: moonlit.
 - **Same figure as Panel 4:** the robe colours, hair and build must match between the two paintings. Regenerate until they do.
@@ -329,7 +329,7 @@ Reuse `theme-toggle.js`, `build_posts.py` and the Makefile wherever they still f
 
 ## 9. Calls I made that Guney should check
 1. **Hero technique:** "Plum Blossom Sword Art · Form 25: `sudo dnf upgrade --refresh`". It's a Fedora command dressed as a sword form.
-2. **Protagonist's look:** robes with a plum-blossom emblem on the back, a topknot with a ribbon, and a sword, always seen from behind.
+2. **Protagonist's look:** dark charcoal-grey robes with white trim and small plum-blossom motifs at the corners (collar tips, cuffs, hem corners) and a plain back, a topknot with a white ribbon, and a sword, always seen from behind. (Guney changed this from black robes with a big back emblem.)
 3. **Small LinkedIn link** next to the CV link in the ending panel. It's not a talisman.
 4. **Poltio arc links to poltio.com.**
 5. **Blog list on the homepage** shows title and year only.
