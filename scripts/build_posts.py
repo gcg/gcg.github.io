@@ -2,7 +2,7 @@
 """
 Zero-dependency static blog article generator for gcg.github.io.
 Compiles markdown files in content/posts/ into standalone HTML pages
-at posts/<slug>/index.html and syncs Chapter 04 chronicle cards in index.html.
+at posts/<slug>/index.html and syncs the Scripture Pavilion list in index.html.
 """
 
 import os
@@ -103,7 +103,7 @@ def extract_excerpt(text):
             if len(para) > 180:
                 return para[:177].rsplit(" ", 1)[0] + "..."
             return para
-    return "Hunter system record from the personal chronicles."
+    return "A scroll from the Scripture Pavilion of gcg.me."
 
 
 def slugify(text):
@@ -363,79 +363,43 @@ def build_posts():
     return posts
 
 
-def sync_homepage(posts):
-    """Updates Chapter 04 in index.html with synced chronicle cards."""
-    if not os.path.isfile(HOMEPAGE_PATH):
-        return
+def post_year(date_raw):
+    """Returns the four-digit year of an ISO date string, or "" if there is none."""
+    m = re.match(r"^(\d{4})-\d{2}-\d{2}", str(date_raw or ""))
+    return m.group(1) if m else ""
 
-    with open(HOMEPAGE_PATH, "r", encoding="utf-8") as f:
+
+def render_pavilion(posts):
+    """Renders one Scripture Pavilion row per post, in the given order."""
+    return "\n".join(
+        f'<li class="scroll-row"><a href="posts/{p["slug"]}/">{html.escape(p["title"])}</a>'
+        f'<span class="scroll-year">{post_year(p.get("date"))}</span></li>'
+        for p in posts
+    )
+
+
+def sync_homepage(posts, homepage_path=HOMEPAGE_PATH):
+    """Refills the Scripture Pavilion list between the markers. Returns False if the markers are missing."""
+    if not os.path.isfile(homepage_path):
+        return False
+
+    with open(homepage_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     start_tag = "<!-- CHRONICLES_START -->"
     end_tag = "<!-- CHRONICLES_END -->"
-
     if start_tag not in content or end_tag not in content:
-        return
+        return False
 
-    cards = []
-    for p in posts:
-        slug = p["slug"]
-
-        # Re-base relative URLs for images and links in homepage preview
-        preview_html = re.sub(
-            r'(src|href)=([\'"])(?!https?://|/|#)(.*?)\2',
-            rf'\1=\2posts/{slug}/\3\2',
-            p['body_html']
-        )
-
-        escaped_title = html.escape(p['title'])
-        escaped_excerpt = html.escape(p['excerpt'])
-
-        card = f"""        <!-- Chronicle: {escaped_title} -->
-        <article class="chronicle-card">
-          <header class="chronicle-header">
-            <div class="chronicle-meta">
-              <span class="chronicle-date">{p['formatted_date']}</span>
-              <div class="chronicle-tags">
-                {p['tags_html']}
-              </div>
-            </div>
-            <a href="posts/{slug}/" style="text-decoration: none;">
-              <h3 class="chronicle-title" style="transition: color 0.2s ease;">{escaped_title}</h3>
-            </a>
-            <p class="chronicle-excerpt">
-              {escaped_excerpt}
-            </p>
-          </header>
-
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <button class="chronicle-toggle-btn" type="button" aria-expanded="false" data-target="chronicle-{slug}">
-              <span>Preview Chronicle</span>
-              <span class="toggle-icon">▾</span>
-            </button>
-            <a href="posts/{slug}/" class="chronicle-toggle-btn" style="text-decoration: none; border-color: rgba(0, 229, 255, 0.4);" title="Open full chronicle on dedicated page">
-              <span>Open Full Chronicle</span>
-              <span>↗</span>
-            </a>
-          </div>
-
-          <!-- Inline Preview Container -->
-          <div id="chronicle-{slug}" class="chronicle-content" aria-hidden="true">
-            <div class="chronicle-prose">
-              {preview_html}
-            </div>
-          </div>
-        </article>"""
-        cards.append(card)
-
-    cards_html = "\n\n".join(cards)
     pattern = re.compile(rf"{re.escape(start_tag)}[\s\S]*?{re.escape(end_tag)}")
-    new_content = pattern.sub(f"{start_tag}\n{cards_html}\n        {end_tag}", content)
+    rows = render_pavilion(posts)
+    new_content = pattern.sub(lambda _: f"{start_tag}\n{rows}\n{end_tag}", content, count=1)
 
-    with open(HOMEPAGE_PATH, "w", encoding="utf-8") as f:
+    with open(homepage_path, "w", encoding="utf-8") as f:
         f.write(new_content)
 
-    print("Homepage Chapter 04 synchronized with generated chronicles.")
+    print("Scripture Pavilion synchronized with generated posts.")
+    return True
 
 
 def main():
