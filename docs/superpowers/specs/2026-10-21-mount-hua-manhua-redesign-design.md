@@ -219,8 +219,9 @@ This is the character sheet. It is ink style; neon is not allowed.
 - **Header:** label `SECT REGISTRY`, title `修士 · Cultivator`. No seal.
 - **Rows:**
   - **Name:** Guney Can Gokoglu · @gcg
-  - **Dao:** GNU/Linux, cultivated since 2001
-  - **Sect:** Poltio · Co-founder & CTO
+  - **Dao:** Formation Master · System Architect
+  - **Sect:** Poltio
+  - **Rank:** Co-founder & CTO
   - **Sword forms:** numbered chips 一 Ruby · 二 PHP · 三 Laravel · 四 Go · 五 Gleam, in learning order (Ruby on Rails, PHP ~2008, Laravel ~2014, Go ~2017, Gleam ~2024).
 - **Realm climb:** a mountain with a dashed path up to the summit and four stations:
   - 练气 Ubuntu · 3–4 yrs
