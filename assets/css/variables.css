@@ -1,118 +1,53 @@
+/* Design tokens: day (snowy Mount Hua) by default, moonlit night via data-theme or the OS setting. */
+
 :root {
-  /* Void / Base Palettes (Dark Mode Default) */
-  --bg-primary: #06070a;
-  --bg-secondary: #0a0d14;
-  --bg-surface: #0f131f;
-  --bg-card: rgba(15, 19, 31, 0.78);
-  --bg-card-hover: rgba(22, 29, 48, 0.88);
-  --bg-nav: rgba(6, 7, 10, 0.85);
+  color-scheme: light;
 
-  /* Solo Leveling Neons */
-  --color-cyan: #00e5ff;
-  --color-cyan-dim: #0099b8;
-  --color-cyan-glow: rgba(0, 229, 255, 0.35);
-  --color-cyan-subtle: rgba(0, 229, 255, 0.12);
+  --page-top: #d4e3f3;
+  --page-bottom: #f6f9fc;
+  --paper: #fbfcfd;
+  --ink: #14161a;
+  --ink-border: #14161a;
+  --muted: #5b6b80;
+  --accent: #b4233c;
 
-  --color-monarch: #a855f7;
-  --color-monarch-dim: #7c3aed;
-  --color-monarch-glow: rgba(168, 85, 247, 0.4);
-  --color-monarch-subtle: rgba(168, 85, 247, 0.15);
+  --plum: #ff8fb8;
+  --plum-2: #ffa6c9;
+  --plum-3: #ff7aa8;
+  --bud: #d81b60;
+  --qi: #ff5c9a;
+  --qi-core: #ffd1e3;
 
-  --color-blue: #38bdf8;
-  --color-emerald: #10b981;
-  --color-amber: #f59e0b;
-  --color-rose: #f43f5e;
+  --narr-bg: #0b1030d9;
+  --narr-rule: #ff6f9f;
 
-  /* Typography Colors */
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --text-cyan: #38bdf8;
-
-  /* Font Stacks */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, Monaco, Consolas, monospace;
-  --font-display: "Impact", "Arial Black", -apple-system, sans-serif;
-
-  /* Hologram & Glassmorphism Properties */
-  --border-hologram: 1px solid rgba(0, 229, 255, 0.35);
-  --border-hologram-monarch: 1px solid rgba(168, 85, 247, 0.45);
-  --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-
-  --shadow-hologram: 0 0 25px rgba(0, 229, 255, 0.18), inset 0 0 15px rgba(0, 229, 255, 0.06);
-  --shadow-monarch: 0 0 30px rgba(168, 85, 247, 0.22), inset 0 0 15px rgba(168, 85, 247, 0.08);
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-
-  /* Corner HUD Accents */
-  --bracket-size: 14px;
-  --bracket-thickness: 2px;
+  --font-brush: 'Ma Shan Zheng', 'Kaiti SC', 'STKaiti', 'KaiTi', serif;
+  --font-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-hand: 'Shantell Sans', 'Comic Sans MS', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* Light Mode Theme: Solo Leveling Awakening Paper */
-[data-theme="light"] {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-surface: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.88);
-  --bg-card-hover: rgba(248, 250, 252, 0.95);
-  --bg-nav: rgba(248, 250, 252, 0.92);
-
-  --color-cyan: #0284c7;
-  --color-cyan-dim: #0369a1;
-  --color-cyan-glow: rgba(2, 132, 199, 0.25);
-  --color-cyan-subtle: rgba(2, 132, 199, 0.08);
-
-  --color-monarch: #7c3aed;
-  --color-monarch-dim: #6d28d9;
-  --color-monarch-glow: rgba(124, 58, 237, 0.25);
-  --color-monarch-subtle: rgba(124, 58, 237, 0.08);
-
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #64748b;
-  --text-cyan: #0284c7;
-
-  --border-hologram: 1px solid rgba(2, 132, 199, 0.35);
-  --border-hologram-monarch: 1px solid rgba(124, 58, 237, 0.4);
-  --border-subtle: 1px solid rgba(0, 0, 0, 0.08);
-
-  --shadow-hologram: 0 4px 20px rgba(2, 132, 199, 0.12), 0 0 1px rgba(2, 132, 199, 0.3);
-  --shadow-monarch: 0 4px 25px rgba(124, 58, 237, 0.15), 0 0 1px rgba(124, 58, 237, 0.35);
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-top: #050c18;
+  --page-bottom: #0f1d33;
+  --paper: #101826;
+  --ink: #e6edf5;
+  --ink-border: #c7d3e3;
+  --muted: #8fa0b8;
+  --accent: #e0435f;
 }
 
-/* System Preference Auto Fallback when no manual override */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #f1f5f9;
-    --bg-surface: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.88);
-    --bg-card-hover: rgba(248, 250, 252, 0.95);
-    --bg-nav: rgba(248, 250, 252, 0.92);
-
-    --color-cyan: #0284c7;
-    --color-cyan-dim: #0369a1;
-    --color-cyan-glow: rgba(2, 132, 199, 0.25);
-    --color-cyan-subtle: rgba(2, 132, 199, 0.08);
-
-    --color-monarch: #7c3aed;
-    --color-monarch-dim: #6d28d9;
-    --color-monarch-glow: rgba(124, 58, 237, 0.25);
-    --color-monarch-subtle: rgba(124, 58, 237, 0.08);
-
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --text-dim: #64748b;
-    --text-cyan: #0284c7;
-
-    --border-hologram: 1px solid rgba(2, 132, 199, 0.35);
-    --border-hologram-monarch: 1px solid rgba(124, 58, 237, 0.4);
-    --border-subtle: 1px solid rgba(0, 0, 0, 0.08);
-
-    --shadow-hologram: 0 4px 20px rgba(2, 132, 199, 0.12), 0 0 1px rgba(2, 132, 199, 0.3);
-    --shadow-monarch: 0 4px 25px rgba(124, 58, 237, 0.15), 0 0 1px rgba(124, 58, 237, 0.35);
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page-top: #050c18;
+    --page-bottom: #0f1d33;
+    --paper: #101826;
+    --ink: #e6edf5;
+    --ink-border: #c7d3e3;
+    --muted: #8fa0b8;
+    --accent: #e0435f;
   }
 }
